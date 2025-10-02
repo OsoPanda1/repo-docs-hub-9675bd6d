@@ -1,4 +1,4 @@
-import { Book, Code, Cpu, Database, FileText, Layers, Network, Settings } from "lucide-react";
+import { Book, Code, Cpu, Database, FileText, Layers, Network, Settings, Sparkles, BookOpen, Box } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const DocsSidebar = () => {
@@ -10,6 +10,15 @@ const DocsSidebar = () => {
       items: [
         { name: "Visión General", href: "/docs", icon: Book },
         { name: "Inicio Rápido", href: "/docs/quickstart", icon: FileText },
+      ],
+    },
+    {
+      title: "Protocolo Kórima",
+      items: [
+        { name: "Filosofía y Diseño", href: "/docs/korima", icon: Sparkles },
+        { name: "Endpoints de API", href: "/docs/api-endpoints", icon: Code },
+        { name: "Modelos de Datos", href: "/docs/models", icon: Box },
+        { name: "Ejemplos", href: "/docs/examples", icon: BookOpen },
       ],
     },
     {

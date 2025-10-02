@@ -28,10 +28,10 @@ const DocsHome = () => {
   ];
 
   const quickLinks = [
-    { title: "Inicio Rápido", href: "/docs/quickstart", description: "Configura tu entorno en 5 minutos" },
-    { title: "Arquitectura", href: "/docs/infrastructure", description: "Comprende la estructura del sistema" },
-    { title: "API Reference", href: "/docs/api", description: "Documentación completa de la API" },
-    { title: "Componentes", href: "/docs/components", description: "Biblioteca de componentes reutilizables" },
+    { title: "Protocolo Kórima", href: "/docs/korima", description: "Filosofía y diseño de la API TAMV" },
+    { title: "Endpoints de API", href: "/docs/api-endpoints", description: "Referencia completa de endpoints" },
+    { title: "Modelos de Datos", href: "/docs/models", description: "Esquemas y estructuras de datos" },
+    { title: "Ejemplos", href: "/docs/examples", description: "Guías prácticas de implementación" },
   ];
 
   return (

@@ -7,6 +7,10 @@ import Index from "./pages/Index";
 import Docs from "./pages/Docs";
 import DocsHome from "./pages/DocsHome";
 import DocsQuickstart from "./pages/DocsQuickstart";
+import DocsKorima from "./pages/DocsKorima";
+import DocsAPIEndpoints from "./pages/DocsAPIEndpoints";
+import DocsModels from "./pages/DocsModels";
+import DocsExamples from "./pages/DocsExamples";
 import DocsInfrastructure from "./pages/DocsInfrastructure";
 import DocsDatabase from "./pages/DocsDatabase";
 import DocsNetwork from "./pages/DocsNetwork";
@@ -28,6 +32,10 @@ const App = () => (
           <Route path="/docs" element={<Docs />}>
             <Route index element={<DocsHome />} />
             <Route path="quickstart" element={<DocsQuickstart />} />
+            <Route path="korima" element={<DocsKorima />} />
+            <Route path="api-endpoints" element={<DocsAPIEndpoints />} />
+            <Route path="models" element={<DocsModels />} />
+            <Route path="examples" element={<DocsExamples />} />
             <Route path="infrastructure" element={<DocsInfrastructure />} />
             <Route path="database" element={<DocsDatabase />} />
             <Route path="network" element={<DocsNetwork />} />
