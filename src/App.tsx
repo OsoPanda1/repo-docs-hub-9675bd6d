@@ -6,6 +6,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Docs from "./pages/Docs";
 import DocsHome from "./pages/DocsHome";
+import DocsManifest from "./pages/DocsManifest";
+import DocsRolesGuide from "./pages/DocsRolesGuide";
+import DocsGlossary from "./pages/DocsGlossary";
 import DocsQuickstart from "./pages/DocsQuickstart";
 import DocsKorima from "./pages/DocsKorima";
 import DocsAPIEndpoints from "./pages/DocsAPIEndpoints";
@@ -31,6 +34,11 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/docs" element={<Docs />}>
             <Route index element={<DocsHome />} />
+            {/* Dominio 0: Prólogo y Portal Universal */}
+            <Route path="manifest" element={<DocsManifest />} />
+            <Route path="roles-guide" element={<DocsRolesGuide />} />
+            <Route path="glossary" element={<DocsGlossary />} />
+            {/* Existing routes */}
             <Route path="quickstart" element={<DocsQuickstart />} />
             <Route path="korima" element={<DocsKorima />} />
             <Route path="api-endpoints" element={<DocsAPIEndpoints />} />

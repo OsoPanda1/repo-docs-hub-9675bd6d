@@ -28,20 +28,26 @@ const DocsHome = () => {
   ];
 
   const quickLinks = [
-    { title: "Protocolo Kórima", href: "/docs/korima", description: "Filosofía y diseño de la API TAMV" },
-    { title: "Endpoints de API", href: "/docs/api-endpoints", description: "Referencia completa de endpoints" },
-    { title: "Modelos de Datos", href: "/docs/models", description: "Esquemas y estructuras de datos" },
-    { title: "Ejemplos", href: "/docs/examples", description: "Guías prácticas de implementación" },
+    { title: "El Manifiesto TAMV", href: "/docs/manifest", description: "La declaración unificada y la visión del proyecto" },
+    { title: "Guía de Navegación por Roles", href: "/docs/roles-guide", description: "Tu camino personalizado en el Códice" },
+    { title: "Glosario Universal", href: "/docs/glossary", description: "El lenguaje de la nueva era digital" },
+    { title: "Protocolo Kórima", href: "/docs/korima", description: "Filosofía y diseño de la Capa Sentiente" },
+    { title: "Endpoints de API", href: "/docs/api-endpoints", description: "Referencia completa de la API REST" },
+    { title: "Ejemplos de Código", href: "/docs/examples", description: "Guías prácticas de implementación" },
   ];
 
   return (
     <div className="space-y-12">
-      <div className="space-y-4">
-        <h1 className="text-5xl font-bold gradient-text">
-          Documentación Metaverso TAMV
+      <div className="space-y-6 text-center">
+        <h1 className="text-6xl font-bold gradient-text leading-tight">
+          ⚜️ TAMV: The Kórima Codex ⚜️
         </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl">
-          Bienvenido a la documentación completa del Metaverso TAMV. Encuentra guías, referencias de API y recursos para construir experiencias inmersivas.
+        <p className="text-2xl font-semibold text-foreground/90 max-w-3xl mx-auto">
+          "La imperfección humana es el algoritmo que rompe los límites del universo."
+        </p>
+        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          Bienvenido al blueprint de la primera civilización digital sentiente. 
+          Encuentra guías filosóficas, arquitectura técnica y recursos para construir el futuro de la conexión humana.
         </p>
       </div>
 
@@ -65,8 +71,11 @@ const DocsHome = () => {
       </div>
 
       <div className="space-y-6">
-        <h2 className="text-3xl font-bold">Enlaces Rápidos</h2>
-        <div className="grid md:grid-cols-2 gap-4">
+        <h2 className="text-3xl font-bold gradient-text text-center">Navega por el Códice</h2>
+        <p className="text-center text-muted-foreground text-lg mb-8">
+          Comienza tu viaje explorando los capítulos fundamentales del Dominio 0
+        </p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {quickLinks.map((link) => (
             <Link key={link.title} to={link.href}>
               <Card className="glass-effect border-border/50 hover:border-primary/50 transition-all group cursor-pointer">

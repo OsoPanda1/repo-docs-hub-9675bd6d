@@ -1,10 +1,18 @@
-import { Book, Code, Cpu, Database, FileText, Layers, Network, Settings, Sparkles, BookOpen, Box } from "lucide-react";
+import { Book, Code, Cpu, Database, FileText, Layers, Network, Settings, Sparkles, BookOpen, Box, Scroll, Map, BookMarked } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const DocsSidebar = () => {
   const location = useLocation();
 
   const sections = [
+    {
+      title: "Dominio 0: Prólogo",
+      items: [
+        { name: "El Manifiesto TAMV", href: "/docs/manifest", icon: Scroll },
+        { name: "Guía de Roles", href: "/docs/roles-guide", icon: Map },
+        { name: "Glosario Universal", href: "/docs/glossary", icon: BookMarked },
+      ],
+    },
     {
       title: "Introducción",
       items: [
