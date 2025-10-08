@@ -14,6 +14,17 @@ const DocsSidebar = () => {
       ],
     },
     {
+      title: "Dominio I: Propósito",
+      items: [
+        { name: "Estado del Proyecto", href: "/docs/project-status", icon: FileText },
+        { name: "Dignificación Digital", href: "/docs/digital-dignity", icon: Sparkles },
+        { name: "Historia del Fundador", href: "/docs/founder-story", icon: BookOpen },
+        { name: "ISABELLA AI™", href: "/docs/isabella-ai", icon: Sparkles },
+        { name: "Arte y Cultura", href: "/docs/creativity", icon: Sparkles },
+        { name: "Panteón de Titanes", href: "/docs/titans", icon: BookMarked },
+      ],
+    },
+    {
       title: "Introducción",
       items: [
         { name: "Visión General", href: "/docs", icon: Book },

@@ -10,6 +10,12 @@ import DocsManifest from "./pages/DocsManifest";
 import DocsRolesGuide from "./pages/DocsRolesGuide";
 import DocsGlossary from "./pages/DocsGlossary";
 import DocsQuickstart from "./pages/DocsQuickstart";
+import DocsProjectStatus from "./pages/DocsProjectStatus";
+import DocsDigitalDignity from "./pages/DocsDigitalDignity";
+import DocsFounderStory from "./pages/DocsFounderStory";
+import DocsIsabellaAI from "./pages/DocsIsabellaAI";
+import DocsCreativity from "./pages/DocsCreativity";
+import DocsTitans from "./pages/DocsTitans";
 import DocsKorima from "./pages/DocsKorima";
 import DocsAPIEndpoints from "./pages/DocsAPIEndpoints";
 import DocsModels from "./pages/DocsModels";
@@ -38,6 +44,13 @@ const App = () => (
             <Route path="manifest" element={<DocsManifest />} />
             <Route path="roles-guide" element={<DocsRolesGuide />} />
             <Route path="glossary" element={<DocsGlossary />} />
+            {/* Dominio I: El Propósito */}
+            <Route path="project-status" element={<DocsProjectStatus />} />
+            <Route path="digital-dignity" element={<DocsDigitalDignity />} />
+            <Route path="founder-story" element={<DocsFounderStory />} />
+            <Route path="isabella-ai" element={<DocsIsabellaAI />} />
+            <Route path="creativity" element={<DocsCreativity />} />
+            <Route path="titans" element={<DocsTitans />} />
             {/* Existing routes */}
             <Route path="quickstart" element={<DocsQuickstart />} />
             <Route path="korima" element={<DocsKorima />} />
