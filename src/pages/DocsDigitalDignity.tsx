@@ -168,7 +168,7 @@ const DocsDigitalDignity = () => {
                   <h3 className="font-semibold mb-2">Engagement Rate</h3>
                   <ul className="space-y-2 text-sm text-muted-foreground">
                     <li>• Tiempo en pantalla (sesiones largas = éxito)</li>
-                    <li>• Clics, likes, shares (viralidad > significado)</li>
+                    <li>• Clics, likes, shares (viralidad &gt; significado)</li>
                     <li>• Ad impressions y CTR</li>
                     <li>• Scroll infinito y notificaciones push</li>
                     <li>• Métrica: ¿Cuánto tiempo robamos?</li>
@@ -178,7 +178,7 @@ const DocsDigitalDignity = () => {
                   <Badge variant="default" className="mb-3">TAMV</Badge>
                   <h3 className="font-semibold mb-2">ConsciousScore</h3>
                   <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>• Profundidad de interacción (significado > duración)</li>
+                    <li>• Profundidad de interacción (significado &gt; duración)</li>
                     <li>• Resonancias emocionales (8 emociones primarias)</li>
                     <li>• Impacto transformador medido por NLP</li>
                     <li>• Contribuciones valiosas recompensadas (TC)</li>
