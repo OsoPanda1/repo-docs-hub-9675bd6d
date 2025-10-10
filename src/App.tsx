@@ -26,6 +26,10 @@ import DocsNetwork from "./pages/DocsNetwork";
 import DocsAPI from "./pages/DocsAPI";
 import DocsComponents from "./pages/DocsComponents";
 import DocsConfig from "./pages/DocsConfig";
+import DocsArchitecture from "./pages/DocsArchitecture";
+import DocsAnubis from "./pages/DocsAnubis";
+import DocsDekateotl from "./pages/DocsDekateotl";
+import DocsImplementationRoadmap from "./pages/DocsImplementationRoadmap";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -51,6 +55,11 @@ const App = () => (
             <Route path="isabella-ai" element={<DocsIsabellaAI />} />
             <Route path="creativity" element={<DocsCreativity />} />
             <Route path="titans" element={<DocsTitans />} />
+            {/* Dominio II: La Gobernanza */}
+            <Route path="architecture" element={<DocsArchitecture />} />
+            <Route path="anubis" element={<DocsAnubis />} />
+            <Route path="dekateotl" element={<DocsDekateotl />} />
+            <Route path="implementation-roadmap" element={<DocsImplementationRoadmap />} />
             {/* Existing routes */}
             <Route path="quickstart" element={<DocsQuickstart />} />
             <Route path="korima" element={<DocsKorima />} />
