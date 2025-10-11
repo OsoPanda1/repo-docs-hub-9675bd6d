@@ -1,4 +1,4 @@
-import { Book, Code, Cpu, Database, FileText, Layers, Network, Settings, Sparkles, BookOpen, Box, Scroll, Map, BookMarked } from "lucide-react";
+import { Book, Code, Cpu, Database, FileText, Layers, Network, Settings, Sparkles, BookOpen, Box, Scroll, Map, BookMarked, Shield } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const DocsSidebar = () => {
@@ -22,6 +22,16 @@ const DocsSidebar = () => {
         { name: "ISABELLA AI™", href: "/docs/isabella-ai", icon: Sparkles },
         { name: "Arte y Cultura", href: "/docs/creativity", icon: Sparkles },
         { name: "Panteón de Titanes", href: "/docs/titans", icon: BookMarked },
+      ],
+    },
+    {
+      title: "Dominio II: Gobernanza",
+      items: [
+        { name: "Arquitectura del Sistema", href: "/docs/architecture", icon: Layers },
+        { name: "Anubis Quantum Guardian™", href: "/docs/anubis", icon: Shield },
+        { name: "Dekateotl Synthesis™", href: "/docs/dekateotl", icon: Shield },
+        { name: "Protocolo ID-NVIDA™", href: "/docs/id-nvida", icon: Shield },
+        { name: "Roadmap de Implementación", href: "/docs/implementation-roadmap", icon: Map },
       ],
     },
     {

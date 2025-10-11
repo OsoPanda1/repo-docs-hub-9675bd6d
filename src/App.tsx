@@ -30,6 +30,7 @@ import DocsArchitecture from "./pages/DocsArchitecture";
 import DocsAnubis from "./pages/DocsAnubis";
 import DocsDekateotl from "./pages/DocsDekateotl";
 import DocsImplementationRoadmap from "./pages/DocsImplementationRoadmap";
+import DocsIdNvida from "./pages/DocsIdNvida";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -59,6 +60,7 @@ const App = () => (
             <Route path="architecture" element={<DocsArchitecture />} />
             <Route path="anubis" element={<DocsAnubis />} />
             <Route path="dekateotl" element={<DocsDekateotl />} />
+            <Route path="id-nvida" element={<DocsIdNvida />} />
             <Route path="implementation-roadmap" element={<DocsImplementationRoadmap />} />
             {/* Existing routes */}
             <Route path="quickstart" element={<DocsQuickstart />} />
