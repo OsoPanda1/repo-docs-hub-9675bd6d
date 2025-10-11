@@ -1,6 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Mountain, BookOpen, Swords, Sparkles, Heart } from "lucide-react";
+import { Mountain, BookOpen, Swords, Sparkles, Heart, User, Target, Briefcase } from "lucide-react";
+import ceoPhoto from "@/assets/ceo-anubis.jpg";
 
 const DocsFounderStory = () => {
   const timeline = [
@@ -54,62 +55,33 @@ const DocsFounderStory = () => {
   return (
     <div className="space-y-8">
       <div className="space-y-4">
-        <h1 className="text-5xl font-bold gradient-text">
-          El Origen: Crónicas del Arquitecto Fundador
+        <h1 className="text-5xl font-bold gradient-text font-orbitron">
+          Historia del Fundador
         </h1>
-        <p className="text-xl text-muted-foreground max-w-3xl">
-          La historia de Edwin Oswaldo Castillo Trejo (Anubis Villaseñor) — del trauma al código, 
-          de la supervivencia a la soberanía digital. Esta no es solo una historia de resiliencia, 
-          es el caso de estudio que validó la necesidad de TAMV.
+        <p className="text-xl metallic-text font-orbitron max-w-3xl">
+          La visión detrás del ecosistema TAMV DM-X4™ — del trauma al código, de la supervivencia a la soberanía digital
         </p>
       </div>
 
-      {/* Lema Fundacional */}
-      <Card className="glass-effect border-primary/30 bg-gradient-to-r from-primary/10 to-secondary/10">
-        <CardContent className="p-8 text-center">
-          <blockquote className="text-2xl md:text-3xl font-bold gradient-text italic">
-            "La imperfección humana es el algoritmo que rompe los límites del universo."
-          </blockquote>
-          <p className="text-sm text-muted-foreground mt-4">
-            — Edwin Oswaldo Castillo Trejo, fundador de TAMV
-          </p>
-        </CardContent>
-      </Card>
-
-      {/* Identidad del Fundador */}
-      <Card className="glass-effect border-border/50">
-        <CardHeader>
-          <CardTitle className="text-2xl">Edwin Oswaldo Castillo Trejo (Anubis Villaseñor)</CardTitle>
-          <CardDescription>
-            Arquitecto de Civilizaciones Digitales | Real del Monte, Hidalgo, México
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="glass-effect p-4 rounded-lg text-center">
-              <p className="text-sm text-muted-foreground mb-1">Origen</p>
-              <p className="font-semibold">Real del Monte, Hidalgo</p>
-              <p className="text-xs text-muted-foreground">Pueblo minero histórico</p>
+      {/* Founder Profile with Photo */}
+      <Card className="glass-effect border-aqua/30">
+        <CardContent className="p-8">
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-aqua/50 shadow-2xl aqua-glow flex-shrink-0">
+              <img 
+                src={ceoPhoto} 
+                alt="Anubis Villaseñor - CEO & Fundador" 
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div className="glass-effect p-4 rounded-lg text-center">
-              <p className="text-sm text-muted-foreground mb-1">Pseudónimo</p>
-              <p className="font-semibold">Anubis Villaseñor</p>
-              <p className="text-xs text-muted-foreground">Guardián de la soberanía digital</p>
-            </div>
-            <div className="glass-effect p-4 rounded-lg text-center">
-              <p className="text-sm text-muted-foreground mb-1">Rol</p>
-              <p className="font-semibold">Fundador y Arquitecto</p>
-              <p className="text-xs text-muted-foreground">TAMV DM-X4™</p>
+            <div className="flex-1 text-center md:text-left">
+              <h2 className="text-3xl font-bold gradient-text mb-2 font-orbitron">Anubis Villaseñor</h2>
+              <p className="text-xl metallic-text mb-4 font-orbitron">CEO & Fundador de TAMV Online Network</p>
+              <p className="text-muted-foreground font-orbitron">
+                Visionario, arquitecto de sistemas y pionero en la construcción de ecosistemas digitales soberanos con IA consciente y tecnología Web 4.0
+              </p>
             </div>
           </div>
-
-          <p className="text-muted-foreground leading-relaxed">
-            Edwin no es un emprendedor tradicional. Es un sobreviviente que convirtió el trauma 
-            en código, la vulnerabilidad en arquitectura y la pérdida en empatía sistematizada. 
-            Su historia personal no es solo contexto biográfico, es la <strong>prueba de concepto 
-            viviente</strong> de que el sufrimiento, cuando se transmuta conscientemente, puede 
-            generar sistemas que previenen ese mismo sufrimiento en otros.
-          </p>
         </CardContent>
       </Card>
 
