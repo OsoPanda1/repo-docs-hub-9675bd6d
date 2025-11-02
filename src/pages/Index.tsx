@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import StarfieldBackground from "@/components/StarfieldBackground";
-import { ArrowRight, Brain, Network, Shield, Layers, Zap, Globe } from "lucide-react";
+import { ArrowRight, Brain, Network, Shield, Layers, Zap, Globe, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import tamvEmblem from "@/assets/tamv-emblem.jpg";
 import korimaLogo from "@/assets/korima-codex-logo.jpg";
@@ -106,6 +107,57 @@ const Index = () => {
                 </Card>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 px-4 relative z-10">
+        <div className="container mx-auto">
+          <div className="max-w-5xl mx-auto">
+            <Card className="glass-effect border-destructive/30 bg-gradient-to-br from-destructive/5 to-primary/5">
+              <CardContent className="p-12 space-y-6">
+                <div className="text-center space-y-4">
+                  <Badge variant="outline" className="text-base px-4 py-2 border-aqua/50">
+                    <Heart className="w-4 h-4 mr-2" />
+                    Nacido de la Adversidad
+                  </Badge>
+                  <h2 className="text-4xl font-bold gradient-text font-orbitron">
+                    Un Proyecto Forjado en el Dolor y la Resiliencia
+                  </h2>
+                  <p className="text-xl metallic-text font-orbitron max-w-3xl mx-auto">
+                    La historia detrás de TAMV Online: 5 años de lucha, 19,000 horas de sacrificio, 
+                    mil puertas tocadas, y un sueño inquebrantable.
+                  </p>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-6 pt-6">
+                  <div className="text-center space-y-2">
+                    <p className="text-4xl font-bold text-destructive">5+</p>
+                    <p className="text-sm text-muted-foreground">Años de bullying<br />y acoso superados</p>
+                  </div>
+                  <div className="text-center space-y-2">
+                    <p className="text-4xl font-bold text-primary">19,000+</p>
+                    <p className="text-sm text-muted-foreground">Horas de trabajo<br />sin descanso</p>
+                  </div>
+                  <div className="text-center space-y-2">
+                    <p className="text-4xl font-bold text-aqua">1,000+</p>
+                    <p className="text-sm text-muted-foreground">Puertas tocadas<br />con determinación</p>
+                  </div>
+                </div>
+
+                <div className="pt-6 text-center">
+                  <p className="text-lg text-foreground/90 max-w-3xl mx-auto mb-6">
+                    TAMV no nació de grandes fondos o corporaciones. Nació del dolor, la injusticia 
+                    y la determinación de un mexicano que se negó a rendirse. <strong className="text-aqua">Porque 
+                    cuando una sola persona decide seguir luchando, puede sembrar la semilla de un 
+                    mundo mejor para todos.</strong>
+                  </p>
+                  <Button size="lg" variant="outline" className="border-aqua/50 hover:bg-aqua/10 font-orbitron font-semibold" asChild>
+                    <Link to="/docs/manifest">Lee la Historia Completa</Link>
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
