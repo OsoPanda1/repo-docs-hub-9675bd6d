@@ -31,6 +31,7 @@ import DocsAnubis from "./pages/DocsAnubis";
 import DocsDekateotl from "./pages/DocsDekateotl";
 import DocsImplementationRoadmap from "./pages/DocsImplementationRoadmap";
 import DocsIdNvida from "./pages/DocsIdNvida";
+import DocsWeb45 from "./pages/DocsWeb45";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -62,6 +63,8 @@ const App = () => (
             <Route path="dekateotl" element={<DocsDekateotl />} />
             <Route path="id-nvida" element={<DocsIdNvida />} />
             <Route path="implementation-roadmap" element={<DocsImplementationRoadmap />} />
+            {/* Dominio III: Contexto Global */}
+            <Route path="web45" element={<DocsWeb45 />} />
             {/* Existing routes */}
             <Route path="quickstart" element={<DocsQuickstart />} />
             <Route path="korima" element={<DocsKorima />} />

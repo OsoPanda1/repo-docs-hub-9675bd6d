@@ -1,4 +1,4 @@
-import { Book, Code, Cpu, Database, FileText, Layers, Network, Settings, Sparkles, BookOpen, Box, Scroll, Map, BookMarked, Shield } from "lucide-react";
+import { Book, Code, Cpu, Database, FileText, Layers, Network, Settings, Sparkles, BookOpen, Box, Scroll, Map, BookMarked, Shield, Globe } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const DocsSidebar = () => {
@@ -32,6 +32,12 @@ const DocsSidebar = () => {
         { name: "Dekateotl Synthesis™", href: "/docs/dekateotl", icon: Shield },
         { name: "Protocolo ID-NVIDA™", href: "/docs/id-nvida", icon: Shield },
         { name: "Roadmap de Implementación", href: "/docs/implementation-roadmap", icon: Map },
+      ],
+    },
+    {
+      title: "Dominio III: Contexto Global",
+      items: [
+        { name: "Web 4.0 y Web 5.0", href: "/docs/web45", icon: Globe },
       ],
     },
     {
