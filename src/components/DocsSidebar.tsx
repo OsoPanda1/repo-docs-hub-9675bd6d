@@ -30,6 +30,7 @@ const DocsSidebar = () => {
         { name: "Arquitectura del Sistema", href: "/docs/architecture", icon: Layers },
         { name: "Anubis Quantum Guardian™", href: "/docs/anubis", icon: Shield },
         { name: "Dekateotl Synthesis™", href: "/docs/dekateotl", icon: Shield },
+        { name: "Quantum Sentinel™", href: "/docs/quantum-sentinel", icon: Shield },
         { name: "Protocolo ID-NVIDA™", href: "/docs/id-nvida", icon: Shield },
         { name: "Roadmap de Implementación", href: "/docs/implementation-roadmap", icon: Map },
       ],

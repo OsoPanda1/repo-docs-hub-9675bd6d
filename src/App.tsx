@@ -29,6 +29,7 @@ import DocsConfig from "./pages/DocsConfig";
 import DocsArchitecture from "./pages/DocsArchitecture";
 import DocsAnubis from "./pages/DocsAnubis";
 import DocsDekateotl from "./pages/DocsDekateotl";
+import DocsQuantumSentinel from "./pages/DocsQuantumSentinel";
 import DocsImplementationRoadmap from "./pages/DocsImplementationRoadmap";
 import DocsIdNvida from "./pages/DocsIdNvida";
 import DocsWeb45 from "./pages/DocsWeb45";
@@ -61,6 +62,7 @@ const App = () => (
             <Route path="architecture" element={<DocsArchitecture />} />
             <Route path="anubis" element={<DocsAnubis />} />
             <Route path="dekateotl" element={<DocsDekateotl />} />
+            <Route path="quantum-sentinel" element={<DocsQuantumSentinel />} />
             <Route path="id-nvida" element={<DocsIdNvida />} />
             <Route path="implementation-roadmap" element={<DocsImplementationRoadmap />} />
             {/* Dominio III: Contexto Global */}
