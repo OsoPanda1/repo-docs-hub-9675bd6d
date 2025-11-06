@@ -30,6 +30,7 @@ import DocsArchitecture from "./pages/DocsArchitecture";
 import DocsAnubis from "./pages/DocsAnubis";
 import DocsDekateotl from "./pages/DocsDekateotl";
 import DocsQuantumSentinel from "./pages/DocsQuantumSentinel";
+import DocsKnowledgeCells from "./pages/DocsKnowledgeCells";
 import DocsImplementationRoadmap from "./pages/DocsImplementationRoadmap";
 import DocsIdNvida from "./pages/DocsIdNvida";
 import DocsWeb45 from "./pages/DocsWeb45";
@@ -60,6 +61,7 @@ const App = () => (
             <Route path="titans" element={<DocsTitans />} />
             {/* Dominio II: La Gobernanza */}
             <Route path="architecture" element={<DocsArchitecture />} />
+            <Route path="knowledge-cells" element={<DocsKnowledgeCells />} />
             <Route path="anubis" element={<DocsAnubis />} />
             <Route path="dekateotl" element={<DocsDekateotl />} />
             <Route path="quantum-sentinel" element={<DocsQuantumSentinel />} />

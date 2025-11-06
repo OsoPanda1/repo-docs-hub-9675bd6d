@@ -1,4 +1,4 @@
-import { Book, Code, Cpu, Database, FileText, Layers, Network, Settings, Sparkles, BookOpen, Box, Scroll, Map, BookMarked, Shield, Globe } from "lucide-react";
+import { Book, Code, Cpu, Database, FileText, Layers, Network, Settings, Sparkles, BookOpen, Box, Scroll, Map, BookMarked, Shield, Globe, Brain } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const DocsSidebar = () => {
@@ -28,6 +28,7 @@ const DocsSidebar = () => {
       title: "Dominio II: Gobernanza",
       items: [
         { name: "Arquitectura del Sistema", href: "/docs/architecture", icon: Layers },
+        { name: "Knowledge Cells System", href: "/docs/knowledge-cells", icon: Brain },
         { name: "Anubis Quantum Guardian™", href: "/docs/anubis", icon: Shield },
         { name: "Dekateotl Synthesis™", href: "/docs/dekateotl", icon: Shield },
         { name: "Quantum Sentinel™", href: "/docs/quantum-sentinel", icon: Shield },
