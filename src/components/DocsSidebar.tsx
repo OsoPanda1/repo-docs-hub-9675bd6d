@@ -1,4 +1,4 @@
-import { Book, Code, Cpu, Database, FileText, Layers, Network, Settings, Sparkles, BookOpen, Box, Scroll, Map, BookMarked, Shield, Globe, Brain } from "lucide-react";
+import { Book, Code, Cpu, Database, FileText, Layers, Network, Settings, Sparkles, BookOpen, Box, Scroll, Map, BookMarked, Shield, Globe, Brain, BoxSelect } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const DocsSidebar = () => {
@@ -20,6 +20,7 @@ const DocsSidebar = () => {
         { name: "Dignificación Digital", href: "/docs/digital-dignity", icon: Sparkles },
         { name: "Historia del Fundador", href: "/docs/founder-story", icon: BookOpen },
         { name: "ISABELLA AI™", href: "/docs/isabella-ai", icon: Sparkles },
+        { name: "DreamSpaces™ 3D/4D", href: "/docs/dreamspaces", icon: BoxSelect },
         { name: "Arte y Cultura", href: "/docs/creativity", icon: Sparkles },
         { name: "Panteón de Titanes", href: "/docs/titans", icon: BookMarked },
       ],

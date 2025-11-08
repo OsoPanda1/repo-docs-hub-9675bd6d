@@ -34,6 +34,7 @@ import DocsKnowledgeCells from "./pages/DocsKnowledgeCells";
 import DocsImplementationRoadmap from "./pages/DocsImplementationRoadmap";
 import DocsIdNvida from "./pages/DocsIdNvida";
 import DocsWeb45 from "./pages/DocsWeb45";
+import DocsDreamSpaces from "./pages/DocsDreamSpaces";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -57,6 +58,7 @@ const App = () => (
             <Route path="digital-dignity" element={<DocsDigitalDignity />} />
             <Route path="founder-story" element={<DocsFounderStory />} />
             <Route path="isabella-ai" element={<DocsIsabellaAI />} />
+            <Route path="dreamspaces" element={<DocsDreamSpaces />} />
             <Route path="creativity" element={<DocsCreativity />} />
             <Route path="titans" element={<DocsTitans />} />
             {/* Dominio II: La Gobernanza */}
