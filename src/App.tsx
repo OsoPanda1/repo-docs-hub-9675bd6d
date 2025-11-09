@@ -4,6 +4,11 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import Dashboard from "./pages/Dashboard";
+import IsabellaAI from "./pages/IsabellaAI";
+import Economy from "./pages/Economy";
+import Marketplace from "./pages/Marketplace";
+import DreamSpacesBuilder from "./pages/DreamSpacesBuilder";
 import Docs from "./pages/Docs";
 import DocsHome from "./pages/DocsHome";
 import DocsManifest from "./pages/DocsManifest";
@@ -47,6 +52,11 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/isabella" element={<IsabellaAI />} />
+          <Route path="/economy" element={<Economy />} />
+          <Route path="/marketplace" element={<Marketplace />} />
+          <Route path="/dreamspaces" element={<DreamSpacesBuilder />} />
           <Route path="/docs" element={<Docs />}>
             <Route index element={<DocsHome />} />
             {/* Dominio 0: Prólogo y Portal Universal */}
