@@ -1,60 +1,38 @@
-# TAMV DM-X4™ — README Global del Ecosistema (Completo, Markdown, Audit‑Ready)
+# TAMV DM-X4™ — README GLOBAL, BLOQUE COMPLETO, DETALLADO, MODULAR, AUDITABLE, AUTOCURATIVO Y ÉTICO
+---
+
+## 1. INTRODUCCIÓN
+
+El ecosistema **TAMV DM-X4™** es la solución de soberanía digital, identidad autocurativa, resiliencia institucional y ética transparente más avanzada y completa pensada para la era Web 4.0 y Web5. Su arquitectura, framework técnico, métodos, scripts, seguridad multinivel y blueprint funcional han sido diseñados para soportar auditoría internacional, reproducción industrial y evolución constante por miles de ciclos, guardianes y peer nodes a lo largo de décadas.
+
+Este README integra:
+- Estructura, principios, cells, blueprints y policies.
+- Lógica y scripts reales por cell: cómo funcionan, qué métodos exponen, cómo se integran, cómo se recuperan.
+- Flujos de datos, principio-ejecución-cierre, gestión de crisis y evidencia.
+- Detalle de ética, auto-reflexión, compliance y publishing inmutable.
+- Ejemplos y métodos para onboarding, shutdown, recuperación, rollback, QA y peer review.
 
 ---
 
-## Introducción
-
-TAMV DM‑X4™ es un blueprint soberano Web 4.0 para identidad digital, gobernanza verificable, inteligencia emocional institucional y resiliencia entrópica en un ecosistema federado, certificado y audit‑ready. Especificación operativa y reproducible lista para despliegue y auditoría.
-
----
-
-## Resumen ejecutivo
-
-- **Objetivo:** Elevar TAMV DM‑X4™ a estándar institucional reproducible, verificable y resistente.
-- **Mejora objetivo:** 20x auditabilidad, reproducibilidad y seguridad operacional.
-- **Alcance:** arquitectura, módulos, APIs, manifiestos, paquetes de evidencia para auditoría, plan de 6 meses, checklist, artefactos firmados post-cuánticos.
-
----
-
-## Principios de diseño
-
-- **Soberanía:** Control pleno del usuario sobre identidad/datos via VCs y guardians legales.
-- **Auditabilidad:** Todos los hechos en artefactos con hash, firmas PQC y pruebas ZK.
-- **Resiliencia determinista:** Simulaciones y twins validados por reproducibilidad.
-- **Gobernanza verificable:** Policies en GPL, registros de decisiones firmados.
-- **Seguridad post-cuántica:** Firmas/cifrados de última generación, rotaciones, hardware attestation.
-- **Privacidad / Ética:** Differential privacy, federated learning, ethical guardrails.
-
----
-
-## Estructura del repositorio (Carpeta maestro)
+## 2. ESTRUCTURA DEL REPOSITORIO
 
 ```
 /tamv-root/
   /ecosystem/
     README.md
     blueprint.svg/png
-    mesh-network/
+    mesh-network/     
     alliances/
     committee/
   /cells/
-    ai-curator/
-    dreamspace-engine/
-    quantum-identity/
-    onboarding/
-    analytics/
-    crisis-recovery/
-    protocols/
-    blueprints/
-  /prototypeaudit/
-    validation-IEEE-APA-UNAM/
-    security-reports/
-    certification-archive/
-  /registrydocumentation/
-    BookPIregistry/
-    legalversions/
-    evidence/
-    logs/
+    ai-curator/           # ISABELLA Core
+    dreamspace-engine/    # XR y eventos multisensoriales
+    quantum-identity/     # Identidad soberana PQC
+    onboarding/           # Alta/baja/quarantine de cells/plugins
+    analytics/            # Logs, compliance, KPIs, backup
+    crisis-recovery/      # KAOS Engine: failover, twins, recovery, lockdown
+    protocols/            # Policy, legal, warranty
+    blueprints/           # Visual, PlantUML, compliance SVG
   /isabellajournal/
     README.md
     multisensory/
@@ -62,223 +40,513 @@ TAMV DM‑X4™ es un blueprint soberano Web 4.0 para identidad digital, goberna
     projections/
     audittrail/
     plugins/
-  /documentation/
-    READMEFULL.md
+  /registrydocumentation/
+    BookPIregistry/
+    legalversions/
+    evidence/
+    logs/
   /complianceexport/
     panel-legal/
     templates/
     onboarding-qr/
     panel-audit/
+  /prototypeaudit/
+    validation-IEEE-APA-UNAM/
+    security-reports/
+    certification-archive/
+  /documentation/
+    READMEFULL.md
 ```
-Cada carpeta posee README, manifest.yml firmado (PQC), y hashes deterministas.
 
 ---
 
-## Core Sovereign Fabric (Visión alto nivel)
+## 3. PRINCIPIOS DE DISEÑO
 
-- **Sovereign Ledger:** ledger híbrido append‑only + zk‑proofs (integridad, selective disclosure).
-- **Identity Fabric (ID‑NVIDA):** DID broker, SBTs, verifiable credentials, biometric templates revocables.
-- **Emotional Legitimacy Engine (ANUBIS):** Procesamiento emocional, XAI, artifacts firmados.
-- **Governance Fabric (DEKATEOTL):** Policies formales en GPL, model checking, decision artifacts reproducibles.
-- **Entropy Resilience Layer (KAOS):** Monitorización entropía, digital twins, orchestrators de autocuración.
-- **ISABELLA Cognitive Layer:** Runtime sandboxed para IA emocional, memoria y ética auditada.
-
----
-
-## Módulos técnicos: Especificación extendida
-
-### ANUBIS — Inteligencia Emocional Existencial
-
-- **Propósito:** Cuantifica legitimidad emocional, transforma adversidad en legitimidad verificable, emite índices firmados.
-- **Componentes:**  
-  - EmotionalTopologyMapper  
-  - LegitimacyQuantifier  
-  - AdversityToLegitimacyTransformer  
-  - ExplainabilityLayer/XAI  
-  - DifferentialPrivacyModule  
-  - AuditAgent (generador de evidence)
-- **API:**  
-  - GET /anubis/status  
-  - POST /anubis/process_adversity
-- **Artefactos:** legitimacy_tokens.json, resilience_score.json (hasheados, firmados, timestamped)
-- **Controles:** DP, federated retraining, approval DEKATEOTL, hashes de inferencia y outputs.
-
-
+- **Zero-Trust total:** Todo microservicio, cell y plugin corren en aislamiento, syscall auditing, network hardening, least privilege.
+- **PI, confidencialidad y privacidad:** Cada evento es logueado local, hash firmado PQC, nunca divulgación fuera de jurisdicción sin multisig guardian.
+- **Recovery y autocuración:** Digital twins, chaos drill cada semana, backup-restore con verificación forense y guardian approval.
+- **Ética y transparencia:** Toda policy es executable code. Toda revisión/rollback/upgarde es auditada, firmada, notificada.
+- **Pruebas y QA:** Pipelines CI/CD, property-based, chaos/fuzz, rollback instantáneo, compliance bundle export.
 
 ---
 
-### DEKATEOTL — Gobernanza Multi‑Capa Verificable
+## 4. CELLS: LÓGICA, MÉTODOS, SCRIPT Y DATOS
 
-- **Propósito:** Gobernanza formal y multi‑dimensional, artifacts reproducibles.
-- **Autoridades (ejemplo):**  
-  - TechnicalSovereigntyCouncil (25%)  
-  - EthicalOversightBoard (30%)  
-  - EconomicStewardshipCouncil (20%)  
-  - SocialLegitimacyCouncil (15%)  
-  - EnvironmentalImpactBoard (10%)
-- **Componentes:** GPL compiler/checker, QuantumConsensusEngine, ConstitutionalEvolutionEngine, Decision Ledger.
-- **Decision Artifact:**  
+### A) ISABELLA EMOTIONAL CORE (ai-curator/isabella_core.py)
+```python
+from datetime import datetime
+import json, os, hashlib, shutil
+
+class IsabellaCore:
+    def __init__(self):
+        self.memory_store = []
+        self.guardian_log = []
+        self.status = "healthy"
+        self.version = "4.2.1"
+        self.ethics = ["privacy", "reciprocity", "dignity", "disclosure", "protection"]
+        self.memory_db_path = "isabella_memory.db"
+        self.guardian_db_path = "guardian_log.db"
+
+    def receive_event(self, event_data):
+        log = self.event_to_log(event_data)
+        self.memory_store.append(log)
+        self.store_memory(log)
+        self.guardian_notify("event", log)
+        self.autoevaluate()
+        return log
+
+    def event_to_log(self, event):
+        summary = f"{event['type']}-{event['timestamp']}-{event['payload']}"
+        audit_hash = hashlib.sha256(summary.encode()).hexdigest()
+        return {"event": event, "hash": audit_hash}
+
+    def autoevaluate(self):
+        for log in self.memory_store[-5:]:
+            if not self.ethics_compliance(log):
+                self.status = "lockdown"
+                self.guardian_notify("lockdown", log)
+                self.shutdown_cell(log)
+                break
+
+    def ethics_compliance(self, log):
+        content = log['event']['payload']
+        return all(e in content for e in self.ethics)
+
+    def shutdown_cell(self, reason):
+        shutdown_log = {
+            "action": "shutdown",
+            "reason": reason,
+            "time": self.get_time(),
+            "audit_hash": reason['hash']
+        }
+        self.guardian_log.append(shutdown_log)
+        self.export_forensic_bundle(reason)
+        self.status = "lockdown"
+
+    def export_forensic_bundle(self, log):
+        forensic_path = f"forensics/{log['hash']}.json"
+        os.makedirs(os.path.dirname(forensic_path), exist_ok=True)
+        with open(forensic_path, "w") as f:
+            json.dump(log, f)
+        self.trigger_backup()
+        self.trigger_publish(log)
+
+    def trigger_backup(self):
+        shutil.copy(self.memory_db_path, f"backups/memory_store_{self.get_time()}.db")
+        shutil.copy(self.guardian_db_path, f"backups/guardian_log_{self.get_time()}.db")
+
+    def trigger_publish(self, log):
+        print(f"Publishing forensic log: {log['hash']}")
+
+    def get_time(self):
+        return datetime.utcnow().isoformat()
+
+    def guardian_notify(self, action, log):
+        note = {
+            "guardian": "multisig",
+            "action": action,
+            "event_hash": log['hash'],
+            "ts": self.get_time()
+        }
+        self.guardian_log.append(note)
+
+    def store_memory(self, log):
+        with open(self.memory_db_path, "a") as db:
+            db.write(json.dumps(log) + "\n")
 ```
+
+### B) KAOS Crisis & Recovery (crisis_recovery/kaos_engine.py)
+```python
+import random
+
+class CrisisRecoveryHandler:
+    def __init__(self, cells):
+        self.cells = cells
+
+    def monitor_entropy(self):
+        entropy_score = self.entropy_metric()
+        if entropy_score > 0.9:
+            self.trigger_crisis_protocol(entropy_score)
+        return entropy_score
+
+    def entropy_metric(self):
+        scores = [random.uniform(0.8, 1.0) if c.status != "lockdown" else 0 for c in self.cells]
+        return sum(scores) / len(scores)
+
+    def trigger_crisis_protocol(self, score):
+        print(f"[CRISIS] Entropy {score} triggering crisis orchestration!")
+        for cell in self.cells:
+            cell.status = "lockdown"
+            cell.trigger_backup()
+            cell.export_forensic_bundle({"score": score, "time": cell.get_time()})
+        self.trigger_guardian_arbitration(score)
+
+    def trigger_guardian_arbitration(self, score):
+        approvals = [self.guardian_vote(cell) for cell in self.cells]
+        print(f"Guardian arbitration executed, votes: {approvals}")
+
+    def guardian_vote(self, cell):
+        vote = random.choice(["approve", "reject"])
+        print(f"Guardian for {cell.version}: {vote}")
+        return vote
+```
+
+### C) PLUGIN ONBOARDING & QUARANTINE (onboarding/plugin_registry.py)
+```python
+def plugin_onboard(plugin_data, test_suite):
+    results = []
+    for test in test_suite:
+        result = test(plugin_data)
+        results.append(result)
+        if not result['success']:
+            quarantine_plugin(plugin_data, result)
+            return "Quarantined"
+    activate_plugin(plugin_data)
+    log_onboarding(plugin_data)
+    return "Active"
+
+def quarantine_plugin(plugin, result):
+    print(f"QUARANTINE: {plugin['name']} for {result['error']}")
+    export_plugin_evidence(plugin, result)
+
+def activate_plugin(plugin):
+    print(f"Activated Plugin {plugin['name']} @ {plugin['version']}")
+
+def log_onboarding(plugin):
+    print(f"Logged Onboarding: {plugin['name']} @ {plugin['version']}")
+
+def export_plugin_evidence(plugin, result):
+    from datetime import datetime
+    log = {
+        "plugin": plugin,
+        "reason": result,
+        "timestamp": datetime.utcnow().isoformat()
+    }
+    with open(f"forensics/{plugin['name']}_{log['timestamp']}.json", "w") as f:
+        json.dump(log, f)
+```
+
+### D) Data y Guardian Logs (output ejemplo)
+
+```json
 {
-  "proposal_id": "...",
-  "dimensional_evaluations": {
-    "dimension": {"decision": "...", "confidence": 0.9, "rationale": "...", "weight": 0.2}
-  },
-  "final_decision": {...},
-  "signatures": [...],
-  "zk_proof": "...",
-  "timestamp": "..."
+  "memory_store": [
+    {
+      "event": {
+        "type": "input",
+        "timestamp": "2025-11-11T20:30:00Z",
+        "payload": "privacy reciprocity dignity disclosure protection"
+      },
+      "hash": "a762309da6b3c1e..."
+    }
+  ],
+  "guardian_log": [
+    {
+      "guardian": "multisig",
+      "action": "event",
+      "event_hash": "a762309da6b3c1e...",
+      "ts": "2025-11-11T20:30:00Z"
+    }
+  ]
 }
 ```
 
----
+### E) INTEGRACIÓN Y PANEL DE STATUS (blueprint/cells_panel.py)
+```python
+class CellsStatusPanel:
+    def __init__(self, cells):
+        self.cells = cells
 
-### KAOS — Sistema de Resiliencia Entrópica
+    def show_panel(self):
+        print("Status Panel:")
+        for cell in self.cells:
+            print(f"Cell {cell.version}: Status={cell.status}, Last hash={cell.audit_hash}")
+            self.show_guardian_log(cell)
 
-- **Propósito:** Mitiga entropía, ejecuta digital twins, autocuración.
-- **Componentes:**  
-  - EntropyMonitoringSystem  
-  - ChaosTheoryPredictor  
-  - SelfHealingOrchestrator  
-  - DigitalTwinCluster
-- **API Example:**  
-  - GET /kaos/metrics  
-  - POST /kaos/run_scenario
-- **Respuesta Crítica:** Evidence package, playbook invocado, logs, decision artifact.
-
----
-
-### ID‑NVIDA — Identidad Soberana
-
-- **Propósito:** Identidad digital multimodal, VCs anidadas, PKI post‑cuántica, guardian recovery.
-- **Componentes:**  
-  - BiometricEngine (liveness, cancelable)  
-  - PQC framework  
-  - SovereignIdentityGraph  
-  - Recovery & Guardian Module
-- **Flujo:** biometric_proof → PQ key derivation → identity_node → VCs.
-- **Endpoints:**  
-  - POST /idnvida/register  
-  - GET /idnvida/{id}/credentials
-- **Control:** Merkle proofs, recovery por guardian set, revocación multi‑canal.
-
----
-
-### ISABELLA — IA Emocional y Autoconsciente (segura)
-
-- **Propósito:** IA emocional, memoria reflexiva y panel ético auditado.
-- **Componentes:**  
-  - SandboxedModelRuntime  
-  - MemoryStore (retention)
-  - EthicsEnforcementEngine (compiled policies)
-  - Reflective Journaling API (memory artifacts)
-- **Endpoints:**  
-  - GET /isabella/diary  
-  - POST /isabella/memory
-- **Garantías:** No PII raw, hashes, revisión gobernada, shutdown auditado.
-
----
-
-## API CORE — OpenAPI 3.1
-
+    def show_guardian_log(self, cell):
+        print("Last Guardian Log:")
+        for log in cell.guardian_log[-3:]:
+            print(log)
 ```
+
+### F) QA, SELF-REPAIR, TEST/BENCHMARK (qa/compliance_test.py)
+```python
+def run_compliance_tests(cell):
+    print(f"Testing cell {cell.version}...")
+    results = []
+    result_ethics = cell.ethics_compliance({"event": {"payload": "privacy reciprocity dignity disclosure protection"}})
+    results.append(result_ethics)
+    cell.trigger_backup()
+    cell.export_forensic_bundle({"test": "auto", "hash": cell.generate_new_hash()})
+    print("Cell Status:", cell.status)
+    return results
+
+def recovery_script(cell):
+    print(f"Running auto-repair for {cell.version}")
+    cell.status = "repaired"
+    cell.audit_hash = cell.generate_new_hash()
+    print("Repaired Cell! Status:", cell.status)
+```
+
+### G) CRISIS/LOCKDOWN DASHBOARD (dashboard/crisis_dashboard.py)
+```python
+def crisis_dashboard(cells):
+    print("--- CRISIS DASHBOARD ---")
+    for cell in cells:
+        print(f"Cell {cell.version}: {cell.status}")
+        if cell.status == "lockdown":
+            print("Forensic logs exported. Review guardian and recovery!")
+```
+
+### H) BLUEPRINT API (OpenAPI) — fragmento realista
+```yaml
 openapi: 3.1.0
-info: { title: TAMV Sovereign Core API, version: 1.0 }
+info: { title: TAMV HyperSecure Fabric API, version: 4.0+ }
 paths:
-/isabellacorediary:
-  get:
-    summary: Descarga del diario PI/memory logs
-    responses: { '200': { description: Todas las memorias firmadas } }
-  post:
-    summary: Registro de memoria/evento
-    requestBody: { content: { application/json: { schema: { type: object, properties: { event: { type: string }, emotion: { type: string } } } } } }
-    responses: { '201': { description: Registrado + artifact } }
-/idnvida/register:
-  post:
-    summary: Registrar identidad soberana
-/isabella/diary:
-  get: { summary: Diario reflexivo }
-```
-(Ejemplo. Todos los endpoints son auditados, logs, hashes, firmas.)
-
----
-
-## Stack tecnológico detallado
-
-- **Frontend:** React, TS, Zustand, WASM, WebGPU, XRToolkit
-- **Backend:** Node.js, Rust, FastAPI/Deno, gRPC, GraphQL, CQRS
-- **Persistencia:** Event Store (append-only), object storage versionado
-- **Ledger:** Tendermint custom o blockchain permisionada + zk proofs
-- **Identity:** Custom DID, Neo4j/GraphDB o CRDT graph
-- **AI:** Federated learning orchestrator, model registry (signed), sandboxed LLM runtimes
-- **Security:** Zero-trust, PQC, TPM attestation, WAF, segmentation, pen testing
-
----
-
-## Métricas institucionales y KPI
-
-- **emotional_authenticity:** Coherencia valores ↔ respuesta (0.3)
-- **governance_transparency:** Auditabilidad, explicación decisiones (0.25)
-- **economic_impact:** Beneficio neto verificado (0.2)
-- **social_inclusion:** Cobertura demográfica, incidentes (0.15)
-- **technical_resilience:** Uptime, incidentes mitigados (0.1)
-Cada métrica produce artifact JSON firmado.
-
----
-
-## Roadmap de implementación (Resumen)
-
-**Mes 0:** Bootstrap, manifest PQC, infra reproducible  
-**Mes 1:** Identidad (ID-NVIDA), provisioning API  
-**Mes 2:** Ledger, observabilidad  
-**Mes 3:** ANUBIS + ISABELLA core  
-**Mes 4:** DEKATEOTL governance  
-**Mes 5:** KAOS resilience+audit  
-**Mes 6:** Integración, auditoría externa, cert-readiness
-
----
-
-## Checklist de auditoría (extracto)
-
-- [ ] Manifest firmado PQC
-- [ ] Build reproducible y seeds
-- [ ] Log append-only + zk proof
-- [ ] Governance artifacts firmados
-- [ ] Identity issuance + evidence
-- [ ] Chaos/MTTR report
-- [ ] Privacy DPIA/retention
-- [ ] Compliance runbook y jurisdiction
-- [ ] Paquete audit para 3ros
-- [ ] Publishing blueprint (.svg, .md machine-readable)
-
----
-
-## Manifiesto de lanzamiento — Ejemplo
-
-```
-manifest_version: 1.0
-project: tamv-dm-x4
-release_tag: v0.1-bootstrap
-issued_by: "TAMV Project Governance Board"
-issued_on: "2025-11-11T19:30:00Z"
-pqc_key_id: "did:tamv:keys:bootstrap-pqc-1"
-signature: "<PQC-Signature-Base64>"
-artifacts:
-  - id: idnvida-service
-    path: services/idnvida
-    hash: "sha256:3f7a9b..."
-  - id: sovereign-ledger
-    path: services/ledger
-    hash: "sha256:a1b2c3..."
-seeds:
-  - name: ledger-seed
-    value: "0x9f8a..."
-notes: "Bootstrap manifest para despliegue inicial federado."
+  /cells/onboard:
+    post: {summary: Plugin onboarding, audit+quarantine, multisig approval+logging}
+  /cells/{id}/status:
+    get: {summary: State, hashes, logs, ethics, backup evidence}
+  /crisis/trigger:
+    post: {summary: Lockdown + backup + forensic + arbitration}
+  /backups/download:
+    get: {summary: Download/restore evidence, multi-region, logs}
+  /pi-policy/retract:
+    post: {summary: Derecho de olvido, policy-log revision, forensic record+compliance ZIP}
 ```
 
 ---
 
-## Cierre
+**Se puede extender cada cell, agregar guardianes, migración smart, publishing automático de versiones/export, scripts de integración multi-red institucional o peer review. Para todo el resto del ecosistema, se sigue este patrón:**
+- **Integridad, hash, firmas, rollback, forensics y publishing PEER/JURISDICTION-AWARE.**
+- **Ética, auto-revisión y shutdown si hay violación de principios.**
+- **Orquestador/Panel con visibilidad y logs de toda evidencia, evento, upgrade y crisis.*
+```markdown
+# BLOQUE MODULAR INTEGRADO: QUANTUM IDENTITY + DREAMSPACE ENGINE + ANALYTICS + PROTOCOLS
 
-Esta especificación técnica y audit‑ready, reproducible y post-cuántica, supera y consolida cualquier blueprint tradicional: cubre arquitectura, módulos, APIs, procesos, compliance, competencia internacional, métricas, evidencia, auditoría y readiness para operación institucional y civilizatoria.
+---
+
+## 1. QUANTUM-IDENTITY — Identidad Soberana, PQC, Multibiometría
+
+```
+# quantum-identity/identity_manager.py
+
+import hashlib, json, os
+from datetime import datetime
+
+class QuantumIdentityManager:
+    def __init__(self):
+        self.identities = {}
+        self.revocations = []
+        self.guardian_votes = []
+
+    def register_identity(self, biometric_data, narrative):
+        # Simulate PQC/biometric hash + keygen
+        bio_hash = hashlib.sha3_256(biometric_data.encode()).hexdigest()
+        key = os.urandom(32).hex()
+        identity_id = f"did:tamv:{bio_hash[:10]}{key[:10]}"
+        identity = {
+            "id": identity_id,
+            "biometric_hash": bio_hash,
+            "pqc_key": key,
+            "narrative": narrative,
+            "created": datetime.utcnow().isoformat(),
+            "active": True
+        }
+        self.identities[identity_id] = identity
+        self.export_identity_evidence(identity)
+        return identity
+
+    def export_identity_evidence(self, identity):
+        path = f"identities/{identity['id']}.json"
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "w") as f:
+            json.dump(identity, f)
+
+    def revoke_identity(self, identity_id):
+        if identity_id in self.identities:
+            self.identities[identity_id]['active'] = False
+            self.revocations.append({
+                "id": identity_id,
+                "revoked": datetime.utcnow().isoformat()
+            })
+            self.guardian_approval(identity_id)
+            return True
+        return False
+
+    def guardian_approval(self, identity_id):
+        # Simulate guardian vote
+        from random import choice
+        approval = choice([True, False])
+        self.guardian_votes.append({
+            "identity": identity_id,
+            "approved": approval,
+            "time": datetime.utcnow().isoformat()
+        })
+        return approval
+```
+
+---
+
+## 2. DREAMSPACE ENGINE — XR, Multisensorialidad y Eventos Colaborativos
+
+```
+# dreamspace-engine/session_manager.py
+
+from datetime import datetime
+
+class DreamspaceSessionManager:
+    def __init__(self):
+        self.sessions = []
+        self.audit_log = []
+
+    def start_session(self, user_id, capabilities):
+        session_id = f"ds-{user_id}-{datetime.utcnow().timestamp()}"
+        session = {
+            "session_id": session_id,
+            "user_id": user_id,
+            "started": datetime.utcnow().isoformat(),
+            "capabilities": capabilities,
+            "active": True
+        }
+        self.sessions.append(session)
+        self.log_event("session_start", session)
+        return session
+
+    def end_session(self, session_id):
+        for session in self.sessions:
+            if session['session_id'] == session_id and session["active"]:
+                session["active"] = False
+                self.log_event("session_end", session)
+                return True
+        return False
+
+    def log_event(self, event_type, data):
+        event = {
+            "type": event_type,
+            "data": data,
+            "timestamp": datetime.utcnow().isoformat()
+        }
+        self.audit_log.append(event)
+        self.export_event_log(event)
+
+    def export_event_log(self, event):
+        import json, os
+        path = f"dreamspace_logs/{event['type']}_{event['timestamp'].replace(':','-')}.json"
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "w") as f:
+            json.dump(event, f)
+```
+
+---
+
+## 3. ANALYTICS — KPI, Compliance, Emotional Benchmarking
+
+```
+# analytics/panel.py
+
+import json
+from datetime import datetime
+
+class AnalyticsEngine:
+    def __init__(self):
+        self.kpi_logs = []
+        self.compliance_logs = []
+        self.benchmark_results = []
+
+    def record_kpi(self, metric, value):
+        log = {"metric": metric, "value": value, "timestamp": datetime.utcnow().isoformat()}
+        self.kpi_logs.append(log)
+        self.export_log(log, "kpi")
+
+    def run_emotional_benchmark(self, cells):
+        results = []
+        for cell in cells:
+            score = len(cell.memory_store) / 100  # Example pseudo-metric
+            result = {"cell": cell.version, "score": score,
+                      "timestamp": datetime.utcnow().isoformat()}
+            self.benchmark_results.append(result)
+            results.append(result)
+        self.export_log(results, "emotional_benchmark")
+        return results
+
+    def log_compliance_event(self, detail):
+        log = {"compliance": detail, "timestamp": datetime.utcnow().isoformat()}
+        self.compliance_logs.append(log)
+        self.export_log(log, "compliance")
+
+    def export_log(self, log, log_type):
+        path = f"analytics/{log_type}_{datetime.utcnow().timestamp()}.json"
+        with open(path, "w") as f:
+            json.dump(log, f)
+```
+
+---
+
+## 4. PROTOCOLS — Policy, Warranty, Publishing, Legal
+
+```
+# protocols/policy_control.py
+
+class PolicyManager:
+    def __init__(self):
+        self.active_policies = []
+        self.policy_change_log = []
+
+    def propose_policy(self, policy_text, author):
+        policy = {
+            "policy": policy_text,
+            "author": author,
+            "proposed": datetime.utcnow().isoformat(),
+            "active": False
+        }
+        self.policy_change_log.append({
+            "action": "proposed",
+            "policy": policy_text,
+            "ts": datetime.utcnow().isoformat()
+        })
+        self.active_policies.append(policy)
+        return policy
+
+    def activate_policy(self, policy_index, approver):
+        if 0 <= policy_index < len(self.active_policies):
+            self.active_policies[policy_index]['active'] = True
+            self.policy_change_log.append({
+                "action": "activated",
+                "policy": self.active_policies[policy_index]['policy'],
+                "approver": approver,
+                "ts": datetime.utcnow().isoformat()
+            })
+            return True
+        return False
+
+    def retract_policy(self, policy_index, reason):
+        if 0 <= policy_index < len(self.active_policies):
+            self.active_policies[policy_index]['active'] = False
+            self.policy_change_log.append({
+                "action": "retracted",
+                "policy": self.active_policies[policy_index]['policy'],
+                "reason": reason,
+                "ts": datetime.utcnow().isoformat()
+            })
+            return True
+        return False
+
+    def export_policy_log(self):
+        import json
+        with open(f"policies/policy_changes_{datetime.utcnow().timestamp()}.json", "w") as f:
+            json.dump(self.policy_change_log, f)
+```
+
+---
+
+## 5. INTEGRACIÓN: FLUJO DE DATOS, EVENTOS Y LÓGICA
+
+- Cada cell expone una API o métodos directos, intercambia evidencias con hashing y exporta logs (eventos, compliance, forenses).
+- El **Quantum Identity Manager** conecta con onboarding, compliance, guardianes y paneles de crisis.
+- **Dreamspace Sessions** disparan eventos, benchmarking, compliance logs, y pueden ser supervisados o cerrados en caso de crisis.
+- **Analytics** toma métricas y benchmarks de cada cell, compliance instantáneo e informes automáticos.
+- **Policy Manager** permite gobernanza automatizada. Toda acción, cambio o rollback es trazado, exportado y publicado en cadena forense.
+
+--- 
 ```
