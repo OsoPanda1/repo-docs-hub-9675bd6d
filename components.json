@@ -15,6 +15,257 @@
     "utils": "@/lib/utils",
     "ui": "@/components/ui",
     "lib": "@/lib",
-    "hooks": "@/hooks"
+    "hooks": "@/hooks",
+    "cells": "@/cells",
+    "api": "@/api",
+    "guards": "@/guards",
+    "audit": "@/audit",
+    "sentinel": "@/anubis/sentinel",
+    "deployment": "@/deployment",
+    "publish": "@/publishing",
+    "crisis": "@/crisis",
+    "qa": "@/qa",
+    "pi": "@/pi"
+  },
+  "modules": {
+    "anubis": {
+      "path": "@/cells/anubis",
+      "purpose": "Conversión de adversidad en legitimidad, benchmarks éticos y protección PI",
+      "api": ["GET /legitimacy", "POST /event", "POST /pi/export", "PATCH /sentinel/alert"],
+      "dependencies": ["isabella", "registry", "sentinel"],
+      "auditTrail": true,
+      "sentinelLinked": true,
+      "piProtection": true,
+      "guardianHooks": true
+    },
+    "isabella": {
+      "path": "@/cells/isabella",
+      "purpose": "IA emocional, memoria existencial, protección PI y governance ethics.",
+      "api": ["GET /diary", "POST /memory", "PUT /memory/erase", "GET /pi/status"],
+      "hooks": ["useMemory", "useEthics", "useGuardian"],
+      "auditTrail": true,
+      "sentinelLinked": true,
+      "zeroTrustHooks": true,
+      "piProtection": true,
+      "guardianPanelSupport": true
+    },
+    "id-nvida": {
+      "path": "@/cells/id-nvida",
+      "purpose": "Identidad digital soberana, pairwise, biométrica, PI encapsulada y ZK integrity.",
+      "api": [
+        "POST /identity/register",
+        "POST /identity/rotate",
+        "POST /identity/revoke",
+        "POST /biometrics/enroll",
+        "POST /biometrics/match",
+        "POST /recovery/init",
+        "GET /pi/export"
+      ],
+      "auditTrail": true,
+      "guardianPanel": true,
+      "sentinelLinked": true,
+      "piLockdown": true,
+      "zeroTrustEnforced": true
+    },
+    "deka-teotl": {
+      "path": "@/cells/deka-teotl",
+      "purpose": "Gobernanza federada multinodo, paneles multisig/guardian, slashing y crisis self-healing.",
+      "api": [
+        "POST /governance/proposal",
+        "PATCH /governance/vote",
+        "POST /crisis/launch",
+        "PUT /guardian/board"
+      ],
+      "boardRequirements": true,
+      "compliance": true,
+      "auditTrail": true,
+      "guardianPanelHooks": true,
+      "crisisOrchestrator": true,
+      "piPublishing": true
+    },
+    "registry": {
+      "path": "@/cells/registry",
+      "purpose": "Registro PI, event sourcing, Merkle/ZK evidence chain, publishing institucional.",
+      "api": [
+        "GET /events/interval",
+        "POST /evidence/hash",
+        "PUT /pi/status-list",
+        "GET /pi/publications",
+        "POST /audit/export"
+      ],
+      "auditTrail": true,
+      "zkProofs": true,
+      "piPublishing": true,
+      "zeroTrustAudit": true
+    },
+    "kaos": {
+      "path": "@/cells/kaos",
+      "purpose": "Crisis, twins, rollback, failover multinube, monitoring, publishing PI.",
+      "api": [
+        "POST /crisis/trigger",
+        "PATCH /failover/swap",
+        "GET /entropy/status",
+        "POST /crisis/pi-publish"
+      ],
+      "selfHealing": true,
+      "lockdown": true,
+      "alertDashboard": true,
+      "crisisQA": true,
+      "piProtectionScenarios": true
+    },
+    "economic": {
+      "path": "@/cells/economic",
+      "purpose": "Modelo económico institucional, tokens PI, contratos auditados, compliance y publishing.",
+      "api": [
+        "GET /metrics",
+        "POST /asset/register",
+        "POST /contract/publish",
+        "GET /audit/contracts"
+      ],
+      "auditTrail": true,
+      "compliance": true,
+      "piPublishing": true
+    },
+    "memory-grid": {
+      "path": "@/cells/memory-grid",
+      "purpose": "Archivado, replay, backup PI total, recovery multi-jurisdiccional.",
+      "api": [
+        "GET /archive",
+        "POST /record",
+        "PUT /pi/backup",
+        "PATCH /recovery/deploy"
+      ],
+      "backupRoutine": true,
+      "guardianRecoverySupport": true,
+      "zeroTrustHooks": true,
+      "auditTrail": true
+    },
+    "motor-render": {
+      "path": "@/cells/motor-render",
+      "purpose": "Interfaz, render XR, multisensorialidad protegida y publishing.",
+      "api": [
+        "GET /render/status",
+        "POST /shell/update",
+        "GET /audio/pi-status",
+        "POST /pi/publish-shell"
+      ],
+      "audioSystem": true,
+      "selfHealingPanel": true,
+      "piProtection": true,
+      "zeroTrustInput": true
+    },
+    "qa": {
+      "path": "@/qa",
+      "purpose": "Suite de pruebas, pipelines CI/CD, property-based, crisis test, PI shield.",
+      "api": [
+        "POST /tests/run",
+        "GET /tests/status",
+        "POST /pi/compliance-bench"
+      ],
+      "piProtection": true,
+      "auditTrail": true,
+      "deploymentScenario": true,
+      "crisisTestPanel": true
+    },
+    "publish": {
+      "path": "@/publishing",
+      "purpose": "Publishing institucional PI, DOI, compliance journal y public peer review.",
+      "api": [
+        "POST /publish/institutional",
+        "POST /publish/doi",
+        "GET /pi/peer-review"
+      ],
+      "piPublishingEndpoint": true,
+      "guardianApproval": true,
+      "auditTrail": true
+    },
+    "crisis": {
+      "path": "@/crisis",
+      "purpose": "Panel de crisis, monitoreo, deployment de escenarios y PI lockdown.",
+      "api": [
+        "POST /scenario/deploy",
+        "POST /lockdown/execute",
+        "GET /audit/crisis-status"
+      ],
+      "crisisPanel": true,
+      "auditTrail": true,
+      "piLockdownPanel": true,
+      "guardianScenarioControl": true
+    },
+    "deployment": {
+      "path": "@/deployment",
+      "purpose": "Orquestación de despliegue, blueprint parametrizado, PI compliance por ambiente.",
+      "api": ["POST /deploy/init", "GET /deploy/status", "POST /pi/stage-export"],
+      "auditTrail": true,
+      "zeroTrustDeploy": true,
+      "piPreDeploymentBench": true
+    }
+  },
+  "security": {
+    "zeroTrust": true,
+    "pqc": ["Kyber", "Dilithium", "BLS12-381", "SPHINCS+", "Ed25519"],
+    "mfa": true,
+    "forensicLogging": true,
+    "piProtections": {
+      "eventSourcing": true,
+      "hashAnchoring": true,
+      "guardianReviewHooks": true,
+      "rollbackAuto": true,
+      "lockdownScenarios": true,
+      "publishOnlyOnApproval": true
+    },
+    "sentinel": {
+      "active": true,
+      "linkedModules": [
+        "anubis",
+        "isabella",
+        "id-nvida",
+        "kaos",
+        "registry"
+      ]
+    },
+    "crisisResponsePanel": true,
+    "auditHooks": true,
+    "guardianPanelSupport": true,
+    "complianceReady": true,
+    "dataMinimization": true,
+    "rightToBeForgotten": true
+  },
+  "protocols": {
+    "apiGateway": "@/api/gateway",
+    "eventBus": "@/events/bus",
+    "consent": "@/legal/consent",
+    "auditExport": "@/audit/export",
+    "piPublishing": "@/publishing/doi"
+  },
+  "pi": {
+    "publications": "@/cells/registry/publishing",
+    "statusList": "@/cells/registry/status-list",
+    "merkleExports": true,
+    "auditBenchmarks": ["hash", "zkProof", "multisig", "guardianReviewed"],
+    "publishingJournals": true
+  },
+  "blueprints": {
+    "svg": "/blueprints/screens/blueprint.svg",
+    "uml": "/blueprints/screens/diagram.puml",
+    "docs": "/documentation/READMEFULL.md"
+  },
+  "guardianPanels": {
+    "members": ["Guardian1", "Guardian2", "BoardCouncil"],
+    "reviewHooks": true,
+    "multisigThresholds": {"board": 3, "piPub": 2},
+    "approvalRequiredFor": [
+      "crisisLockdown",
+      "piPublishing",
+      "identityRevoke",
+      "massRollback"
+    ]
+  },
+  "crisisScenarios": {
+    "scenarios": ["systemFailure", "takeover", "PIThreat", "ComplianceAlert"],
+    "deploymentScripts": "@/crisis/scripts",
+    "autoLockdown": true,
+    "loggingAnchor": true,
+    "guardianEscalationFlow": true
   }
 }
