@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Brain, Wallet, ShoppingBag, Box, Shield, Users, GraduationCap, Music } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import tamvLogo from "@/assets/tamv-online-logo.jpg";
@@ -9,8 +9,17 @@ const Navbar = () => {
   const location = useLocation();
 
   const navigation = [
-    { name: "Inicio", href: "/" },
-    { name: "Documentación", href: "/docs" },
+    { name: "Inicio", href: "/", icon: null },
+    { name: "Dashboard", href: "/dashboard", icon: Box },
+    { name: "Isabella AI", href: "/isabella", icon: Brain },
+    { name: "DreamSpaces", href: "/dreamspaces", icon: Box },
+    { name: "Economía", href: "/economy", icon: Wallet },
+    { name: "Marketplace", href: "/marketplace", icon: ShoppingBag },
+    { name: "ANUBIS", href: "/anubis", icon: Shield },
+    { name: "DAO", href: "/dao", icon: Users },
+    { name: "Universidad", href: "/university", icon: GraduationCap },
+    { name: "KAOS Music", href: "/kaos", icon: Music },
+    { name: "Documentación", href: "/docs", icon: null },
   ];
 
   return (
@@ -24,20 +33,29 @@ const Navbar = () => {
             <span className="text-xl font-bold gradient-text font-orbitron">TAMV DM-X4™</span>
           </Link>
 
-          <div className="hidden md:flex items-center space-x-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={`text-sm font-medium transition-colors font-orbitron ${
-                  location.pathname === item.href ? "text-aqua metallic-text" : "metallic-text hover:text-aqua"
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <Button variant="default" size="sm" className="aqua-glow font-orbitron font-semibold">
-              Arquitectura
+          <div className="hidden md:flex items-center space-x-4">
+            {navigation.slice(0, 5).map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`text-sm font-medium transition-colors font-orbitron flex items-center gap-1 ${
+                    location.pathname === item.href ? "text-aqua metallic-text" : "metallic-text hover:text-aqua"
+                  }`}
+                >
+                  {Icon && <Icon size={16} />}
+                  {item.name}
+                </Link>
+              );
+            })}
+            <Button 
+              variant="default" 
+              size="sm" 
+              className="aqua-glow font-orbitron font-semibold"
+              onClick={() => setIsOpen(!isOpen)}
+            >
+              Más <Menu size={16} className="ml-1" />
             </Button>
           </div>
 
@@ -50,20 +68,21 @@ const Navbar = () => {
         </div>
 
         {isOpen && (
-          <div className="md:hidden py-4 space-y-4">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className="block text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <Button variant="default" size="sm" className="w-full bg-gradient-to-r from-primary to-secondary">
-              Comenzar
-            </Button>
+          <div className="md:hidden py-4 space-y-2">
+            {navigation.map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className="flex items-center gap-2 text-sm font-medium text-foreground/80 hover:text-primary transition-colors py-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {Icon && <Icon size={16} />}
+                  {item.name}
+                </Link>
+              );
+            })}
           </div>
         )}
       </div>

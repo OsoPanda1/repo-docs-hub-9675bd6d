@@ -9,6 +9,10 @@ import IsabellaAI from "./pages/IsabellaAI";
 import Economy from "./pages/Economy";
 import Marketplace from "./pages/Marketplace";
 import DreamSpacesBuilder from "./pages/DreamSpacesBuilder";
+import ANUBIS from "./pages/ANUBIS";
+import DAO from "./pages/DAO";
+import University from "./pages/University";
+import KAOSMusic from "./pages/KAOSMusic";
 import Docs from "./pages/Docs";
 import DocsHome from "./pages/DocsHome";
 import DocsManifest from "./pages/DocsManifest";
@@ -57,6 +61,10 @@ const App = () => (
           <Route path="/economy" element={<Economy />} />
           <Route path="/marketplace" element={<Marketplace />} />
           <Route path="/dreamspaces" element={<DreamSpacesBuilder />} />
+          <Route path="/anubis" element={<ANUBIS />} />
+          <Route path="/dao" element={<DAO />} />
+          <Route path="/university" element={<University />} />
+          <Route path="/kaos" element={<KAOSMusic />} />
           <Route path="/docs" element={<Docs />}>
             <Route index element={<DocsHome />} />
             {/* Dominio 0: Prólogo y Portal Universal */}
