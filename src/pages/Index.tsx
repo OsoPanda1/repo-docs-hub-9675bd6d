@@ -3,7 +3,8 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import StarfieldBackground from "@/components/StarfieldBackground";
+import QuantumBackground from "@/components/QuantumBackground";
+import FloatingParticles from "@/components/FloatingParticles";
 import { ArrowRight, Brain, Network, Shield, Layers, Zap, Globe, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import tamvEmblem from "@/assets/tamv-emblem.jpg";
@@ -45,7 +46,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background relative">
-      <StarfieldBackground />
+      <QuantumBackground />
+      <FloatingParticles count={60} color="#8B5CF6" speed={0.2} />
       <Navbar />
       
       <section className="relative pt-32 pb-20 px-4 overflow-hidden z-10">
