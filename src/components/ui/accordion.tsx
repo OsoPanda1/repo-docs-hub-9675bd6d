@@ -4,7 +4,7 @@ import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // Contexto PI institucional y dummy data
-const PiContext = React.createContext();
+const PiContext = React.createContext<any>(null);
 const dummyLogs = [
   { fecha: "2025-11-14", tipo: "Consentimiento PI", user: "AnaMX", status: "Aprobado" },
   { fecha: "2025-11-13", tipo: "Transacción", user: "CarlosLAT", status: "Validado" },

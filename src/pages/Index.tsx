@@ -47,7 +47,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background relative">
       <QuantumBackground />
-      <FloatingParticles count={60} color="#8B5CF6" speed={0.2} />
+      <FloatingParticles count={60} />
       <Navbar />
       
       <section className="relative pt-32 pb-20 px-4 overflow-hidden z-10">

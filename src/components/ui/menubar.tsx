@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as MenubarPrimitive from "@radix-ui/react-menubar";
-import { Check, ChevronRight, Circle, QrCode, BookText, Mining, Users, Cloud, Loader2, UserCheck } from "lucide-react";
+import { Check, ChevronRight, Circle, QrCode, BookText, Pickaxe, Users, Cloud, Loader2, UserCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Popover, PopoverTrigger, PopoverContent } from "@radix-ui/react-popover";
 
@@ -65,7 +65,7 @@ const MenubarTrigger = React.forwardRef<
           <div className="mt-2 flex flex-col gap-2 text-base">
             <div><UserCheck className="inline h-4 w-4" /> Mentoring: {ctx.mentoring.sesiones} / Feedback: {ctx.mentoring.feedback}</div>
             <div><Users className="inline h-4 w-4" /> Wall XR: {ctx.wall.posts} posts, status: {ctx.wall.activo ? "Activo" : "Inactivo"}</div>
-            <div><Mining className="inline h-4 w-4" /> Minado: {ctx.mining.blocks} blocks, Auditoría: {ctx.mining.auditoria}</div>
+            <div><Pickaxe className="inline h-4 w-4" /> Minado: {ctx.mining.blocks} blocks, Auditoría: {ctx.mining.auditoria}</div>
             <div><Cloud className="inline h-4 w-4" /> Federación: {ctx.federacion.join(", ")}</div>
           </div>
           <div className="my-3"><QrCode className="inline h-6 w-6 text-yellow-300" /> <img src={ctx.qr} className="h-8 w-8 rounded inline ml-2" /> Auditoría PI QR</div>

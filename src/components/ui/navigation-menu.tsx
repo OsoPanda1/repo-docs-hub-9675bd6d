@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { cva } from "class-variance-authority";
-import { ChevronDown, QrCode, BookText, Mining, Users, Cloud, UserCheck, Sparkles } from "lucide-react";
+import { ChevronDown, QrCode, BookText, Pickaxe, Users, Cloud, UserCheck, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Popover, PopoverTrigger, PopoverContent } from "@radix-ui/react-popover";
 
@@ -71,7 +71,7 @@ const NavigationMenuItem = ({ children, panelType = "default", ...props }) => {
     ),
     mining: (
       <div className="w-80 p-6 bg-gradient-to-br from-yellow-900 via-teal-900 to-slate-900 rounded-2xl text-yellow-100 border-2 border-yellow-600 shadow-2xl">
-        <h2 className="flex items-center gap-2 font-extrabold text-lg"><Mining />Minado PI Quantum</h2>
+        <h2 className="flex items-center gap-2 font-extrabold text-lg"><Pickaxe />Minado PI Quantum</h2>
         <div>Bloques minados: <b>{ctx.mining.blocks}</b></div>
         <div className="mb-2">Auditoría: <b>{ctx.mining.auditoria}</b></div>
         <Cloud className="mx-auto mt-2 animate-spin text-teal-300" /> Pool: <b>Latam Quantum</b>

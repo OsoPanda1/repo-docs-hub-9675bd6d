@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
-import { ChevronRight, MoreHorizontal, BookText, Share2, Cloud, UserCheck, QrCode, Users, Database, Mining } from "lucide-react";
+import { ChevronRight, MoreHorizontal, BookText, Share2, Cloud, UserCheck, QrCode, Users, Database, Pickaxe } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // Dummy context: API, logs, paneles, minería
@@ -39,7 +39,7 @@ export const QuantumPanel = () => {
             <Share2 className="h-4 w-4 inline" /> Export Quantum
           </button>
         )}
-        <Mining className="ml-2 h-5 w-5 text-yellow-300" /> <span>Mining:</span> {ctx.mining.blocks} blocks / {ctx.mining.auditoria}
+        <Pickaxe className="ml-2 h-5 w-5 text-yellow-300" /> <span>Mining:</span> {ctx.mining.blocks} blocks / {ctx.mining.auditoria}
       </div>
       <div className="mt-2 flex flex-wrap gap-6">
         <div><Users className="inline h-4 w-4 text-teal-200" /> Wall Social: {ctx.wall.posts} posts, status: {ctx.wall.activos ? "Activo" : "Inactivo"}, Último post: "{ctx.wall.ultimo}"</div>
