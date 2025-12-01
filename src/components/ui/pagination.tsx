@@ -2,13 +2,13 @@ import * as React from "react";
 import { Sparkles, Users, MessageSquare, ShieldCheck, QrCode, Cloud, UserCheck, Mic2, Megaphone, Music, Image, Video, ShoppingBag, Bell, Cat, Settings, FileText, Camera, Globe2, Star, Key, Lock, BookText, DollarSign, Heart, Loader2, EyeOff, BookOpen, Gem, User, FileCheck2, Layers, SlidersHorizontal } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Popover, PopoverTrigger, PopoverContent } from "@radix-ui/react-popover";
-import useAuth from "@/hooks/useAuth";
-import useAuditTrail from "@/hooks/useAuditTrail";
-import useMonitoring from "@/hooks/useMonitoring";
-import useUserProfile from "@/hooks/useUserProfile";
-import usePICompliance from "@/hooks/usePICompliance";
-import useMultifactor from "@/hooks/useMultifactor";
-import useCellApi from "@/hooks/useCellApi";
+import { useAuth } from "@/hooks/useAuth";
+import { useAuditTrail } from "@/hooks/useAuditTrail";
+import { useMonitoring } from "@/hooks/useMonitoring";
+import { useUserProfile } from "@/hooks/useUserProfile";
+import { usePICompliance } from "@/hooks/usePICompliance";
+import { useMultifactor } from "@/hooks/useMultifactor";
+import { useCellApi } from "@/hooks/useCellApi";
 
 const tamvSections = [
   { key: "groups",      icon: Users, label: "Grupos & Canales",        desc: "Comunidades Quantum, channels federados y organización social avanzada." },
@@ -57,7 +57,7 @@ const SectionPopover = ({ sec }) => {
 
   // Protección ultrafuerte para cell sensible
   let cellContent;
-  if (sec.key === "kaos18" && (!user?.isAdult || !checkMF(user?.id))) {
+  if (sec.key === "kaos18" && (!user || !checkMF(user?.id))) {
     cellContent = (
       <div className="text-red-400 text-center font-bold">
         ⚠️ Acceso Restringido. Verifica tu PI y credenciales Adult/Multifactor.

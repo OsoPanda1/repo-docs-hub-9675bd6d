@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, type VariantProps } from "class-variance-authority";
-import { QrCode, UserCheck, BookText, Share2, Database, Cloud, Mining, Users, Loader2 } from "lucide-react";
+import { QrCode, UserCheck, BookText, Share2, Database, Cloud, Pickaxe, Users, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Popover, PopoverTrigger, PopoverContent } from "@radix-ui/react-popover";
 
@@ -13,6 +13,7 @@ const buttonVariants = cva(
         default: "bg-teal-900 text-yellow-100 hover:bg-yellow-800",
         destructive: "bg-red-900 text-red-100 hover:bg-red-800",
         outline: "border-2 border-yellow-700 bg-background hover:bg-teal-950 hover:text-yellow-200",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
         quantum: "bg-gradient-to-r from-teal-900 via-yellow-900 to-slate-900",
         export: "bg-yellow-700 text-white hover:bg-teal-900",
         mentoring: "bg-indigo-900 text-indigo-100 hover:bg-teal-700",
@@ -69,7 +70,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       bookpi: <BookText />,
       qrpi: <QrCode />,
       mentoring: <UserCheck />,
-      mining: <Mining />,
+      mining: <Pickaxe />,
       wall: <Users />,
       exportcloud: <Cloud />,
       loading: <Loader2 className="animate-spin" />,
