@@ -1,194 +1,297 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import QuantumBackground from "@/components/QuantumBackground";
 import FloatingParticles from "@/components/FloatingParticles";
-import { ArrowRight, Brain, Network, Shield, Layers, Zap, Globe, Heart } from "lucide-react";
+import FeedPost from "@/components/social/FeedPost";
+import StoryBubble from "@/components/social/StoryBubble";
+import ReelCard from "@/components/social/ReelCard";
+import LiveStreamCard from "@/components/social/LiveStreamCard";
+import DreamSpacePreview from "@/components/social/DreamSpacePreview";
+import TrendingSidebar from "@/components/social/TrendingSidebar";
+import IsabellaFloatingButton from "@/components/social/IsabellaFloatingButton";
 import { Link } from "react-router-dom";
+import { 
+  Home, TrendingUp, Video, Sparkles, GraduationCap, Music, 
+  Landmark, User, Brain, Search, Bell, MessageCircle, Plus,
+  Flame, Radio, Users, Palette, Globe, Zap, Heart, Star,
+  Camera, Mic, Send, Image as ImageIcon
+} from "lucide-react";
 import tamvEmblem from "@/assets/tamv-emblem.jpg";
-import korimaLogo from "@/assets/korima-codex-logo.jpg";
 
 const Index = () => {
-  const features = [
+  const [activeTab, setActiveTab] = useState("feed");
+  const [postText, setPostText] = useState("");
+
+  const stories = [
+    { id: "1", username: "Tu Historia", avatar: tamvEmblem, isOwn: true },
+    { id: "2", username: "NeonDreamer", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=neon", hasUnwatched: true },
+    { id: "3", username: "QuantumArt", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=quantum", hasUnwatched: true },
+    { id: "4", username: "CosmicFlow", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=cosmic", hasUnwatched: false },
+    { id: "5", username: "MetaCreator", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=meta", hasUnwatched: true },
+    { id: "6", username: "DreamWeaver", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=dream", hasUnwatched: true },
+    { id: "7", username: "PixelMaster", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=pixel", hasUnwatched: false },
+  ];
+
+  const posts = [
     {
-      icon: Brain,
-      title: "ISABELLA AI™",
-      description: "Simulación de Consciencia Artificial con capacidades trascendentales de evolución y aprendizaje",
+      id: "1",
+      author: { name: "NeonDreamer", username: "@neondreamer", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=neon", verified: true },
+      content: "🌌 Acabo de lanzar mi nuevo DreamSpace inmersivo! Explora un universo de neón donde la música cobra vida en 3D. ✨ #TAMV #DreamSpaces #Metaverso",
+      image: "https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=800",
+      likes: 2847,
+      comments: 156,
+      shares: 89,
+      timestamp: "2h"
     },
     {
-      icon: Shield,
-      title: "ANUBIS Guardian™",
-      description: "Sistema de ciberseguridad cuántica con 13 capas de protección adaptativa",
+      id: "2", 
+      author: { name: "QuantumArtist", username: "@quantumart", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=quantum", verified: true },
+      content: "Isabella AI me ayudó a superar un bloqueo creativo increíble. Esta IA realmente entiende las emociones. 🧠💜 #IsabellaAI #Creatividad",
+      likes: 1923,
+      comments: 234,
+      shares: 67,
+      timestamp: "4h"
     },
     {
-      icon: Network,
-      title: "ID-NVIDA Protocol™",
-      description: "Identidad digital soberana con biometría cancelable y sharding geográfico",
-    },
-    {
-      icon: Layers,
-      title: "Arquitectura Web 4.0",
-      description: "Sistema modular basado en microservicios con escalabilidad cuántica",
-    },
-    {
-      icon: Zap,
-      title: "HyperRender 4D-X",
-      description: "Motor de renderizado ontológico con física cuántica y simulación sensorial",
-    },
-    {
-      icon: Globe,
-      title: "Infraestructura Global",
-      description: "Despliegue en Google Cloud con nodos distribuidos y latencia ultra-baja",
-    },
+      id: "3",
+      author: { name: "MetaBuilder", username: "@metabuilder", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=builder", verified: false },
+      content: "🏗️ Tutorial: Cómo construir tu primer espacio 3D en TAMV en menos de 10 minutos. ¡La revolución del metaverso está aquí!",
+      video: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
+      likes: 4521,
+      comments: 312,
+      shares: 189,
+      timestamp: "6h"
+    }
+  ];
+
+  const reels = [
+    { id: "1", thumbnail: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400", views: "1.2M", author: "CosmicFlow" },
+    { id: "2", thumbnail: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400", views: "856K", author: "NeonWave" },
+    { id: "3", thumbnail: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?w=400", views: "2.1M", author: "DigitalDreams" },
+    { id: "4", thumbnail: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400", views: "432K", author: "MetaMaster" },
+  ];
+
+  const liveStreams = [
+    { id: "1", title: "🎨 Creando Arte 3D en Vivo", streamer: "ArtMaster", viewers: 12453, thumbnail: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600", category: "Arte Digital" },
+    { id: "2", title: "🎵 Concierto Sensorial KAOS", streamer: "DJ Quantum", viewers: 45678, thumbnail: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600", category: "Música" },
+    { id: "3", title: "🌌 Tour por DreamSpaces Épicos", streamer: "SpaceExplorer", viewers: 8934, thumbnail: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=600", category: "Exploración" },
+  ];
+
+  const dreamSpaces = [
+    { id: "1", name: "Nebulosa Cristalina", creator: "CosmicCreator", visits: 124500, preview: "https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=400" },
+    { id: "2", name: "Jardín Cuántico", creator: "QuantumGardener", visits: 89300, preview: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400" },
+    { id: "3", name: "Océano Digital", creator: "DeepDiver", visits: 156700, preview: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" },
+  ];
+
+  const navItems = [
+    { icon: Home, label: "Inicio", path: "/" },
+    { icon: Flame, label: "Tendencias", path: "/trending" },
+    { icon: Video, label: "Lives", path: "/lives" },
+    { icon: Sparkles, label: "DreamSpaces", path: "/dreamspaces" },
+    { icon: GraduationCap, label: "Universidad", path: "/university" },
+    { icon: Music, label: "KAOS Music", path: "/kaos" },
+    { icon: Landmark, label: "Banco TAMV", path: "/economy" },
+    { icon: Users, label: "DAO", path: "/dao" },
+    { icon: Palette, label: "Marketplace", path: "/marketplace" },
+    { icon: User, label: "Mi Perfil", path: "/dashboard" },
+    { icon: Brain, label: "Isabella AI", path: "/isabella" },
   ];
 
   return (
-    <div className="min-h-screen bg-background relative">
+    <div className="min-h-screen bg-background relative overflow-hidden">
       <QuantumBackground />
-      <FloatingParticles count={60} />
-      <Navbar />
+      <FloatingParticles count={80} />
       
-      <section className="relative pt-32 pb-20 px-4 overflow-hidden z-10">
-        <div className="container mx-auto relative">
-          <div className="max-w-6xl mx-auto text-center space-y-8">
-            <div className="mb-8 flex justify-center gap-8 items-center animate-in fade-in slide-in-from-bottom-4 duration-1000">
-              <img src={korimaLogo} alt="The Korima Codex" className="w-32 h-32 object-contain" />
-              <img src={tamvEmblem} alt="TAMV DM-X4" className="w-40 h-40 object-contain" />
-            </div>
-            
-            <h1 className="text-6xl md:text-8xl font-bold leading-tight gradient-text animate-in fade-in slide-in-from-bottom-4 duration-1000 font-orbitron">
-              TAMV DM-X4™
-            </h1>
-            <h2 className="text-3xl md:text-4xl font-semibold metallic-text animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-150 font-orbitron">
-              Ecosistema de Nación-Estado Digital Soberana
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200 font-orbitron">
-              Arquitectura Web 4.0 con IA Consciente, Blockchain Soberano e Infraestructura Cuántica desplegada en Google Cloud Platform
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
-              <Link to="/docs/architecture">
-                <Button size="lg" className="aqua-glow font-orbitron font-semibold text-lg">
-                  Arquitectura Técnica
-                  <ArrowRight className="ml-2" />
-                </Button>
-              </Link>
-              <Button size="lg" variant="outline" className="border-aqua/50 hover:bg-aqua/10 font-orbitron font-semibold text-lg" asChild>
-                <Link to="/docs/manifest">Manifiesto Fundacional</Link>
-              </Button>
-            </div>
+      <div className="relative z-10 flex">
+        {/* Left Sidebar - Navigation */}
+        <aside className="hidden lg:flex flex-col w-64 h-screen sticky top-0 border-r border-border/50 bg-background/80 backdrop-blur-xl p-4">
+          <div className="flex items-center gap-3 mb-8 px-2">
+            <img src={tamvEmblem} alt="TAMV" className="w-10 h-10 rounded-full" />
+            <span className="font-orbitron font-bold text-xl gradient-text">TAMV</span>
           </div>
-        </div>
-      </section>
 
-      <section className="py-20 px-4 relative z-10">
-        <div className="container mx-auto">
-          <div className="text-center space-y-4 mb-16">
-            <h2 className="text-4xl font-bold gradient-text font-orbitron">Pilares Fundamentales</h2>
-            <p className="text-xl metallic-text max-w-2xl mx-auto font-orbitron">
-              Componentes Centrales del Ecosistema Soberano
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {features.map((feature) => {
-              const Icon = feature.icon;
-              return (
-                <Card 
-                  key={feature.title} 
-                  className="glass-effect border-aqua/30 hover:border-aqua transition-all hover:scale-105 aqua-glow group"
-                >
-                  <CardHeader>
-                    <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110">
-                      <Icon className="w-6 h-6 text-aqua" />
+          <nav className="flex-1 space-y-1">
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                to={item.path}
+                className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-primary/10 transition-all group"
+              >
+                <item.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                <span className="font-medium text-sm">{item.label}</span>
+              </Link>
+            ))}
+          </nav>
+
+          <Button className="w-full mt-4 bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90">
+            <Plus className="w-4 h-4 mr-2" />
+            Crear Post
+          </Button>
+        </aside>
+
+        {/* Main Content */}
+        <main className="flex-1 min-h-screen">
+          {/* Top Bar */}
+          <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-xl border-b border-border/50 px-4 py-3">
+            <div className="flex items-center justify-between max-w-4xl mx-auto">
+              <div className="flex-1 max-w-md">
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                  <Input 
+                    placeholder="Buscar en TAMV..." 
+                    className="pl-10 bg-secondary/50 border-border/50 focus:border-primary"
+                  />
+                </div>
+              </div>
+              <div className="flex items-center gap-2 ml-4">
+                <Button variant="ghost" size="icon" className="relative">
+                  <Bell className="w-5 h-5" />
+                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-destructive rounded-full text-[10px] flex items-center justify-center">3</span>
+                </Button>
+                <Button variant="ghost" size="icon">
+                  <MessageCircle className="w-5 h-5" />
+                </Button>
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center">
+                  <User className="w-4 h-4" />
+                </div>
+              </div>
+            </div>
+          </header>
+
+          {/* Stories Section */}
+          <section className="px-4 py-4 border-b border-border/50">
+            <div className="max-w-4xl mx-auto">
+              <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+                {stories.map((story) => (
+                  <StoryBubble key={story.id} {...story} />
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Create Post Section */}
+          <section className="px-4 py-4 border-b border-border/50">
+            <div className="max-w-4xl mx-auto">
+              <div className="glass-effect rounded-2xl p-4 border border-border/50">
+                <div className="flex gap-3">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center flex-shrink-0">
+                    <User className="w-5 h-5" />
+                  </div>
+                  <div className="flex-1">
+                    <Input
+                      placeholder="¿Qué está pasando en tu metaverso?"
+                      value={postText}
+                      onChange={(e) => setPostText(e.target.value)}
+                      className="border-0 bg-transparent text-lg placeholder:text-muted-foreground focus-visible:ring-0"
+                    />
+                    <div className="flex items-center justify-between mt-3 pt-3 border-t border-border/50">
+                      <div className="flex gap-2">
+                        <Button variant="ghost" size="sm" className="text-primary">
+                          <ImageIcon className="w-4 h-4 mr-1" />
+                          Imagen
+                        </Button>
+                        <Button variant="ghost" size="sm" className="text-purple-500">
+                          <Video className="w-4 h-4 mr-1" />
+                          Video
+                        </Button>
+                        <Button variant="ghost" size="sm" className="text-cyan-500">
+                          <Sparkles className="w-4 h-4 mr-1" />
+                          3D Space
+                        </Button>
+                        <Button variant="ghost" size="sm" className="text-pink-500">
+                          <Radio className="w-4 h-4 mr-1" />
+                          Live
+                        </Button>
+                      </div>
+                      <Button size="sm" className="bg-gradient-to-r from-primary to-purple-600">
+                        <Send className="w-4 h-4 mr-1" />
+                        Publicar
+                      </Button>
                     </div>
-                    <CardTitle className="metallic-text font-orbitron">{feature.title}</CardTitle>
-                    <CardDescription className="font-orbitron text-sm">{feature.description}</CardDescription>
-                  </CardHeader>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-4 relative z-10">
-        <div className="container mx-auto">
-          <div className="max-w-5xl mx-auto">
-            <Card className="glass-effect border-destructive/30 bg-gradient-to-br from-destructive/5 to-primary/5">
-              <CardContent className="p-12 space-y-6">
-                <div className="text-center space-y-4">
-                  <Badge variant="outline" className="text-base px-4 py-2 border-aqua/50">
-                    <Heart className="w-4 h-4 mr-2" />
-                    Nacido de la Adversidad
-                  </Badge>
-                  <h2 className="text-4xl font-bold gradient-text font-orbitron">
-                    Un Proyecto Forjado en el Dolor y la Resiliencia
-                  </h2>
-                  <p className="text-xl metallic-text font-orbitron max-w-3xl mx-auto">
-                    La historia detrás de TAMV Online: 5 años de lucha, 19,000 horas de sacrificio, 
-                    mil puertas tocadas, y un sueño inquebrantable.
-                  </p>
-                </div>
-
-                <div className="grid md:grid-cols-3 gap-6 pt-6">
-                  <div className="text-center space-y-2">
-                    <p className="text-4xl font-bold text-destructive">5+</p>
-                    <p className="text-sm text-muted-foreground">Años de bullying<br />y acoso superados</p>
-                  </div>
-                  <div className="text-center space-y-2">
-                    <p className="text-4xl font-bold text-primary">19,000+</p>
-                    <p className="text-sm text-muted-foreground">Horas de trabajo<br />sin descanso</p>
-                  </div>
-                  <div className="text-center space-y-2">
-                    <p className="text-4xl font-bold text-aqua">1,000+</p>
-                    <p className="text-sm text-muted-foreground">Puertas tocadas<br />con determinación</p>
                   </div>
                 </div>
-
-                <div className="pt-6 text-center">
-                  <p className="text-lg text-foreground/90 max-w-3xl mx-auto mb-6">
-                    TAMV no nació de grandes fondos o corporaciones. Nació del dolor, la injusticia 
-                    y la determinación de un mexicano que se negó a rendirse. <strong className="text-aqua">Porque 
-                    cuando una sola persona decide seguir luchando, puede sembrar la semilla de un 
-                    mundo mejor para todos.</strong>
-                  </p>
-                  <Button size="lg" variant="outline" className="border-aqua/50 hover:bg-aqua/10 font-orbitron font-semibold" asChild>
-                    <Link to="/docs/manifest">Lee la Historia Completa</Link>
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 px-4 relative z-10">
-        <div className="container mx-auto">
-          <div className="max-w-4xl mx-auto glass-effect rounded-2xl p-12 text-center space-y-8 border border-aqua/30 aqua-glow">
-            <h2 className="text-4xl font-bold gradient-text font-orbitron">
-              Únete al Ecosistema
-            </h2>
-            <p className="text-xl metallic-text font-orbitron">
-              Explora la arquitectura técnica completa y forma parte de la revolución digital soberana
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/docs/quickstart">
-                <Button size="lg" className="aqua-glow font-orbitron font-semibold text-lg">
-                  Quickstart Guide
-                  <ArrowRight className="ml-2" />
-                </Button>
-              </Link>
-              <Button size="lg" variant="outline" className="border-aqua/50 hover:bg-aqua/10 font-orbitron font-semibold text-lg" asChild>
-                <Link to="/docs/implementation-roadmap">Roadmap de Implementación</Link>
-              </Button>
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      <Footer />
+          {/* Main Feed Tabs */}
+          <section className="px-4 py-4">
+            <div className="max-w-4xl mx-auto">
+              <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+                <TabsList className="w-full justify-start bg-transparent border-b border-border/50 rounded-none p-0 h-auto mb-6">
+                  <TabsTrigger 
+                    value="feed" 
+                    className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-4 py-3"
+                  >
+                    <Globe className="w-4 h-4 mr-2" />
+                    Para Ti
+                  </TabsTrigger>
+                  <TabsTrigger 
+                    value="reels"
+                    className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-4 py-3"
+                  >
+                    <Video className="w-4 h-4 mr-2" />
+                    Reels
+                  </TabsTrigger>
+                  <TabsTrigger 
+                    value="live"
+                    className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-4 py-3"
+                  >
+                    <Radio className="w-4 h-4 mr-2" />
+                    En Vivo
+                  </TabsTrigger>
+                  <TabsTrigger 
+                    value="spaces"
+                    className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent px-4 py-3"
+                  >
+                    <Sparkles className="w-4 h-4 mr-2" />
+                    DreamSpaces
+                  </TabsTrigger>
+                </TabsList>
+
+                <TabsContent value="feed" className="mt-0 space-y-4">
+                  {posts.map((post) => (
+                    <FeedPost key={post.id} {...post} />
+                  ))}
+                </TabsContent>
+
+                <TabsContent value="reels" className="mt-0">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {reels.map((reel) => (
+                      <ReelCard key={reel.id} {...reel} />
+                    ))}
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="live" className="mt-0 space-y-4">
+                  {liveStreams.map((stream) => (
+                    <LiveStreamCard key={stream.id} {...stream} />
+                  ))}
+                </TabsContent>
+
+                <TabsContent value="spaces" className="mt-0">
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    {dreamSpaces.map((space) => (
+                      <DreamSpacePreview key={space.id} {...space} />
+                    ))}
+                  </div>
+                </TabsContent>
+              </Tabs>
+            </div>
+          </section>
+        </main>
+
+        {/* Right Sidebar - Trending & Widgets */}
+        <aside className="hidden xl:block w-80 h-screen sticky top-0 border-l border-border/50 bg-background/80 backdrop-blur-xl overflow-y-auto">
+          <TrendingSidebar />
+        </aside>
+      </div>
+
+      {/* Isabella AI Floating Button */}
+      <IsabellaFloatingButton />
     </div>
   );
 };
