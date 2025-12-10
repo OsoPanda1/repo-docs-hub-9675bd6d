@@ -3,9 +3,8 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/AppSidebar";
 import Index from "./pages/Index";
+import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import IsabellaAI from "./pages/IsabellaAI";
 import Economy from "./pages/Economy";
@@ -46,6 +45,7 @@ import DocsImplementationRoadmap from "./pages/DocsImplementationRoadmap";
 import DocsIdNvida from "./pages/DocsIdNvida";
 import DocsWeb45 from "./pages/DocsWeb45";
 import DocsDreamSpaces from "./pages/DocsDreamSpaces";
+import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -56,32 +56,23 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <SidebarProvider defaultOpen={true}>
-          <div className="flex min-h-screen w-full">
-            <AppSidebar />
-            <div className="flex-1 flex flex-col">
-              <header className="sticky top-0 z-50 h-14 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex items-center px-4">
-                <SidebarTrigger />
-              </header>
-              <main className="flex-1">
-                <Routes>
+        <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/isabella" element={<IsabellaAI />} />
-          <Route path="/economy" element={<Economy />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+          <Route path="/isabella" element={<ProtectedRoute><IsabellaAI /></ProtectedRoute>} />
+          <Route path="/economy" element={<ProtectedRoute><Economy /></ProtectedRoute>} />
           <Route path="/marketplace" element={<Marketplace />} />
           <Route path="/dreamspaces" element={<DreamSpacesBuilder />} />
-          <Route path="/anubis" element={<ANUBIS />} />
-          <Route path="/dao" element={<DAO />} />
+          <Route path="/anubis" element={<ProtectedRoute><ANUBIS /></ProtectedRoute>} />
+          <Route path="/dao" element={<ProtectedRoute><DAO /></ProtectedRoute>} />
           <Route path="/university" element={<University />} />
           <Route path="/kaos" element={<KAOSMusic />} />
           <Route path="/docs" element={<Docs />}>
             <Route index element={<DocsHome />} />
-            {/* Dominio 0: Prólogo y Portal Universal */}
             <Route path="manifest" element={<DocsManifest />} />
             <Route path="roles-guide" element={<DocsRolesGuide />} />
             <Route path="glossary" element={<DocsGlossary />} />
-            {/* Dominio I: El Propósito */}
             <Route path="project-status" element={<DocsProjectStatus />} />
             <Route path="digital-dignity" element={<DocsDigitalDignity />} />
             <Route path="founder-story" element={<DocsFounderStory />} />
@@ -89,7 +80,6 @@ const App = () => (
             <Route path="dreamspaces" element={<DocsDreamSpaces />} />
             <Route path="creativity" element={<DocsCreativity />} />
             <Route path="titans" element={<DocsTitans />} />
-            {/* Dominio II: La Gobernanza */}
             <Route path="architecture" element={<DocsArchitecture />} />
             <Route path="knowledge-cells" element={<DocsKnowledgeCells />} />
             <Route path="anubis" element={<DocsAnubis />} />
@@ -97,9 +87,7 @@ const App = () => (
             <Route path="quantum-sentinel" element={<DocsQuantumSentinel />} />
             <Route path="id-nvida" element={<DocsIdNvida />} />
             <Route path="implementation-roadmap" element={<DocsImplementationRoadmap />} />
-            {/* Dominio III: Contexto Global */}
             <Route path="web45" element={<DocsWeb45 />} />
-            {/* Existing routes */}
             <Route path="quickstart" element={<DocsQuickstart />} />
             <Route path="korima" element={<DocsKorima />} />
             <Route path="api-endpoints" element={<DocsAPIEndpoints />} />
@@ -112,13 +100,8 @@ const App = () => (
             <Route path="components" element={<DocsComponents />} />
             <Route path="config" element={<DocsConfig />} />
           </Route>
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
-                </Routes>
-              </main>
-            </div>
-          </div>
-        </SidebarProvider>
+        </Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
