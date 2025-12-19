@@ -26,64 +26,59 @@ const Index = () => {
   const [postText, setPostText] = useState("");
 
   const stories = [
-    { id: "1", username: "Tu Historia", avatar: tamvEmblem, isOwn: true },
-    { id: "2", username: "NeonDreamer", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=neon", hasUnwatched: true },
-    { id: "3", username: "QuantumArt", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=quantum", hasUnwatched: true },
-    { id: "4", username: "CosmicFlow", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=cosmic", hasUnwatched: false },
-    { id: "5", username: "MetaCreator", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=meta", hasUnwatched: true },
-    { id: "6", username: "DreamWeaver", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=dream", hasUnwatched: true },
-    { id: "7", username: "PixelMaster", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=pixel", hasUnwatched: false },
+    { id: 1, name: "Tu Historia", avatar: tamvEmblem, isOwn: true },
+    { id: 2, name: "NeonDreamer", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=neon", hasNew: true },
+    { id: 3, name: "QuantumArt", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=quantum", hasNew: true },
+    { id: 4, name: "CosmicFlow", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=cosmic", isLive: true },
+    { id: 5, name: "MetaCreator", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=meta", hasNew: true },
+    { id: 6, name: "DreamWeaver", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=dream", hasNew: true },
+    { id: 7, name: "PixelMaster", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=pixel" },
   ];
 
   const posts = [
     {
-      id: "1",
-      author: { name: "NeonDreamer", username: "@neondreamer", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=neon", verified: true },
+      id: 1,
+      author: { name: "NeonDreamer", handle: "@neondreamer", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=neon", verified: true },
       content: "🌌 Acabo de lanzar mi nuevo DreamSpace inmersivo! Explora un universo de neón donde la música cobra vida en 3D. ✨ #TAMV #DreamSpaces #Metaverso",
-      image: "https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=800",
-      likes: 2847,
-      comments: 156,
-      shares: 89,
-      timestamp: "2h"
+      media: { type: "image" as const, url: "https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=800" },
+      stats: { likes: 2847, comments: 156, shares: 89, saves: 234 },
+      timestamp: "2h",
+      hasNFT: true
     },
     {
-      id: "2", 
-      author: { name: "QuantumArtist", username: "@quantumart", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=quantum", verified: true },
+      id: 2, 
+      author: { name: "QuantumArtist", handle: "@quantumart", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=quantum", verified: true },
       content: "Isabella AI me ayudó a superar un bloqueo creativo increíble. Esta IA realmente entiende las emociones. 🧠💜 #IsabellaAI #Creatividad",
-      likes: 1923,
-      comments: 234,
-      shares: 67,
+      stats: { likes: 1923, comments: 234, shares: 67, saves: 189 },
       timestamp: "4h"
     },
     {
-      id: "3",
-      author: { name: "MetaBuilder", username: "@metabuilder", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=builder", verified: false },
+      id: 3,
+      author: { name: "MetaBuilder", handle: "@metabuilder", avatar: "https://api.dicebear.com/7.x/avataaars/svg?seed=builder", verified: false },
       content: "🏗️ Tutorial: Cómo construir tu primer espacio 3D en TAMV en menos de 10 minutos. ¡La revolución del metaverso está aquí!",
-      video: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4",
-      likes: 4521,
-      comments: 312,
-      shares: 189,
+      media: { type: "video" as const, url: "https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4" },
+      stats: { likes: 4521, comments: 312, shares: 189, saves: 567 },
       timestamp: "6h"
     }
   ];
 
   const reels = [
-    { id: "1", thumbnail: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400", views: "1.2M", author: "CosmicFlow" },
-    { id: "2", thumbnail: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400", views: "856K", author: "NeonWave" },
-    { id: "3", thumbnail: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?w=400", views: "2.1M", author: "DigitalDreams" },
-    { id: "4", thumbnail: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400", views: "432K", author: "MetaMaster" },
+    { id: 1, thumbnail: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400", views: "1.2M", author: "CosmicFlow", duration: "0:45" },
+    { id: 2, thumbnail: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400", views: "856K", author: "NeonWave", duration: "1:20" },
+    { id: 3, thumbnail: "https://images.unsplash.com/photo-1614850523296-d8c1af93d400?w=400", views: "2.1M", author: "DigitalDreams", duration: "0:30" },
+    { id: 4, thumbnail: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=400", views: "432K", author: "MetaMaster", duration: "0:55" },
   ];
 
   const liveStreams = [
-    { id: "1", title: "🎨 Creando Arte 3D en Vivo", streamer: "ArtMaster", viewers: 12453, thumbnail: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600", category: "Arte Digital" },
-    { id: "2", title: "🎵 Concierto Sensorial KAOS", streamer: "DJ Quantum", viewers: 45678, thumbnail: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600", category: "Música" },
-    { id: "3", title: "🌌 Tour por DreamSpaces Épicos", streamer: "SpaceExplorer", viewers: 8934, thumbnail: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=600", category: "Exploración" },
+    { id: 1, title: "🎨 Creando Arte 3D en Vivo", host: "ArtMaster", viewers: 12453, thumbnail: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600", category: "Arte Digital" },
+    { id: 2, title: "🎵 Concierto Sensorial KAOS", host: "DJ Quantum", viewers: 45678, thumbnail: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600", category: "Música" },
+    { id: 3, title: "🌌 Tour por DreamSpaces Épicos", host: "SpaceExplorer", viewers: 8934, thumbnail: "https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=600", category: "Exploración" },
   ];
 
   const dreamSpaces = [
-    { id: "1", name: "Nebulosa Cristalina", creator: "CosmicCreator", visits: 124500, preview: "https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=400" },
-    { id: "2", name: "Jardín Cuántico", creator: "QuantumGardener", visits: 89300, preview: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400" },
-    { id: "3", name: "Océano Digital", creator: "DeepDiver", visits: 156700, preview: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" },
+    { id: 1, name: "Nebulosa Cristalina", creator: "CosmicCreator", visitors: 124500, preview: "https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?w=400" },
+    { id: 2, name: "Jardín Cuántico", creator: "QuantumGardener", visitors: 89300, preview: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400" },
+    { id: 3, name: "Océano Digital", creator: "DeepDiver", visitors: 156700, preview: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400" },
   ];
 
   const navItems = [
@@ -164,9 +159,9 @@ const Index = () => {
           {/* Stories Section */}
           <section className="px-4 py-4 border-b border-border/50">
             <div className="max-w-4xl mx-auto">
-              <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
+            <div className="flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
                 {stories.map((story) => (
-                  <StoryBubble key={story.id} {...story} />
+                  <StoryBubble key={story.id} story={story} />
                 ))}
               </div>
             </div>
@@ -254,28 +249,28 @@ const Index = () => {
 
                 <TabsContent value="feed" className="mt-0 space-y-4">
                   {posts.map((post) => (
-                    <FeedPost key={post.id} {...post} />
+                    <FeedPost key={post.id} post={post} />
                   ))}
                 </TabsContent>
 
                 <TabsContent value="reels" className="mt-0">
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     {reels.map((reel) => (
-                      <ReelCard key={reel.id} {...reel} />
+                      <ReelCard key={reel.id} reel={reel} />
                     ))}
                   </div>
                 </TabsContent>
 
                 <TabsContent value="live" className="mt-0 space-y-4">
                   {liveStreams.map((stream) => (
-                    <LiveStreamCard key={stream.id} {...stream} />
+                    <LiveStreamCard key={stream.id} stream={stream} />
                   ))}
                 </TabsContent>
 
                 <TabsContent value="spaces" className="mt-0">
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {dreamSpaces.map((space) => (
-                      <DreamSpacePreview key={space.id} {...space} />
+                      <DreamSpacePreview key={space.id} space={space} />
                     ))}
                   </div>
                 </TabsContent>
