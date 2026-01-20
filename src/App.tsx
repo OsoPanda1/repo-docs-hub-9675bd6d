@@ -47,6 +47,8 @@ import DocsWeb45 from "./pages/DocsWeb45";
 import DocsDreamSpaces from "./pages/DocsDreamSpaces";
 import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
+import TAMVCrumbs from "./pages/TAMVCrumbs";
+import NubiWallets from "./pages/NubiWallets";
 
 const queryClient = new QueryClient();
 
