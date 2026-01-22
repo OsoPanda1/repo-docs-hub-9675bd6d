@@ -49,12 +49,16 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./pages/NotFound";
 import TAMVCrumbs from "./pages/TAMVCrumbs";
 import NubiWallets from "./pages/NubiWallets";
-// New TAMV Omniverso modules
+// TAMV Omniverso modules
 import SalaXRDedicatoria from "./pages/SalaXRDedicatoria";
 import EnciclopediaDIGYTAMV from "./pages/EnciclopediaDIGYTAMV";
 import GaleriaLogros from "./pages/GaleriaLogros";
 import MotorEconomico from "./pages/MotorEconomico";
 import UTAMV from "./pages/UTAMV";
+// New unified pages
+import CivilizationHub from "./pages/CivilizationHub";
+import GovernancePage from "./pages/GovernancePage";
+import IsabellaDashboard from "./pages/IsabellaDashboard";
 
 const queryClient = new QueryClient();
 
@@ -76,7 +80,7 @@ const App = () => (
           <Route path="/dao" element={<ProtectedRoute><DAO /></ProtectedRoute>} />
           <Route path="/university" element={<University />} />
           <Route path="/kaos" element={<KAOSMusic />} />
-          {/* TAMV Omniverso - New Modules */}
+          {/* TAMV Omniverso - Core Modules */}
           <Route path="/sala-dedicatoria" element={<SalaXRDedicatoria />} />
           <Route path="/enciclopedia" element={<EnciclopediaDIGYTAMV />} />
           <Route path="/galeria-logros" element={<GaleriaLogros />} />
@@ -84,6 +88,10 @@ const App = () => (
           <Route path="/utamv" element={<UTAMV />} />
           <Route path="/tamvcrumbs" element={<TAMVCrumbs />} />
           <Route path="/nubiwallets" element={<NubiWallets />} />
+          {/* New Unified Hub Pages */}
+          <Route path="/civilization" element={<ProtectedRoute><CivilizationHub /></ProtectedRoute>} />
+          <Route path="/governance" element={<ProtectedRoute><GovernancePage /></ProtectedRoute>} />
+          <Route path="/isabella-dashboard" element={<ProtectedRoute><IsabellaDashboard /></ProtectedRoute>} />
           <Route path="/docs" element={<Docs />}>
             <Route index element={<DocsHome />} />
             <Route path="manifest" element={<DocsManifest />} />
