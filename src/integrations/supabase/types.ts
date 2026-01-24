@@ -193,6 +193,210 @@ export type Database = {
         }
         Relationships: []
       }
+      tamv_achievements: {
+        Row: {
+          bibliography: Json | null
+          category: string
+          created_at: string | null
+          description: string
+          evidence: Json | null
+          id: string
+          impact_score: number | null
+          title: string
+          verification_sources: Json | null
+          verification_status: string | null
+          verified_at: string | null
+        }
+        Insert: {
+          bibliography?: Json | null
+          category: string
+          created_at?: string | null
+          description: string
+          evidence?: Json | null
+          id?: string
+          impact_score?: number | null
+          title: string
+          verification_sources?: Json | null
+          verification_status?: string | null
+          verified_at?: string | null
+        }
+        Update: {
+          bibliography?: Json | null
+          category?: string
+          created_at?: string | null
+          description?: string
+          evidence?: Json | null
+          id?: string
+          impact_score?: number | null
+          title?: string
+          verification_sources?: Json | null
+          verification_status?: string | null
+          verified_at?: string | null
+        }
+        Relationships: []
+      }
+      tamv_audit_log: {
+        Row: {
+          action: string
+          created_at: string | null
+          data: Json | null
+          hash: string
+          id: string
+          module: string
+          previous_hash: string | null
+          project_id: string | null
+          result: string
+          severity: string | null
+        }
+        Insert: {
+          action: string
+          created_at?: string | null
+          data?: Json | null
+          hash: string
+          id?: string
+          module: string
+          previous_hash?: string | null
+          project_id?: string | null
+          result: string
+          severity?: string | null
+        }
+        Update: {
+          action?: string
+          created_at?: string | null
+          data?: Json | null
+          hash?: string
+          id?: string
+          module?: string
+          previous_hash?: string | null
+          project_id?: string | null
+          result?: string
+          severity?: string | null
+        }
+        Relationships: []
+      }
+      tamv_metrics: {
+        Row: {
+          component: string
+          created_at: string | null
+          id: string
+          layer: number | null
+          metric_name: string
+          metric_unit: string | null
+          metric_value: number
+          tags: Json | null
+        }
+        Insert: {
+          component: string
+          created_at?: string | null
+          id?: string
+          layer?: number | null
+          metric_name: string
+          metric_unit?: string | null
+          metric_value: number
+          tags?: Json | null
+        }
+        Update: {
+          component?: string
+          created_at?: string | null
+          id?: string
+          layer?: number | null
+          metric_name?: string
+          metric_unit?: string | null
+          metric_value?: number
+          tags?: Json | null
+        }
+        Relationships: []
+      }
+      tamv_protocol_state: {
+        Row: {
+          created_at: string | null
+          health_score: number | null
+          id: string
+          integrity_hash: string
+          last_eval_at: string | null
+          last_metrics_snapshot: string | null
+          next_actions: Json | null
+          phase: number
+          project_id: string | null
+          status: string | null
+          subphase: Json
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          health_score?: number | null
+          id?: string
+          integrity_hash?: string
+          last_eval_at?: string | null
+          last_metrics_snapshot?: string | null
+          next_actions?: Json | null
+          phase?: number
+          project_id?: string | null
+          status?: string | null
+          subphase?: Json
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          health_score?: number | null
+          id?: string
+          integrity_hash?: string
+          last_eval_at?: string | null
+          last_metrics_snapshot?: string | null
+          next_actions?: Json | null
+          phase?: number
+          project_id?: string | null
+          status?: string | null
+          subphase?: Json
+          updated_at?: string | null
+        }
+        Relationships: []
+      }
+      tamv_system_analysis: {
+        Row: {
+          analysis_type: string
+          auto_fix_applied: boolean | null
+          auto_fix_available: boolean | null
+          component: string
+          created_at: string | null
+          description: string
+          id: string
+          metrics: Json | null
+          recommendation: string | null
+          resolved_at: string | null
+          severity: string | null
+          status: string | null
+        }
+        Insert: {
+          analysis_type: string
+          auto_fix_applied?: boolean | null
+          auto_fix_available?: boolean | null
+          component: string
+          created_at?: string | null
+          description: string
+          id?: string
+          metrics?: Json | null
+          recommendation?: string | null
+          resolved_at?: string | null
+          severity?: string | null
+          status?: string | null
+        }
+        Update: {
+          analysis_type?: string
+          auto_fix_applied?: boolean | null
+          auto_fix_available?: boolean | null
+          component?: string
+          created_at?: string | null
+          description?: string
+          id?: string
+          metrics?: Json | null
+          recommendation?: string | null
+          resolved_at?: string | null
+          severity?: string | null
+          status?: string | null
+        }
+        Relationships: []
+      }
       transactions: {
         Row: {
           amount: number
@@ -281,6 +485,16 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      calculate_audit_hash: {
+        Args: {
+          p_action: string
+          p_data: Json
+          p_module: string
+          p_previous_hash: string
+          p_result: string
+        }
+        Returns: string
+      }
       has_role: {
         Args: {
           _role: Database["public"]["Enums"]["app_role"]
