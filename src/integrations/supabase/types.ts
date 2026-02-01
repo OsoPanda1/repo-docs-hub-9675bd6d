@@ -80,6 +80,63 @@ export type Database = {
         }
         Relationships: []
       }
+      isabella_events: {
+        Row: {
+          aign_score: number | null
+          content: string | null
+          conversation_id: string
+          created_at: string
+          ethical_state: string | null
+          event_type: string
+          governance_flag: string | null
+          guardian_user_id: string | null
+          hitl_required: boolean | null
+          id: string
+          is_creator: boolean | null
+          layer: string
+          meta: Json | null
+          risk_level: string | null
+          role: string
+          session_id: string
+        }
+        Insert: {
+          aign_score?: number | null
+          content?: string | null
+          conversation_id: string
+          created_at?: string
+          ethical_state?: string | null
+          event_type: string
+          governance_flag?: string | null
+          guardian_user_id?: string | null
+          hitl_required?: boolean | null
+          id?: string
+          is_creator?: boolean | null
+          layer: string
+          meta?: Json | null
+          risk_level?: string | null
+          role: string
+          session_id: string
+        }
+        Update: {
+          aign_score?: number | null
+          content?: string | null
+          conversation_id?: string
+          created_at?: string
+          ethical_state?: string | null
+          event_type?: string
+          governance_flag?: string | null
+          guardian_user_id?: string | null
+          hitl_required?: boolean | null
+          id?: string
+          is_creator?: boolean | null
+          layer?: string
+          meta?: Json | null
+          risk_level?: string | null
+          role?: string
+          session_id?: string
+        }
+        Relationships: []
+      }
       messages: {
         Row: {
           content: string
