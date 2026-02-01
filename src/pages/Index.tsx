@@ -86,13 +86,14 @@ const Index = () => {
     { icon: Flame, label: "Tendencias", path: "/trending" },
     { icon: Video, label: "Lives", path: "/lives" },
     { icon: Sparkles, label: "DreamSpaces", path: "/dreamspaces" },
-    { icon: GraduationCap, label: "Universidad", path: "/university" },
+    { icon: GraduationCap, label: "Universidad", path: "/utamv" },
     { icon: Music, label: "KAOS Music", path: "/kaos" },
-    { icon: Landmark, label: "Banco TAMV", path: "/economy" },
+    { icon: Landmark, label: "Motor Económico", path: "/motor-economico" },
     { icon: Users, label: "DAO", path: "/dao" },
     { icon: Palette, label: "Marketplace", path: "/marketplace" },
     { icon: User, label: "Mi Perfil", path: "/dashboard" },
     { icon: Brain, label: "Isabella AI", path: "/isabella" },
+    { icon: TrendingUp, label: "Status TAMV", path: "/status" },
   ];
 
   return (

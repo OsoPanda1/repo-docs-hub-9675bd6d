@@ -60,6 +60,7 @@ import CivilizationHub from "./pages/CivilizationHub";
 import GovernancePage from "./pages/GovernancePage";
 import IsabellaDashboard from "./pages/IsabellaDashboard";
 import ProtocoloInmortal from "./pages/ProtocoloInmortal";
+import TAMVStatusReport from "./pages/TAMVStatusReport";
 
 const queryClient = new QueryClient();
 
@@ -94,6 +95,7 @@ const App = () => (
           <Route path="/governance" element={<ProtectedRoute><GovernancePage /></ProtectedRoute>} />
           <Route path="/isabella-dashboard" element={<ProtectedRoute><IsabellaDashboard /></ProtectedRoute>} />
           <Route path="/protocolo-inmortal" element={<ProtocoloInmortal />} />
+          <Route path="/status" element={<TAMVStatusReport />} />
           <Route path="/docs" element={<Docs />}>
             <Route index element={<DocsHome />} />
             <Route path="manifest" element={<DocsManifest />} />
