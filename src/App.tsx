@@ -61,6 +61,11 @@ import GovernancePage from "./pages/GovernancePage";
 import IsabellaDashboard from "./pages/IsabellaDashboard";
 import ProtocoloInmortal from "./pages/ProtocoloInmortal";
 import TAMVStatusReport from "./pages/TAMVStatusReport";
+// New navigation pages
+import Trending from "./pages/Trending";
+import Lives from "./pages/Lives";
+import Events from "./pages/Events";
+import Security from "./pages/Security";
 
 const queryClient = new QueryClient();
 
@@ -82,6 +87,11 @@ const App = () => (
           <Route path="/dao" element={<ProtectedRoute><DAO /></ProtectedRoute>} />
           <Route path="/university" element={<University />} />
           <Route path="/kaos" element={<KAOSMusic />} />
+          {/* New Navigation Routes */}
+          <Route path="/trending" element={<Trending />} />
+          <Route path="/lives" element={<Lives />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/security" element={<ProtectedRoute><Security /></ProtectedRoute>} />
           {/* TAMV Omniverso - Core Modules */}
           <Route path="/sala-dedicatoria" element={<SalaXRDedicatoria />} />
           <Route path="/enciclopedia" element={<EnciclopediaDIGYTAMV />} />
