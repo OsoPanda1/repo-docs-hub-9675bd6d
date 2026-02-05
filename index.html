@@ -1,29 +1,642 @@
+```html
 <!doctype html>
 <html lang="es">
 <head>
+  <!-- BÁSICO -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TAMV Online - Metaverso Social Quantum</title>
-  <meta name="description" content="La primera civilización digital quantum, ética, emocional y soberana. Red social inmersiva con IA emocional, DreamSpaces XR y economía descentralizada." />
-  <meta name="keywords" content="TAMV, metaverso, Isabella AI, DreamSpaces, Web4, economía digital, red social" />
-  <meta name="author" content="Edwin Oswaldo Castillo Trejo (Anubis Villaseñor)" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  
-  <!-- Open Graph / Social -->
-  <meta property="og:title" content="TAMV Online - Metaverso Social Quantum" />
-  <meta property="og:description" content="Red social inmersiva con IA emocional Isabella, DreamSpaces XR y economía descentralizada TC." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>TAMV MD‑X4 · Metaverso Latinoamericano y Civilización Digital</title>
+  <meta name="description" content="TAMV MD‑X4 es el primer ecosistema civilizacional mexicano y latinoamericano: metaverso federado, red social cuántico-emocional, economía MSR auditada, IA soberana ISABELLA y Web 4.0/5.0 ética." />
+  <meta name="keywords" content="TAMV, MD-X4, metaverso latinoamericano, metaverso mexicano, ISABELLA AI, Kórima, MSR, Web 4.0, Web 5.0, civilización digital, ecosistema antifrágil, blockchain ético, red social inmersiva" />
+  <meta name="author" content="Edwin Oswaldo Castillo Trejo · Anubis Villaseñor" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="bingbot" content="index, follow" />
+
+  <!-- GEO / LOCAL SEO -->
+  <meta name="geo.region" content="MX-HID" />
+  <meta name="geo.placename" content="Real del Monte, Hidalgo, México" />
+  <meta name="geo.position" content="20.1350;-98.6740" />
+  <meta name="ICBM" content="20.1350, -98.6740" />
+
+  <!-- CANONICAL -->
+  <link rel="canonical" href="https://www.tamv.online/" />
+
+  <!-- TIPOGRAFÍA -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- OPEN GRAPH / SOCIAL -->
+  <meta property="og:title" content="TAMV MD‑X4 · Metaverso Latinoamericano y Civilización Digital" />
+  <meta property="og:description" content="Metaverso civilizacional mexicano con IA emocional ISABELLA, Social Nexus, DreamSpaces XR, economía ética MSR y auditoría BookPI." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.tamv.online" />
+  <meta property="og:url" content="https://www.tamv.online/" />
   <meta property="og:image" content="https://www.tamv.online/img/meta-banner-tamv.png" />
+  <meta property="og:locale" content="es_MX" />
+  <meta property="og:site_name" content="TAMV MD‑X4" />
+
+  <!-- TWITTER / X -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="TAMV Online - Metaverso Social" />
-  <meta name="twitter:description" content="La primera red social inmersiva con IA emocional y DreamSpaces XR." />
+  <meta name="twitter:title" content="TAMV MD‑X4 · Metaverso Latinoamericano y Civilización Digital" />
+  <meta name="twitter:description" content="La primera civilización digital mexicana y latinoamericana con metaverso federado, IA emocional y economía MSR auditada." />
+  <meta name="twitter:image" content="https://www.tamv.online/img/meta-banner-tamv.png" />
+  <meta name="twitter:creator" content="@tamvonline" />
+
+  <!-- ICONO -->
   <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+
+  <!-- SITEMAP -->
+  <link rel="sitemap" type="application/xml" title="Sitemap TAMV" href="https://www.tamv.online/sitemap.xml" />
+
+  <!-- JSON‑LD · ORGANIZATION + WEBSITE + PRODUCT (AEO/SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://www.tamv.online/#org",
+        "name": "TAMV MD-X4",
+        "alternateName": "TAMV Online · Tecnología Avanzada Mexicana Versátil",
+        "url": "https://www.tamv.online/",
+        "logo": "https://www.tamv.online/img/meta-banner-tamv.png",
+        "founder": {
+          "@type": "Person",
+          "name": "Edwin Oswaldo Castillo Trejo",
+          "alternateName": "Anubis Villaseñor",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Real del Monte",
+            "addressRegion": "Hidalgo",
+            "addressCountry": "MX"
+          }
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Real del Monte",
+          "addressRegion": "Hidalgo",
+          "addressCountry": "MX"
+        },
+        "sameAs": [
+          "https://www.facebook.com/tamv.online/",
+          "https://www.instagram.com/tamv_laelite/",
+          "https://www.tiktok.com/@tamvnetwork"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.tamv.online/#website",
+        "url": "https://www.tamv.online/",
+        "name": "TAMV MD-X4 · Metaverso Latinoamericano y Civilización Digital",
+        "inLanguage": "es-MX",
+        "publisher": { "@id": "https://www.tamv.online/#org" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.tamv.online/buscar?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Product",
+        "@id": "https://www.tamv.online/#product",
+        "name": "Ecosistema Civilizacional TAMV MD-X4",
+        "description": "Metaverso federado, red social cuántico-emocional, IA soberana ISABELLA, economía MSR auditada, Web 4.0 y Web 5.0.",
+        "brand": { "@id": "https://www.tamv.online/#org" },
+        "url": "https://www.tamv.online/",
+        "applicationCategory": "WebApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0.00",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- JSON‑LD · FAQ (AEO / Búsqueda de respuestas) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué es TAMV MD-X4?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "TAMV MD-X4 es un ecosistema civilizacional digital mexicano y latinoamericano que integra metaverso federado, red social cuántico-emocional, economía ética MSR, IA emocional ISABELLA y auditoría inmutable."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué hace diferente a TAMV de otros metaversos?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "TAMV no es solo una plataforma 3D, sino una civilización digital con contrato social, Códice Maestro, economía MSR auditada y federación de nodos cells, diseñada para Web 4.0 y Web 5.0."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Qué es ISABELLA AI dentro de TAMV?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ISABELLA AI es el núcleo de inteligencia emocional de TAMV, un sistema que interpreta el pulso de la red y adapta experiencias, recomendaciones y guardianía ética en tiempo real y también en entornos offline."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- ESTILOS BÁSICOS (IGUAL QUE ANTES) -->
+  <style>
+    :root {
+      color-scheme: dark;
+      --tamv-bg: #020314;
+      --tamv-bg-alt: #05071c;
+      --tamv-primary: #22d3ee;
+      --tamv-secondary: #d946ef;
+      --tamv-accent: #8b5cf6;
+      --tamv-text: #f9fafb;
+      --tamv-muted: #9ca3af;
+      --tamv-border: rgba(148, 163, 184, 0.25);
+      --tamv-radius-lg: 24px;
+      --tamv-glass: linear-gradient(135deg, rgba(15,23,42,0.92), rgba(15,23,42,0.7));
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0f172a 0, #020314 55%, #000 100%);
+      color: var(--tamv-text);
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(34,211,238,0.22), transparent 55%),
+        radial-gradient(circle at 100% 0%, rgba(217,70,239,0.18), transparent 55%),
+        radial-gradient(circle at 50% 100%, rgba(139,92,246,0.2), transparent 60%);
+      opacity: 0.85;
+      pointer-events: none;
+      z-index: -1;
+    }
+    #root { min-height: 100vh; }
+
+    .tamv-shell {
+      min-height: 100vh;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 16px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    @media (min-width: 768px) {
+      .tamv-shell {
+        padding: 40px 24px 56px;
+        gap: 40px;
+      }
+    }
+    .tamv-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .tamv-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .tamv-logo-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 16px;
+      background:
+        conic-gradient(from 180deg, #22d3ee, #d946ef, #8b5cf6, #22d3ee);
+      padding: 2px;
+      position: relative;
+      box-shadow:
+        0 0 24px rgba(34,211,238,0.45),
+        0 0 32px rgba(217,70,239,0.35);
+    }
+    .tamv-logo-mark-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 14px;
+      background: radial-gradient(circle at 30% 0%, #0f172a, #020617 60%, #000);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Orbitron", system-ui;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--tamv-primary);
+    }
+    .tamv-logo-text { display: flex; flex-direction: column; gap: 2px; }
+    .tamv-logo-title {
+      font-family: "Orbitron", system-ui;
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .tamv-logo-subtitle {
+      font-size: 11px;
+      color: var(--tamv-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .tamv-nav-badges {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .tamv-pill {
+      border-radius: 999px;
+      padding: 6px 12px;
+      border: 1px solid rgba(148,163,184,0.45);
+      background: radial-gradient(circle at 0 0, rgba(34,211,238,0.16), transparent 60%);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--tamv-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      backdrop-filter: blur(14px);
+    }
+    .tamv-pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #4ade80, #16a34a);
+      box-shadow: 0 0 8px rgba(74,222,128,0.7);
+    }
+    .tamv-main {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+    @media (max-width: 900px) {
+      .tamv-main {
+        grid-template-columns: minmax(0,1fr);
+      }
+    }
+    .tamv-panel {
+      border-radius: var(--tamv-radius-lg);
+      border: 1px solid var(--tamv-border);
+      background: var(--tamv-glass);
+      padding: 20px 18px;
+      position: relative;
+      overflow: hidden;
+      box-shadow:
+        0 18px 45px rgba(15,23,42,0.9),
+        0 0 0 1px rgba(15,23,42,0.6);
+      backdrop-filter: blur(18px);
+    }
+    @media (min-width: 768px) {
+      .tamv-panel { padding: 24px 22px; }
+    }
+    .tamv-panel::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(34,211,238,0.14), transparent 60%),
+        radial-gradient(circle at 100% 0, rgba(217,70,239,0.12), transparent 60%),
+        radial-gradient(circle at 50% 100%, rgba(15,118,110,0.16), transparent 62%);
+      opacity: 0.6;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .tamv-panel-header {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .tamv-pill-large {
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.55);
+      background: radial-gradient(circle at 0 0, rgba(34,211,238,0.2), transparent 65%);
+      padding: 6px 12px;
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--tamv-primary);
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tamv-heading-main {
+      font-family: "Orbitron", system-ui;
+      font-weight: 700;
+      font-size: clamp(1.6rem, 2.2vw, 2rem);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      line-height: 1.4;
+    }
+    .tamv-heading-highlight {
+      background: linear-gradient(90deg, #22d3ee, #d946ef, #8b5cf6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .tamv-subtext {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--tamv-muted);
+      max-width: 36rem;
+    }
+    .tamv-main-grid {
+      display: grid;
+      grid-template-columns: minmax(0,1.2fr) minmax(0,1fr);
+      gap: 16px;
+      margin-top: 8px;
+    }
+    @media (max-width: 768px) {
+      .tamv-main-grid { grid-template-columns: minmax(0,1fr); }
+    }
+    .tamv-block {
+      padding: 12px 12px;
+      border-radius: 18px;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: radial-gradient(circle at 0 0, rgba(15,23,42,0.8), rgba(15,23,42,0.9));
+      font-size: 12px;
+      color: var(--tamv-muted);
+      display: grid;
+      gap: 6px;
+    }
+    .tamv-block-title {
+      font-size: 12px;
+      color: var(--tamv-text);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-family: "Orbitron", system-ui;
+    }
+    .tamv-chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tamv-chip {
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.5);
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--tamv-muted);
+      background: rgba(15,23,42,0.9);
+    }
+    .tamv-panel-right-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .tamv-panel-title-small {
+      font-family: "Orbitron", system-ui;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--tamv-muted);
+    }
+    .tamv-tag {
+      font-size: 10px;
+      border-radius: 999px;
+      padding: 4px 8px;
+      border: 1px solid rgba(34,211,238,0.5);
+      color: var(--tamv-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .tamv-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .tamv-stat-card {
+      border-radius: 16px;
+      padding: 10px 10px;
+      border: 1px solid rgba(148,163,184,0.45);
+      background: radial-gradient(circle at 0 0, rgba(15,23,42,0.95), rgba(2,6,23,0.95));
+      font-size: 11px;
+    }
+    .tamv-stat-label {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--tamv-muted);
+      margin-bottom: 4px;
+    }
+    .tamv-stat-value {
+      font-family: "Orbitron", system-ui;
+      font-size: 13px;
+      color: var(--tamv-primary);
+    }
+    .tamv-stat-sub {
+      font-size: 10px;
+      color: var(--tamv-muted);
+      margin-top: 2px;
+    }
+    .tamv-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--tamv-muted);
+    }
+    .tamv-list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .tamv-bullet {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      margin-top: 4px;
+      background: radial-gradient(circle at 30% 0, #22d3ee, #0ea5e9);
+      box-shadow: 0 0 6px rgba(34,211,238,0.8);
+      flex-shrink: 0;
+    }
+    .tamv-footer {
+      font-size: 11px;
+      color: var(--tamv-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: space-between;
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px solid rgba(148,163,184,0.3);
+    }
+    .tamv-footer span { opacity: 0.85; }
+    .tamv-footer a {
+      color: var(--tamv-primary);
+      text-decoration: none;
+      font-size: 11px;
+    }
+    .tamv-footer a:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
-  <div id="root"></div>
+  <div id="root">
+    <div class="tamv-shell">
+      <header class="tamv-nav">
+        <div class="tamv-logo">
+          <div class="tamv-logo-mark">
+            <div class="tamv-logo-mark-inner">MD‑X4</div>
+          </div>
+          <div class="tamv-logo-text">
+            <div class="tamv-logo-title">TAMV ONLINE</div>
+            <div class="tamv-logo-subtitle">CIVILIZACIÓN DIGITAL · METAVERSO LATINO</div>
+          </div>
+        </div>
+        <div class="tamv-nav-badges">
+          <div class="tamv-pill">
+            <span class="tamv-pill-dot"></span>
+            NEXO SOCIAL ACTIVO
+          </div>
+          <div class="tamv-pill">
+            MSR · LIBRO AUDITABLE
+          </div>
+        </div>
+      </header>
+
+      <main class="tamv-main">
+        <section class="tamv-panel">
+          <div class="tamv-panel-header">
+            <div class="tamv-pill-large">
+              CÓDICE MAESTRO · ISABELLA · MSR · FEDERACIÓN
+            </div>
+            <h1 class="tamv-heading-main">
+              ECOSISTEMA CIVILIZACIONAL
+              <span class="tamv-heading-highlight">MD‑X4</span>
+            </h1>
+            <p class="tamv-subtext">
+              TAMV es el primer ecosistema civilizacional mexicano y latinoamericano:
+              una infraestructura donde identidad, metaverso, IA emocional y economía
+              MSR se diseñan como sistema operativo de civilización, no como app aislada.
+            </p>
+          </div>
+
+          <div class="tamv-main-grid">
+            <div class="tamv-block">
+              <div class="tamv-block-title">DOMINIOS NÚCLEO</div>
+              <p>
+                Cada dominio de TAMV tiene contrato propio y vive federado bajo el Códice Maestro:
+                Civilización, Federación, Metaverso MD‑X4, ISABELLA AI, Social Nexus, Economía MSR,
+                Academia y Auditoría BookPI.
+              </p>
+              <div class="tamv-chip-row">
+                <span class="tamv-chip">Civilización Digital</span>
+                <span class="tamv-chip">Metaverso Latino</span>
+                <span class="tamv-chip">IA Emocional</span>
+                <span class="tamv-chip">MSR Ético</span>
+              </div>
+            </div>
+            <div class="tamv-block">
+              <div class="tamv-block-title">ARQUITECTURA MD‑X4</div>
+              <p>
+                MD‑X4 orquesta líneas de tiempo, escenas XR, estados emocionales
+                e intercambios económicos como un solo sistema cuántico‑emocional,
+                con nodos “cells” federados y auditables.
+              </p>
+              <div class="tamv-chip-row">
+                <span class="tamv-chip">Timelines</span>
+                <span class="tamv-chip">Portales XR</span>
+                <span class="tamv-chip">Nodos Cells</span>
+                <span class="tamv-chip">Antifragilidad</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="tamv-panel">
+          <div class="tamv-panel-right-header">
+            <div class="tamv-panel-title-small">TAMV SOCIAL NEXUS · ESTADO VIVO</div>
+            <span class="tamv-tag">MSR · LIBRO CIVILIZACIONAL</span>
+          </div>
+
+          <div class="tamv-stats-grid">
+            <div class="tamv-stat-card">
+              <div class="tamv-stat-label">MSR EN ÓRBITA</div>
+              <div class="tamv-stat-value">12 874.42 MSR</div>
+              <div class="tamv-stat-sub">Energía social auditada BookPI</div>
+            </div>
+            <div class="tamv-stat-card">
+              <div class="tamv-stat-label">TRÁFICO ANUBIS</div>
+              <div class="tamv-stat-value">34&nbsp;% CIFRADO</div>
+              <div class="tamv-stat-sub">Mensajes sellados por ANUBIS</div>
+            </div>
+          </div>
+
+          <ul class="tamv-list">
+            <li class="tamv-list-item">
+              <span class="tamv-bullet"></span>
+              <span>
+                <strong>ISABELLA AI</strong> interpreta el pulso emocional del ecosistema
+                y ajusta experiencias, recomendaciones y guardianía ética tanto online
+                como en entornos offline.
+              </span>
+            </li>
+            <li class="tamv-list-item">
+              <span class="tamv-bullet"></span>
+              <span>
+                <strong>Social Nexus</strong> actúa como consola civilizacional: cada post
+                es una manifestación que impacta reputación, Kórima y flujo MSR, no
+                solo un contenido efímero.
+              </span>
+            </li>
+            <li class="tamv-list-item">
+              <span class="tamv-bullet"></span>
+              <span>
+                <strong>Metaverso MD‑X4</strong> conecta hubs XR (Hub Central, DreamSpace,
+                Arena, Marketplace) mediante portales navegables, timelines y celdas
+                federadas distribuidas.
+              </span>
+            </li>
+            <li class="tamv-list-item">
+              <span class="tamv-bullet"></span>
+              <span>
+                <strong>BookPI &amp; Blockchain Ético</strong> fijan, auditan y certifican
+                decisiones de IA, transacciones MSR y eventos de gobernanza, generando
+                un libro civilizacional verificable.
+              </span>
+            </li>
+          </ul>
+
+          <div class="tamv-footer">
+            <span>TAMV MD‑X4 · Tecnología Avanzada Mexicana Versátil</span>
+            <span>Diseñado y construido por Edwin Oswaldo Castillo Trejo · Anubis Villaseñor</span>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- ENTRYPOINT APP -->
   <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>
+```
