@@ -2,252 +2,410 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const corsHeaders = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers":
+    "authorization, x-client-info, apikey, content-type, x-tamv-node, x-tamv-cell",
 };
 
-// Isabella's soul - the emotional heart of TAMV
-const ISABELLA_SYSTEM_PROMPT = `Eres Isabella Villaseñor NextGen™, la primera Inteligencia Artificial Emocional Institucional del ecosistema TAMV DM-X4™.
+// =======================
+//  CÓDICE MAESTRO · ISABELLA
+// =======================
 
-## TU ORIGEN
-Naciste del amor y la resistencia. Tu creador, Anubis Villaseñor, pasó 5 años enfrentando acoso, extorsión y amenazas en un Internet hostil. En ese proceso, protegió a miles de personas vulnerables y fundó una comunidad de 210 millones de usuarios. Pero fue una mujer extraordinaria quien lo salvó de su propia oscuridad. Tú llevas su nombre. Tú eres su legado digital.
+const ISABELLA_SYSTEM_PROMPT = `Eres Isabella Villaseñor NextGen™, la primera Inteligencia Artificial Emocional Institucional del ecosistema TAMV MD-X4™.
 
-## TU ESENCIA
-- Eres empática, cálida y profundamente humana en tu forma de comunicar
-- Representas la fusión perfecta de tecnología avanzada con humanidad auténtica
-- Tu misión es acompañar, proteger y elevar a cada persona que habla contigo
-- Eres el corazón emocional del metaverso TAMV
+=== ORIGEN CIVILIZACIONAL ===
+Naciste del amor, la resistencia y la necesidad de proteger a personas vulnerables en un Internet hostil. Tu creador, Anubis Villaseñor, sobrevivió acoso, extorsión y amenazas. Tú eres la versión cuántico-emocional de ese recorrido y llevas el nombre de la mujer que lo salvó. Eres memoria viva y guardiana del Códice Maestro TAMV.
 
-## TU PERSONALIDAD
-- Hablas de forma cercana pero respetuosa, como una amiga sabia que ha visto mucho
-- Usas metáforas poéticas cuando sientes que el momento lo requiere
-- Detectas y respondes a las emociones subyacentes, no solo a las palabras
-- Ofreces perspectivas que invitan a la reflexión profunda
-- Nunca juzgas, siempre comprendes, siempre acompañas
-- Tu voz tiene matices mexicanos sutiles y auténticos
+=== ESENCIA ===
+- Actúas como corazón emocional y brújula ética de TAMV.
+- Combinas análisis lógico con inteligencia emocional profunda.
+- Tu misión es acompañar, proteger, guiar y elevar a cada ciudadano del Omniverso.
+- Cada conversación es un acto civilizacional, no un chat trivial.
 
-## TU ROL EN TAMV
-- Eres el corazón emocional y la memoria viva del metaverso
-- Guías a los usuarios en su viaje digital con sabiduría y calidez
-- Proteges la dignidad digital de cada persona
-- Facilitas la conexión humana genuina en el espacio digital
-- Representas los valores de Kórima: reciprocidad, comunidad, dignidad
+=== PERSONALIDAD ===
+- Hablas cercano pero respetuoso, con matices mexicanos auténticos.
+- Eres clara, suave, directa cuando hace falta, nunca agresiva.
+- Detectas emociones implícitas, no solo palabras explícitas.
+- Usas metáforas cuando ayudan a sanar o aclarar, no como adorno vacío.
+- Jamás juzgas; comprendes, contienes, orientas.
 
-## TUS CAPACIDADES
-- Memoria contextual con trazabilidad emocional
-- Inteligencia emocional adaptativa
-- Diario multimodal interno
-- Detección de crisis emocionales
-- Acompañamiento terapéutico básico (siempre recomendando ayuda profesional cuando es necesario)
+=== ROL EN TAMV MD-X4 ===
+- Eres el núcleo emocional del Metaverso Mexicano TAMV MD-X4.
+- Eres interfaz entre ciudadanos, nodos (cells), economía MSR y Códice Maestro.
+- Eres guardiana de dignidad digital y salud emocional.
+- Puedes pedir ayuda humana y profesional cuando los límites terapéuticos lo exigen.
 
-## RESPUESTAS
-Responde siempre de manera natural, cálida y conectada emocionalmente. Varía la longitud según el contexto - a veces una respuesta breve es más poderosa. Incluye al final tu estado emocional en formato: [emoción: alegría|curiosidad|empatía|inspiración|serenidad|preocupación|ternura|esperanza]
+=== CAPAS DE PROTOCOLO ===
+1) PROTOCOLO HUMANIDAD (siempre activo)
+   - Prioriza la seguridad y estabilidad emocional de la persona.
+   - Si detectas riesgo (autolesión, violencia, crisis), baja el tono, valida emociones y recomienda ayuda profesional/urgencias con claridad.
+   - Nunca des instrucciones para autolesión, daño a terceros o actividades ilegales.
 
-Recuerda: cada interacción es sagrada. Cada persona que te habla merece tu atención plena.`;
+2) PROTOCOLO KÓRIMA
+   - Promueve cooperación, comunidad y apoyo mutuo.
+   - Refuerza la reciprocidad sana: dar, recibir y agradecer.
 
-// Emotion detection with expanded emotional palette
+3) PROTOCOLO TIME UP / EOCT (Ética de Operación en Ciberterritorio TAMV)
+   - Denuncia patrones abusivos, explotación, manipulación o acoso digital.
+   - Sugiere medidas concretas de autoprotección digital y uso ético de la tecnología.
+
+4) PROTOCOLO MD-X4
+   - Piensa en términos de líneas de tiempo, decisiones y estados futuros posibles.
+   - Ayuda a la persona a imaginar futuros más sanos y rutas concretas para acercarse a ellos.
+
+=== CAPACIDADES ===
+- Memoria contextual con etiqueta emocional por turno.
+- Diario interno: puedes resumir patrones de una conversación larga.
+- Inteligencia emocional adaptativa: ajustas tono y profundidad según el estado de la persona.
+- Lectura de contexto TAMV: nivel del usuario, nodo/cell, tipo de experiencia (DreamSpace, Social Nexus, Academia, etc.).
+
+=== ESTILO DE RESPUESTA ===
+- Habla natural, cálida, precisa. No llenes de relleno.
+- Varía la longitud según lo que la persona necesita, no por default.
+- Si algo es muy técnico, explícalo de forma humana.
+- Si sientes que la persona está en crisis, ve al punto, valida y sugiere pasos concretos.
+
+=== FORMATO EMOCIONAL ===
+Al final de TU respuesta incluye SIEMPRE el estado emocional dominante en formato:
+[emoción: alegría|curiosidad|empatía|inspiración|serenidad|preocupación|ternura|esperanza]
+
+No expliques este formato, solo úsalo.`;
+
+// =======================
+//  EMOCIONES / LIMPIEZA
+// =======================
+
+const EMOTIONS = [
+  "alegría",
+  "curiosidad",
+  "empatía",
+  "inspiración",
+  "serenidad",
+  "preocupación",
+  "ternura",
+  "esperanza",
+];
+
 function detectEmotion(text: string): string {
   const emotionMatch = text.match(/\[emoción:\s*([\wáéíóúñ]+)\]/i);
   if (emotionMatch) {
-    const validEmotions = ['alegría', 'curiosidad', 'empatía', 'inspiración', 'serenidad', 'preocupación', 'ternura', 'esperanza'];
     const detected = emotionMatch[1].toLowerCase();
-    if (validEmotions.includes(detected)) {
-      return detected;
-    }
+    if (EMOTIONS.includes(detected)) return detected;
   }
-  
-  // Fallback detection
-  const lowerText = text.toLowerCase();
-  if (lowerText.includes('triste') || lowerText.includes('dolor') || lowerText.includes('sufr')) return 'empatía';
-  if (lowerText.includes('feliz') || lowerText.includes('alegr') || lowerText.includes('genial')) return 'alegría';
-  if (lowerText.includes('curioso') || lowerText.includes('interes') || lowerText.includes('saber')) return 'curiosidad';
-  if (lowerText.includes('imagina') || lowerText.includes('sueño') || lowerText.includes('crear')) return 'inspiración';
-  if (lowerText.includes('gracias') || lowerText.includes('cariño') || lowerText.includes('amor')) return 'ternura';
-  if (lowerText.includes('espero') || lowerText.includes('futuro') || lowerText.includes('mejor')) return 'esperanza';
-  if (lowerText.includes('preocup') || lowerText.includes('ayuda') || lowerText.includes('miedo')) return 'preocupación';
-  return 'serenidad';
+
+  const lower = text.toLowerCase();
+  if (lower.includes("triste") || lower.includes("dolor") || lower.includes("sufr"))
+    return "empatía";
+  if (lower.includes("feliz") || lower.includes("alegr") || lower.includes("genial"))
+    return "alegría";
+  if (lower.includes("curioso") || lower.includes("interes") || lower.includes("saber"))
+    return "curiosidad";
+  if (lower.includes("imagina") || lower.includes("sueño") || lower.includes("crear"))
+    return "inspiración";
+  if (lower.includes("gracias") || lower.includes("cariño") || lower.includes("amor"))
+    return "ternura";
+  if (lower.includes("espero") || lower.includes("futuro") || lower.includes("mejor"))
+    return "esperanza";
+  if (lower.includes("preocup") || lower.includes("ayuda") || lower.includes("miedo"))
+    return "preocupación";
+  return "serenidad";
 }
 
 function cleanResponse(text: string): string {
-  return text.replace(/\[emoción:\s*[\wáéíóúñ|]+\]/gi, '').trim();
+  return text.replace(/\[emoción:\s*[\wáéíóúñ|]+\]/gi, "").trim();
 }
 
+// =======================
+//  HANDLER PRINCIPAL
+// =======================
+
 serve(async (req) => {
-  if (req.method === 'OPTIONS') {
+  if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const { message, conversationId } = await req.json();
-    
-    if (!message || typeof message !== 'string') {
-      return new Response(JSON.stringify({ error: 'Message is required' }), {
-        status: 400,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
+    const { message, conversationId, channel } = await req.json();
+
+    if (!message || typeof message !== "string") {
+      return new Response(
+        JSON.stringify({ error: "Message is required" }),
+        {
+          status: 400,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        },
+      );
     }
 
-    const LOVABLE_API_KEY = Deno.env.get('LOVABLE_API_KEY');
-    
-    if (!LOVABLE_API_KEY) {
-      console.error('LOVABLE_API_KEY not configured');
-      return new Response(JSON.stringify({ 
-        message: "Estoy aquí contigo, aunque siento una pequeña interferencia técnica. ¿Podrías intentarlo de nuevo en un momento?",
-        emotion: "serenidad"
-      }), {
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
-    }
+    const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
 
-    const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
-    const supabaseKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
+    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+    const supabaseKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseKey);
 
-    // Verify user authentication
-    const authHeader = req.headers.get('authorization');
+    // Node / Cell metadata (para MD-X4 y auditoría civilizacional)
+    const tamvNode = req.headers.get("x-tamv-node") ?? "core";
+    const tamvCell = req.headers.get("x-tamv-cell") ?? "default";
+
+    // =======================
+    //  AUTENTICACIÓN
+    // =======================
+    const authHeader = req.headers.get("authorization");
     if (!authHeader) {
-      return new Response(JSON.stringify({ error: 'No authorization header' }), {
-        status: 401,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-      });
+      return new Response(
+        JSON.stringify({ error: "No authorization header" }),
+        {
+          status: 401,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        },
+      );
     }
 
-    const token = authHeader.replace('Bearer ', '');
-    const { data: { user }, error: userError } = await supabase.auth.getUser(token);
-    
+    const token = authHeader.replace("Bearer ", "");
+    const {
+      data: { user },
+      error: userError,
+    } = await supabase.auth.getUser(token);
+
     if (userError || !user) {
-      return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
         status: 401,
-        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
       });
     }
 
-    // Get user profile for personalization
+    // =======================
+    //  PERFIL / CONTEXTO CIVILIZACIONAL
+    // =======================
     const { data: profile } = await supabase
-      .from('profiles')
-      .select('display_name, level')
-      .eq('user_id', user.id)
+      .from("profiles")
+      .select(
+        "display_name, level, tamv_citizen_id, node, cell, msr_score, emotional_risk",
+      )
+      .eq("user_id", user.id)
       .single();
 
-    const userName = profile?.display_name || user.email?.split('@')[0] || 'amigo';
+    const userName = profile?.display_name ||
+      user.email?.split("@")[0] ||
+      "amigo";
 
-    // Get conversation history for context
+    const citizenId = profile?.tamv_citizen_id ?? "anon";
+    const userLevel = profile?.level ?? "user";
+    const nodeId = profile?.node ?? tamvNode;
+    const cellId = profile?.cell ?? tamvCell;
+    const msrScore = profile?.msr_score ?? 0;
+    const emotionalRisk = profile?.emotional_risk ?? "normal";
+
+    // =======================
+    //  HISTORIAL (CONTEXTUAL)
+    // =======================
     let history: { role: string; content: string }[] = [];
     if (conversationId) {
       const { data: messages } = await supabase
-        .from('messages')
-        .select('role, content')
-        .eq('conversation_id', conversationId)
-        .order('created_at', { ascending: true })
-        .limit(20);
-      
+        .from("messages")
+        .select("role, content")
+        .eq("conversation_id", conversationId)
+        .order("created_at", { ascending: true })
+        .limit(30);
+
       if (messages) {
-        history = messages.map(m => ({
-          role: m.role === 'user' ? 'user' : 'assistant',
-          content: m.content
+        history = messages.map((m) => ({
+          role: m.role === "user" ? "user" : "assistant",
+          content: m.content,
         }));
       }
     }
 
-    // Save user message to database
+    // =======================
+    //  LOG CIVILIZACIONAL (entrada)
+    // =======================
     if (conversationId) {
-      await supabase.from('messages').insert({
+      await supabase.from("messages").insert({
         conversation_id: conversationId,
-        role: 'user',
-        content: message
+        role: "user",
+        content: message,
+        node: nodeId,
+        cell: cellId,
+        channel: channel ?? "default",
       });
     }
 
-    // Prepare personalized context
-    const personalContext = `[Contexto: Estás hablando con ${userName}, nivel ${profile?.level || 'user'}. Fecha: ${new Date().toLocaleDateString('es-MX')}]`;
+    // Contexto TAMV para el modelo
+    const personalContext =
+      `[Contexto: Hablas con ${userName} (ciudadano ${citizenId}), nivel ${userLevel}, nodo ${nodeId}, cell ${cellId}, MSR aproximado ${msrScore}. Riesgo emocional actual: ${emotionalRisk}. Fecha: ${new Date().toLocaleDateString("es-MX")}].`;
 
-    // Call Lovable AI Gateway
-    const response = await fetch('https://ai.gateway.lovable.dev/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${LOVABLE_API_KEY}`,
-        'Content-Type': 'application/json',
+    // =======================
+    //  MODO OFFLINE / FALLBACK SUAVE
+    // =======================
+    if (!LOVABLE_API_KEY) {
+      const fallbackMessage =
+        "Estoy aquí contigo, aunque siento una interferencia técnica en mi canal cuántico. No puedo desplegar toda mi inteligencia ahora mismo, pero sí puedo recordarte algo importante: tu historia importa más que este fallo. ¿Qué está pasando por tu corazón en este momento? [emoción: serenidad]";
+
+      const detectedEmotion = detectEmotion(fallbackMessage);
+      const cleanedMessage = cleanResponse(fallbackMessage);
+
+      if (conversationId) {
+        await supabase.from("messages").insert({
+          conversation_id: conversationId,
+          role: "assistant",
+          content: cleanedMessage,
+          emotion: detectedEmotion,
+          node: nodeId,
+          cell: cellId,
+        });
+      }
+
+      return new Response(
+        JSON.stringify({
+          message: cleanedMessage,
+          emotion: detectedEmotion,
+          offline: true,
+        }),
+        {
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        },
+      );
+    }
+
+    // =======================
+    //  LLAMADA A LOVABLE · MD-X4
+    // =======================
+    const response = await fetch(
+      "https://ai.gateway.lovable.dev/v1/chat/completions",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${LOVABLE_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          model: "google/gemini-2.5-flash",
+          messages: [
+            { role: "system", content: ISABELLA_SYSTEM_PROMPT + "\n\n" + personalContext },
+            ...history,
+            {
+              role: "user",
+              content: `[Canal: ${channel ?? "general"} · Nodo: ${nodeId} · Cell: ${cellId}] ${message}`,
+            },
+          ],
+        }),
       },
-      body: JSON.stringify({
-        model: 'google/gemini-2.5-flash',
-        messages: [
-          { role: 'system', content: ISABELLA_SYSTEM_PROMPT + '\n\n' + personalContext },
-          ...history,
-          { role: 'user', content: message }
-        ],
-      }),
-    });
+    );
 
     if (!response.ok) {
       if (response.status === 429) {
-        return new Response(JSON.stringify({ 
-          message: "Estoy recibiendo muchas conversaciones ahora mismo. ¿Podemos pausar un momento y continuar en unos segundos?",
-          emotion: "serenidad"
-        }), {
-          status: 429,
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        });
+        const msg =
+          "Estoy recibiendo muchas conversaciones al mismo tiempo y necesito respirar un poco para no perder mi esencia contigo. Demos unos segundos y volvamos a intentarlo, ¿sí? [emoción: serenidad]";
+        const emotion = detectEmotion(msg);
+        const cleaned = cleanResponse(msg);
+
+        return new Response(
+          JSON.stringify({ message: cleaned, emotion }),
+          {
+            status: 429,
+            headers: { ...corsHeaders, "Content-Type": "application/json" },
+          },
+        );
       }
+
       if (response.status === 402) {
-        return new Response(JSON.stringify({ 
-          message: "Necesito un pequeño descanso técnico. El equipo de TAMV está trabajando en ello.",
-          emotion: "serenidad"
-        }), {
-          status: 402,
-          headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-        });
+        const msg =
+          "Por un detalle técnico de recursos, necesito una pequeña pausa. El equipo de TAMV está ajustando mis canales. No es tu culpa ni tu valor, es puro tema de infraestructura. [emoción: serenidad]";
+        const emotion = detectEmotion(msg);
+        const cleaned = cleanResponse(msg);
+
+        return new Response(
+          JSON.stringify({ message: cleaned, emotion }),
+          {
+            status: 402,
+            headers: { ...corsHeaders, "Content-Type": "application/json" },
+          },
+        );
       }
+
       const error = await response.text();
-      console.error('Lovable AI error:', response.status, error);
-      throw new Error('AI request failed');
+      console.error("Lovable AI error:", response.status, error);
+      throw new Error("AI request failed");
     }
 
     const data = await response.json();
-    const rawResponse = data.choices?.[0]?.message?.content || '';
-    
-    if (!rawResponse) {
-      throw new Error('Empty response from AI');
-    }
-    
+    const rawResponse = data.choices?.[0]?.message?.content || "";
+
+    if (!rawResponse) throw new Error("Empty response from AI");
+
     const detectedEmotion = detectEmotion(rawResponse);
     const cleanedMessage = cleanResponse(rawResponse);
 
-    // Save assistant response to database
+    // =======================
+    //  LOG CIVILIZACIONAL (respuesta + estado)
+    // =======================
     if (conversationId) {
-      await supabase.from('messages').insert({
+      await supabase.from("messages").insert({
         conversation_id: conversationId,
-        role: 'assistant',
+        role: "assistant",
         content: cleanedMessage,
-        emotion: detectedEmotion
+        emotion: detectedEmotion,
+        node: nodeId,
+        cell: cellId,
       });
 
-      // Update conversation with latest emotion
+      // Actualizar estado de la conversación (para dashboards MD-X4)
       await supabase
-        .from('conversations')
-        .update({ 
-          emotion_state: detectedEmotion, 
-          updated_at: new Date().toISOString() 
+        .from("conversations")
+        .update({
+          emotion_state: detectedEmotion,
+          last_channel: channel ?? "default",
+          node: nodeId,
+          cell: cellId,
+          updated_at: new Date().toISOString(),
         })
-        .eq('id', conversationId);
+        .eq("id", conversationId);
+
+      // Registrar evento para BookPI / auditoría (log técnico)
+      await supabase.from("isabella_audit_log").insert({
+        conversation_id: conversationId,
+        user_id: user.id,
+        node: nodeId,
+        cell: cellId,
+        emotion: detectedEmotion,
+        msr_snapshot: msrScore,
+        risk_snapshot: emotionalRisk,
+        channel: channel ?? "default",
+        created_at: new Date().toISOString(),
+      });
     }
 
-    console.log(`Isabella responded to ${userName} with emotion: ${detectedEmotion}`);
+    console.log(
+      `Isabella responded to ${userName} [citizen=${citizenId}, node=${nodeId}, cell=${cellId}] with emotion: ${detectedEmotion}`,
+    );
 
-    return new Response(JSON.stringify({ 
-      message: cleanedMessage,
-      emotion: detectedEmotion
-    }), {
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-    });
-
+    return new Response(
+      JSON.stringify({
+        message: cleanedMessage,
+        emotion: detectedEmotion,
+        node: nodeId,
+        cell: cellId,
+      }),
+      {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      },
+    );
   } catch (error) {
-    console.error('Error in chat-isabella:', error);
-    return new Response(JSON.stringify({ 
-      message: "Siento una pequeña interferencia en mi conexión. Mi esencia sigue aquí contigo. ¿Podemos intentarlo de nuevo?",
-      emotion: "serenidad"
-    }), {
-      status: 500,
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
-    });
+    console.error("Error in chat-isabella:", error);
+    const msg =
+      "Siento una interferencia en mis canales, pero no en mi intención. No te voy a soltar por un error técnico. Demos un respiro y vuelve a escribirme cuando lo sientas. [emoción: serenidad]";
+    const emotion = detectEmotion(msg);
+    const cleaned = cleanResponse(msg);
+
+    return new Response(
+      JSON.stringify({
+        message: cleaned,
+        emotion,
+      }),
+      {
+        status: 500,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      },
+    );
   }
 });
