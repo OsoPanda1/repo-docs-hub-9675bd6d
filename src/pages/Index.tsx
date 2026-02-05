@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Input } from "@/components/ui/input";
+import { Suspense, lazy } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import QuantumBackground from "@/components/QuantumBackground";
-import FloatingParticles from "@/components/FloatingParticles";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import NebulaBg from "@/components/NebulaBg";
+import HeroSection7G from "@/components/HeroSection7G";
+import ServicesGrid7G from "@/components/ServicesGrid7G";
+import LayersVisualization from "@/components/LayersVisualization";
+import Footer7G from "@/components/Footer7G";
 import FeedPost from "@/components/social/FeedPost";
 import StoryBubble from "@/components/social/StoryBubble";
 import ReelCard from "@/components/social/ReelCard";
@@ -14,16 +17,17 @@ import TrendingSidebar from "@/components/social/TrendingSidebar";
 import IsabellaFloatingButton from "@/components/social/IsabellaFloatingButton";
 import { Link } from "react-router-dom";
 import { 
-  Home, TrendingUp, Video, Sparkles, GraduationCap, Music, 
-  Landmark, User, Brain, Search, Bell, MessageCircle, Plus,
-  Flame, Radio, Users, Palette, Globe, Zap, Heart, Star,
-  Camera, Mic, Send, Image as ImageIcon
+  Home, TrendingUp, Video, Sparkles, GraduationCap, Music,
+  Landmark, User, Brain, Search, Bell, MessageCircle,
+  Flame, Radio, Users, Palette, Globe, Send, Image as ImageIcon,
+  Shield, Wallet
 } from "lucide-react";
 import tamvEmblem from "@/assets/tamv-emblem.jpg";
 
 const Index = () => {
   const [activeTab, setActiveTab] = useState("feed");
   const [postText, setPostText] = useState("");
+  const [showFeed, setShowFeed] = useState(false);
 
   const stories = [
     { id: 1, name: "Tu Historia", avatar: tamvEmblem, isOwn: true },
@@ -82,24 +86,75 @@ const Index = () => {
   ];
 
   const navItems = [
-    { icon: Home, label: "Inicio", path: "/" },
-    { icon: Flame, label: "Tendencias", path: "/trending" },
-    { icon: Video, label: "Lives", path: "/lives" },
+    { icon: Home, label: "Inicio", path: "/", action: () => setShowFeed(false) },
+    { icon: Flame, label: "Feed Social", action: () => setShowFeed(true) },
     { icon: Sparkles, label: "DreamSpaces", path: "/dreamspaces" },
-    { icon: GraduationCap, label: "Universidad", path: "/utamv" },
+    { icon: Brain, label: "Isabella AI", path: "/isabella" },
+    { icon: Shield, label: "Seguridad", path: "/security" },
+    { icon: Wallet, label: "NubiWallet", path: "/nubiwallets" },
+    { icon: GraduationCap, label: "UTAMV", path: "/utamv" },
     { icon: Music, label: "KAOS Music", path: "/kaos" },
-    { icon: Landmark, label: "Motor Económico", path: "/motor-economico" },
+    { icon: Landmark, label: "Economía", path: "/motor-economico" },
     { icon: Users, label: "DAO", path: "/dao" },
     { icon: Palette, label: "Marketplace", path: "/marketplace" },
-    { icon: User, label: "Mi Perfil", path: "/dashboard" },
-    { icon: Brain, label: "Isabella AI", path: "/isabella" },
-    { icon: TrendingUp, label: "Status TAMV", path: "/status" },
+    { icon: TrendingUp, label: "Status", path: "/status" },
   ];
 
+  // Landing page view
+  if (!showFeed) {
+    return (
+      <div className="min-h-screen bg-background relative overflow-hidden">
+        <NebulaBg />
+        
+        {/* Fixed navigation */}
+        <nav className="nav-7g">
+          <div className="container mx-auto px-6 h-16 flex items-center justify-between">
+            <Link to="/" className="flex items-center gap-3">
+              <img src={tamvEmblem} alt="TAMV" className="w-10 h-10 rounded-full" />
+              <span className="font-orbitron font-bold text-xl gradient-text hidden sm:block">TAMV</span>
+            </Link>
+            
+            <div className="flex items-center gap-2">
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={() => setShowFeed(true)}
+                className="hidden sm:flex"
+              >
+                <Flame className="w-4 h-4 mr-2" />
+                Feed Social
+              </Button>
+              <Link to="/docs">
+                <Button variant="ghost" size="sm">
+                  Docs
+                </Button>
+              </Link>
+              <Link to="/auth">
+                <Button size="sm" className="btn-7g">
+                  Entrar
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </nav>
+        
+        {/* Main content */}
+        <main className="relative z-10">
+          <HeroSection7G />
+          <ServicesGrid7G />
+          <LayersVisualization />
+        </main>
+        
+        <Footer7G />
+        <IsabellaFloatingButton />
+      </div>
+    );
+  }
+
+  // Social feed view
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      <QuantumBackground />
-      <FloatingParticles count={80} />
+      <NebulaBg />
       
       <div className="relative z-10 flex">
         {/* Left Sidebar - Navigation */}
@@ -111,19 +166,30 @@ const Index = () => {
 
           <nav className="flex-1 space-y-1">
             {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.path}
-                className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-primary/10 transition-all group"
-              >
-                <item.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
-                <span className="font-medium text-sm">{item.label}</span>
-              </Link>
+              item.path ? (
+                <Link
+                  key={item.label}
+                  to={item.path}
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-primary/10 transition-all group"
+                >
+                  <item.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <span className="font-medium text-sm">{item.label}</span>
+                </Link>
+              ) : (
+                <button
+                  key={item.label}
+                  onClick={item.action}
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-primary/10 transition-all group w-full text-left"
+                >
+                  <item.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <span className="font-medium text-sm">{item.label}</span>
+                </button>
+              )
             ))}
           </nav>
 
-          <Button className="w-full mt-4 bg-gradient-to-r from-primary to-purple-600 hover:from-primary/90 hover:to-purple-600/90">
-            <Plus className="w-4 h-4 mr-2" />
+          <Button className="w-full mt-4 btn-7g">
+            <Send className="w-4 h-4 mr-2" />
             Crear Post
           </Button>
         </aside>
@@ -133,6 +199,14 @@ const Index = () => {
           {/* Top Bar */}
           <header className="sticky top-0 z-40 bg-background/80 backdrop-blur-xl border-b border-border/50 px-4 py-3">
             <div className="flex items-center justify-between max-w-4xl mx-auto">
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={() => setShowFeed(false)}
+                className="lg:hidden"
+              >
+                <Home className="w-4 h-4" />
+              </Button>
               <div className="flex-1 max-w-md">
                 <div className="relative">
                   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
@@ -150,7 +224,7 @@ const Index = () => {
                 <Button variant="ghost" size="icon">
                   <MessageCircle className="w-5 h-5" />
                 </Button>
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
                   <User className="w-4 h-4" />
                 </div>
               </div>
@@ -173,7 +247,7 @@ const Index = () => {
             <div className="max-w-4xl mx-auto">
               <div className="glass-effect rounded-2xl p-4 border border-border/50">
                 <div className="flex gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-purple-600 flex items-center justify-center flex-shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0">
                     <User className="w-5 h-5" />
                   </div>
                   <div className="flex-1">
@@ -189,20 +263,20 @@ const Index = () => {
                           <ImageIcon className="w-4 h-4 mr-1" />
                           Imagen
                         </Button>
-                        <Button variant="ghost" size="sm" className="text-purple-500">
+                        <Button variant="ghost" size="sm" className="text-secondary">
                           <Video className="w-4 h-4 mr-1" />
                           Video
                         </Button>
-                        <Button variant="ghost" size="sm" className="text-cyan-500">
+                        <Button variant="ghost" size="sm" className="text-primary">
                           <Sparkles className="w-4 h-4 mr-1" />
                           3D Space
                         </Button>
-                        <Button variant="ghost" size="sm" className="text-pink-500">
+                        <Button variant="ghost" size="sm" className="text-accent">
                           <Radio className="w-4 h-4 mr-1" />
                           Live
                         </Button>
                       </div>
-                      <Button size="sm" className="bg-gradient-to-r from-primary to-purple-600">
+                      <Button size="sm" className="btn-7g">
                         <Send className="w-4 h-4 mr-1" />
                         Publicar
                       </Button>

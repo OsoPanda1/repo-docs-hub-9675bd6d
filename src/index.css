@@ -411,6 +411,65 @@
   to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
 }
 
+@keyframes matrix-rain {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes energy-flow {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes data-stream {
+  0% { transform: translateX(-100%) rotate(-5deg); opacity: 0; }
+  50% { opacity: 0.6; }
+  100% { transform: translateX(100%) rotate(-5deg); opacity: 0; }
+}
+
+@keyframes quantum-pulse {
+  0%, 100% { 
+    box-shadow: 0 0 5px hsl(185 100% 50% / 0.5), 
+                0 0 10px hsl(185 100% 50% / 0.3), 
+                0 0 15px hsl(185 100% 50% / 0.2);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 20px hsl(185 100% 50% / 0.8), 
+                0 0 40px hsl(185 100% 50% / 0.5), 
+                0 0 60px hsl(185 100% 50% / 0.3);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes portal-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes nebula-drift {
+  0%, 100% { 
+    filter: hue-rotate(0deg) blur(60px);
+    opacity: 0.4;
+  }
+  33% { 
+    filter: hue-rotate(60deg) blur(80px);
+    opacity: 0.6;
+  }
+  66% { 
+    filter: hue-rotate(-60deg) blur(70px);
+    opacity: 0.5;
+  }
+}
+
 /* === Utility Classes === */
 @layer utilities {
   .text-balance {
@@ -440,5 +499,244 @@
 
   .backface-hidden {
     backface-visibility: hidden;
+  }
+
+  /* Advanced Animation Classes */
+  .animate-matrix-rain {
+    animation: matrix-rain 8s linear infinite;
+  }
+
+  .animate-energy-flow {
+    animation: energy-flow 15s ease infinite;
+    background-size: 400% 400%;
+  }
+
+  .animate-scan-line {
+    animation: scan-line 3s linear infinite;
+  }
+
+  .animate-data-stream {
+    animation: data-stream 5s linear infinite;
+  }
+
+  .animate-quantum-pulse {
+    animation: quantum-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-portal-spin {
+    animation: portal-spin 20s linear infinite;
+  }
+
+  .animate-nebula-drift {
+    animation: nebula-drift 20s ease-in-out infinite;
+  }
+}
+
+/* === 7th Generation Card System === */
+@layer components {
+  .card-7g {
+    @apply relative overflow-hidden;
+    background: linear-gradient(
+      145deg, 
+      hsl(225 30% 10% / 0.9) 0%, 
+      hsl(225 30% 6% / 0.8) 50%,
+      hsl(270 20% 8% / 0.9) 100%
+    );
+    border: 1px solid hsl(var(--primary) / 0.2);
+    border-radius: var(--radius-xl);
+    backdrop-filter: blur(20px);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .card-7g::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      hsl(var(--primary)) 20%, 
+      hsl(var(--secondary)) 50%, 
+      hsl(var(--accent)) 80%, 
+      transparent 100%
+    );
+    opacity: 0.5;
+  }
+
+  .card-7g::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 50% -20%,
+      hsl(var(--primary) / 0.15) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .card-7g:hover {
+    border-color: hsl(var(--primary) / 0.5);
+    transform: translateY(-4px);
+    box-shadow: 
+      0 20px 40px hsl(var(--primary) / 0.2),
+      0 0 0 1px hsl(var(--primary) / 0.1) inset;
+  }
+
+  /* Hero Section */
+  .hero-7g {
+    @apply relative min-h-screen flex items-center justify-center overflow-hidden;
+    background: radial-gradient(
+      ellipse 150% 100% at 50% 0%,
+      hsl(270 40% 12%) 0%,
+      hsl(225 25% 4%) 50%,
+      hsl(225 25% 2%) 100%
+    );
+  }
+
+  .hero-7g::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 20% 30%, hsl(185 100% 50% / 0.1) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, hsl(270 85% 60% / 0.1) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, hsl(320 90% 60% / 0.05) 0%, transparent 60%);
+    animation: nebula-drift 30s ease-in-out infinite;
+  }
+
+  /* Status Badge */
+  .badge-7g {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium;
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(var(--secondary) / 0.1));
+    border: 1px solid hsl(var(--primary) / 0.3);
+    backdrop-filter: blur(8px);
+  }
+
+  .badge-7g::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: hsl(var(--primary));
+    box-shadow: 0 0 10px hsl(var(--primary));
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* Metric Display */
+  .metric-7g {
+    @apply relative p-6 rounded-2xl text-center;
+    background: linear-gradient(
+      180deg,
+      hsl(var(--primary) / 0.1) 0%,
+      hsl(var(--card)) 100%
+    );
+    border: 1px solid hsl(var(--primary) / 0.2);
+  }
+
+  .metric-7g-value {
+    @apply text-4xl md:text-5xl font-orbitron font-bold;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 40px hsl(var(--primary) / 0.5);
+  }
+
+  /* Navigation 7G */
+  .nav-7g {
+    @apply fixed top-0 left-0 right-0 z-50;
+    background: linear-gradient(
+      180deg,
+      hsl(var(--background) / 0.9) 0%,
+      hsl(var(--background) / 0.7) 100%
+    );
+    backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  /* Button 7G */
+  .btn-7g {
+    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium overflow-hidden;
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    color: hsl(var(--primary-foreground));
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .btn-7g::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 0%, hsl(255 255 255 / 0.2) 50%, transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  .btn-7g:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 
+      0 10px 30px hsl(var(--primary) / 0.4),
+      0 0 60px hsl(var(--primary) / 0.2);
+  }
+
+  .btn-7g:hover::before {
+    transform: translateX(100%);
+  }
+
+  /* Grid Pattern */
+  .grid-7g {
+    background-image: 
+      linear-gradient(hsl(var(--primary) / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 50% at 50% 50%, black, transparent);
+  }
+
+  /* Holographic Card */
+  .holographic-card {
+    @apply relative overflow-hidden rounded-2xl p-6;
+    background: linear-gradient(
+      135deg,
+      hsl(225 30% 8% / 0.95) 0%,
+      hsl(270 20% 10% / 0.9) 50%,
+      hsl(320 15% 8% / 0.95) 100%
+    );
+    border: 1px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .holographic-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      hsl(185 100% 50% / 0.5) 0%,
+      hsl(270 85% 60% / 0.3) 50%,
+      hsl(320 90% 60% / 0.5) 100%
+    );
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    animation: gradient-shift 5s ease infinite;
+  }
+
+  /* Data Visualization */
+  .data-orb {
+    @apply relative w-20 h-20 rounded-full flex items-center justify-center;
+    background: radial-gradient(
+      circle at 30% 30%,
+      hsl(var(--primary) / 0.4) 0%,
+      hsl(var(--primary) / 0.1) 50%,
+      transparent 70%
+    );
+    border: 2px solid hsl(var(--primary) / 0.3);
+    box-shadow: 
+      inset 0 0 30px hsl(var(--primary) / 0.2),
+      0 0 40px hsl(var(--primary) / 0.3);
   }
 }
