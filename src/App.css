@@ -1,22 +1,66 @@
+/* Root layout para Vite + React + TAMV MD‑X4 */
+
 #root {
-  max-width: 1280px;
+  min-height: 100vh;
+  width: 100%;
+  max-width: min(1200px, 100vw);
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+/* Ajustes responsive del contenedor raíz */
+@media (min-width: 640px) {
+  #root {
+    padding: 1.5rem;
+    max-width: min(1280px, 94vw);
+  }
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+
+@media (min-width: 1024px) {
+  #root {
+    padding: 2rem;
+    max-width: 1280px;
+  }
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+
+/* Contenedor de aplicación (opcional) */
+.app-shell {
+  width: 100%;
+  margin: 0 auto;
 }
+
+/* Logo TAMV / React, integrado al design system */
+
+.tamv-logo {
+  height: 4.5rem;
+  width: auto;
+  padding: 1rem;
+  will-change: filter, transform;
+  transition:
+    filter 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease;
+  filter: drop-shadow(0 0 0.4em hsl(185 100% 50% / 0.3));
+}
+
+/* Hover general con glow multicolor coherente con tu paleta */
+.tamv-logo:hover {
+  filter:
+    drop-shadow(0 0 1.6em hsl(185 100% 50% / 0.75))
+    drop-shadow(0 0 2.2em hsl(270 85% 60% / 0.45));
+  transform: translateY(-1px) scale(1.03);
+}
+
+/* Variante si quieres distinguir el logo de React (p.ej. en vistas de sistema) */
+.tamv-logo.react:hover {
+  filter:
+    drop-shadow(0 0 2em #61dafbaa)
+    drop-shadow(0 0 2.5em hsl(185 100% 50% / 0.6));
+}
+
+/* Animación de giro (logo-spin) */
 
 @keyframes logo-spin {
   from {
@@ -27,16 +71,39 @@
   }
 }
 
+/* Respeto a prefers-reduced-motion + spin opt‑in con clase */
 @media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
+  .tamv-logo--spin {
     animation: logo-spin infinite 20s linear;
   }
 }
 
-.card {
-  padding: 2em;
+/* Tarjetas de demo / docs (sustituto de .card / .read-the-docs de Vite) */
+
+.tamv-card {
+  padding: 1.75rem;
+  border-radius: 1.25rem;
+  background: linear-gradient(
+    145deg,
+    hsl(225 30% 10% / 0.9) 0%,
+    hsl(225 30% 6% / 0.85) 100%
+  );
+  border: 1px solid hsl(225 25% 18% / 0.9);
 }
 
-.read-the-docs {
-  color: #888;
+/* Texto de ayuda para docs o mensajes inferiores */
+.tamv-docs-hint {
+  color: hsl(210 20% 60%);
+  font-size: 0.85rem;
+}
+
+/* Responsive helpers para centrado de landing inicial */
+
+.app-center {
+  min-height: calc(100vh - 4rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
