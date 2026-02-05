@@ -1,17 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   TAMV DM-X4™ 7th Generation Design System
-   Civilización Digital Soberana - Web 4.0/5.0 Visual Architecture
+   TAMV MD-X4™ · 7th Generation Design System
+   Civilización Digital Soberana · Web 4.0 / Web 5.0
+   Núcleo visual para Nexus Social, DreamSpaces XR, MD-X4 y Academia
    ═══════════════════════════════════════════════════════════════════════════ */
 
 @layer base {
   :root {
-    /* === Core Palette === */
+    /* === Foundations / Primitives === */
     --background: 225 25% 4%;
     --foreground: 210 40% 98%;
 
@@ -21,23 +22,24 @@
     --popover: 225 30% 5%;
     --popover-foreground: 210 40% 98%;
 
-    /* === Primary: Electric Aqua === */
+    /* === Brand Core === */
+    /* Electric Aqua */
     --primary: 185 100% 50%;
     --primary-foreground: 225 25% 4%;
     --primary-glow: 185 100% 65%;
     --primary-dim: 185 80% 35%;
 
-    /* === Secondary: Cosmic Purple === */
+    /* Cosmic Purple */
     --secondary: 270 85% 60%;
     --secondary-foreground: 210 40% 98%;
     --secondary-glow: 270 100% 70%;
 
-    /* === Accent: Neon Magenta === */
+    /* Neon Magenta */
     --accent: 320 90% 60%;
     --accent-foreground: 210 40% 98%;
     --accent-glow: 320 100% 70%;
 
-    /* === Semantic === */
+    /* === Semantics === */
     --muted: 225 15% 14%;
     --muted-foreground: 210 20% 60%;
 
@@ -50,12 +52,12 @@
     --warning: 45 95% 55%;
     --warning-foreground: 225 25% 4%;
 
-    /* === UI Chrome === */
+    /* === Chrome / Surfaces === */
     --border: 225 25% 18%;
     --input: 225 20% 12%;
     --ring: 185 100% 50%;
 
-    /* === Extended Palette === */
+    /* === Extended Palette (para gráficos / XR / data‑viz) === */
     --silver: 210 15% 85%;
     --navy-metallic: 225 75% 45%;
     --aqua-iridescent: 185 100% 65%;
@@ -67,27 +69,67 @@
     --quantum-cyan: 185 95% 60%;
     --aurora-green: 160 80% 50%;
 
-    /* === Layout === */
+    /* === Layout / Radius === */
     --radius: 0.875rem;
     --radius-lg: 1.25rem;
     --radius-xl: 1.75rem;
 
-    /* === Advanced Gradients === */
-    --gradient-hero: linear-gradient(135deg, hsl(185 100% 50%) 0%, hsl(270 85% 60%) 50%, hsl(320 90% 60%) 100%);
-    --gradient-metallic: linear-gradient(135deg, hsl(225 75% 45%) 0%, hsl(185 100% 65%) 50%, hsl(210 15% 85%) 100%);
-    --gradient-cosmic: linear-gradient(180deg, hsl(225 25% 4%) 0%, hsl(270 40% 15%) 50%, hsl(225 25% 4%) 100%);
-    --gradient-aurora: linear-gradient(135deg, hsl(160 80% 50% / 0.3) 0%, hsl(185 100% 50% / 0.3) 25%, hsl(270 85% 60% / 0.3) 50%, hsl(320 90% 60% / 0.3) 75%, hsl(45 95% 55% / 0.3) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(225 30% 8% / 0.95) 0%, hsl(225 30% 6% / 0.85) 100%);
-    --gradient-glass: linear-gradient(135deg, hsl(225 30% 12% / 0.6) 0%, hsl(225 30% 8% / 0.4) 100%);
-    --gradient-hologram: linear-gradient(135deg, hsl(185 100% 50% / 0.2) 0%, hsl(270 85% 60% / 0.2) 50%, hsl(320 90% 60% / 0.2) 100%);
+    /* === Gradients (tokens reutilizables) === */
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(185 100% 50%) 0%,
+      hsl(270 85% 60%) 50%,
+      hsl(320 90% 60%) 100%
+    );
+    --gradient-metallic: linear-gradient(
+      135deg,
+      hsl(225 75% 45%) 0%,
+      hsl(185 100% 65%) 50%,
+      hsl(210 15% 85%) 100%
+    );
+    --gradient-cosmic: linear-gradient(
+      180deg,
+      hsl(225 25% 4%) 0%,
+      hsl(270 40% 15%) 50%,
+      hsl(225 25% 4%) 100%
+    );
+    --gradient-aurora: linear-gradient(
+      135deg,
+      hsl(160 80% 50% / 0.3) 0%,
+      hsl(185 100% 50% / 0.3) 25%,
+      hsl(270 85% 60% / 0.3) 50%,
+      hsl(320 90% 60% / 0.3) 75%,
+      hsl(45 95% 55% / 0.3) 100%
+    );
+    --gradient-card: linear-gradient(
+      145deg,
+      hsl(225 30% 8% / 0.95) 0%,
+      hsl(225 30% 6% / 0.85) 100%
+    );
+    --gradient-glass: linear-gradient(
+      135deg,
+      hsl(225 30% 12% / 0.6) 0%,
+      hsl(225 30% 8% / 0.4) 100%
+    );
+    --gradient-hologram: linear-gradient(
+      135deg,
+      hsl(185 100% 50% / 0.2) 0%,
+      hsl(270 85% 60% / 0.2) 50%,
+      hsl(320 90% 60% / 0.2) 100%
+    );
 
-    /* === Glow Effects === */
-    --glow-aqua: 0 0 60px hsl(185 100% 50% / 0.5), 0 0 120px hsl(185 100% 50% / 0.2);
-    --glow-purple: 0 0 60px hsl(270 85% 60% / 0.5), 0 0 120px hsl(270 85% 60% / 0.2);
-    --glow-pink: 0 0 60px hsl(320 90% 60% / 0.5), 0 0 120px hsl(320 90% 60% / 0.2);
-    --glow-multi: 0 0 40px hsl(185 100% 50% / 0.3), 0 0 80px hsl(270 85% 60% / 0.2), 0 0 120px hsl(320 90% 60% / 0.1);
+    /* === Glows (box-shadow tokens) === */
+    --glow-aqua: 0 0 60px hsl(185 100% 50% / 0.5),
+      0 0 120px hsl(185 100% 50% / 0.2);
+    --glow-purple: 0 0 60px hsl(270 85% 60% / 0.5),
+      0 0 120px hsl(270 85% 60% / 0.2);
+    --glow-pink: 0 0 60px hsl(320 90% 60% / 0.5),
+      0 0 120px hsl(320 90% 60% / 0.2);
+    --glow-multi: 0 0 40px hsl(185 100% 50% / 0.3),
+      0 0 80px hsl(270 85% 60% / 0.2),
+      0 0 120px hsl(320 90% 60% / 0.1);
 
-    /* === Sidebar === */
+    /* === Sidebar (por si usas layout Nexus) === */
     --sidebar-background: 225 30% 6%;
     --sidebar-foreground: 210 20% 80%;
     --sidebar-primary: 185 100% 50%;
@@ -97,9 +139,15 @@
     --sidebar-border: 225 25% 15%;
     --sidebar-ring: 185 100% 50%;
   }
+
+  /* Dark mode tokenizable si quieres jugar con .dark en el futuro */
+  .dark {
+    --background: 225 30% 3%;
+    --card: 225 30% 6%;
+    --popover: 225 30% 5%;
+  }
 }
 
-/* === Base Styles === */
 @layer base {
   * {
     @apply border-border;
@@ -111,13 +159,18 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
     position: relative;
     overflow-x: hidden;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Orbitron', system-ui, sans-serif;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Orbitron", system-ui, sans-serif;
   }
 
   ::selection {
@@ -144,15 +197,18 @@
   }
 }
 
-/* === Component Styles === */
+/* ════════════════════════════════════════
+   COMPONENTS · Tokens reutilizables
+   ════════════════════════════════════════ */
+
 @layer components {
-  /* Glass Morphism */
+  /* Glass Morphism base */
   .glass-effect {
-    background: linear-gradient(135deg, hsl(var(--card) / 0.8) 0%, hsl(var(--card) / 0.5) 100%);
+    background: var(--gradient-glass);
     backdrop-filter: blur(24px) saturate(180%);
     -webkit-backdrop-filter: blur(24px) saturate(180%);
     border: 1px solid hsl(var(--primary) / 0.15);
-    box-shadow: 
+    box-shadow:
       0 8px 32px hsl(var(--primary) / 0.1),
       inset 0 0 0 1px hsl(var(--primary) / 0.05);
   }
@@ -164,7 +220,7 @@
 
   .glass-card:hover {
     border-color: hsl(var(--primary) / 0.3);
-    box-shadow: 
+    box-shadow:
       0 20px 60px hsl(var(--primary) / 0.15),
       inset 0 0 0 1px hsl(var(--primary) / 0.1);
     transform: translateY(-2px);
@@ -182,20 +238,20 @@
 
   .metallic-text {
     color: hsl(var(--silver));
-    text-shadow: 
+    text-shadow:
       0 0 20px hsl(var(--primary) / 0.5),
       0 0 40px hsl(var(--secondary) / 0.3);
   }
 
   .neon-text {
-    text-shadow: 
+    text-shadow:
       0 0 10px currentColor,
       0 0 20px currentColor,
       0 0 40px currentColor,
       0 0 80px currentColor;
   }
 
-  /* Glow Effects */
+  /* Glow utilities */
   .aqua-glow {
     box-shadow: var(--glow-aqua);
   }
@@ -208,7 +264,7 @@
     box-shadow: var(--glow-multi);
   }
 
-  /* Hologram Effect */
+  /* Hologram */
   .hologram {
     background: var(--gradient-hologram);
     animation: hologram-shift 10s ease infinite;
@@ -216,7 +272,7 @@
   }
 
   .hologram::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
     background: repeating-linear-gradient(
@@ -237,7 +293,7 @@
   }
 
   .border-glow::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: -2px;
     background: var(--gradient-hero);
@@ -247,27 +303,36 @@
     animation: border-pulse 3s ease-in-out infinite;
   }
 
-  /* Quantum Particles */
+  /* Quantum Grid */
   .quantum-grid {
-    background-image: 
+    background-image:
       linear-gradient(hsl(var(--primary) / 0.05) 1px, transparent 1px),
       linear-gradient(90deg, hsl(var(--primary) / 0.05) 1px, transparent 1px);
     background-size: 50px 50px;
     animation: grid-move 20s linear infinite;
   }
 
-  /* Button Variants */
+  /* Quantum Button */
   .btn-quantum {
     @apply relative overflow-hidden;
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary)) 0%,
+      hsl(var(--secondary)) 100%
+    );
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .btn-quantum::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, transparent 0%, hsl(var(--primary-foreground) / 0.2) 50%, transparent 100%);
+    background: linear-gradient(
+      135deg,
+      transparent 0%,
+      hsl(var(--primary-foreground) / 0.2) 50%,
+      transparent 100%
+    );
     transform: translateX(-100%);
     transition: transform 0.5s ease;
   }
@@ -281,13 +346,13 @@
     transform: translateY(-2px);
   }
 
-  /* Status Indicators */
+  /* Status pulse (para nodos, cells, MSR, etc.) */
   .status-pulse {
     @apply relative;
   }
 
   .status-pulse::after {
-    content: '';
+    content: "";
     position: absolute;
     inset: -4px;
     border-radius: 50%;
@@ -296,13 +361,13 @@
     animation: pulse-ring 2s ease-out infinite;
   }
 
-  /* Navigation Item */
+  /* Navigation item base */
   .nav-item {
     @apply relative px-4 py-2 rounded-lg transition-all duration-300;
   }
 
   .nav-item::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     top: 50%;
@@ -319,10 +384,9 @@
     transform: translateY(-50%) scaleY(1);
   }
 
-  /* Card Variants */
   .card-elevated {
     @apply glass-card;
-    box-shadow: 
+    box-shadow:
       0 4px 6px -1px hsl(var(--primary) / 0.1),
       0 10px 15px -3px hsl(var(--primary) / 0.1),
       0 25px 50px -12px hsl(var(--primary) / 0.25);
@@ -336,7 +400,6 @@
     transform: translateY(-4px) scale(1.01);
   }
 
-  /* Floating Animation */
   .float {
     animation: float 6s ease-in-out infinite;
   }
@@ -346,131 +409,249 @@
     animation-delay: -3s;
   }
 
-  /* Fade In Animations */
   .fade-in-up {
     animation: fade-in-up 0.6s ease-out forwards;
   }
 
-  .stagger-1 { animation-delay: 0.1s; }
-  .stagger-2 { animation-delay: 0.2s; }
-  .stagger-3 { animation-delay: 0.3s; }
-  .stagger-4 { animation-delay: 0.4s; }
-  .stagger-5 { animation-delay: 0.5s; }
-}
-
-/* === Keyframe Animations === */
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-@keyframes hologram-shift {
-  0%, 100% { filter: hue-rotate(0deg); }
-  50% { filter: hue-rotate(30deg); }
-}
-
-@keyframes border-pulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 0.8; }
-}
-
-@keyframes grid-move {
-  0% { background-position: 0 0; }
-  100% { background-position: 50px 50px; }
-}
-
-@keyframes pulse-ring {
-  0% { transform: scale(1); opacity: 0.3; }
-  100% { transform: scale(2); opacity: 0; }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  25% { transform: translateY(-10px) rotate(1deg); }
-  75% { transform: translateY(10px) rotate(-1deg); }
-}
-
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+  .stagger-1 {
+    animation-delay: 0.1s;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+  .stagger-2 {
+    animation-delay: 0.2s;
   }
-}
-
-@keyframes twinkle {
-  0%, 100% { opacity: 0.2; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.4); }
-}
-
-@keyframes orbit {
-  from { transform: rotate(0deg) translateX(100px) rotate(0deg); }
-  to { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
-}
-
-@keyframes matrix-rain {
-  0% { transform: translateY(-100%); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateY(100vh); opacity: 0; }
-}
-
-@keyframes energy-flow {
-  0% { background-position: 0% 0%; }
-  50% { background-position: 100% 100%; }
-  100% { background-position: 0% 0%; }
-}
-
-@keyframes scan-line {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
-}
-
-@keyframes data-stream {
-  0% { transform: translateX(-100%) rotate(-5deg); opacity: 0; }
-  50% { opacity: 0.6; }
-  100% { transform: translateX(100%) rotate(-5deg); opacity: 0; }
-}
-
-@keyframes quantum-pulse {
-  0%, 100% { 
-    box-shadow: 0 0 5px hsl(185 100% 50% / 0.5), 
-                0 0 10px hsl(185 100% 50% / 0.3), 
-                0 0 15px hsl(185 100% 50% / 0.2);
-    transform: scale(1);
+  .stagger-3 {
+    animation-delay: 0.3s;
   }
-  50% { 
-    box-shadow: 0 0 20px hsl(185 100% 50% / 0.8), 
-                0 0 40px hsl(185 100% 50% / 0.5), 
-                0 0 60px hsl(185 100% 50% / 0.3);
-    transform: scale(1.02);
+  .stagger-4 {
+    animation-delay: 0.4s;
   }
-}
+  .stagger-5 {
+    animation-delay: 0.5s;
+  }
 
-@keyframes portal-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+  /* 7th Generation · Tokens específicos */
 
-@keyframes nebula-drift {
-  0%, 100% { 
-    filter: hue-rotate(0deg) blur(60px);
-    opacity: 0.4;
+  .card-7g {
+    @apply relative overflow-hidden;
+    background: linear-gradient(
+      145deg,
+      hsl(225 30% 10% / 0.9) 0%,
+      hsl(225 30% 6% / 0.8) 50%,
+      hsl(270 20% 8% / 0.9) 100%
+    );
+    border: 1px solid hsl(var(--primary) / 0.2);
+    border-radius: var(--radius-xl);
+    backdrop-filter: blur(20px);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   }
-  33% { 
-    filter: hue-rotate(60deg) blur(80px);
-    opacity: 0.6;
-  }
-  66% { 
-    filter: hue-rotate(-60deg) blur(70px);
+
+  .card-7g::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      hsl(var(--primary)) 20%,
+      hsl(var(--secondary)) 50%,
+      hsl(var(--accent)) 80%,
+      transparent 100%
+    );
     opacity: 0.5;
   }
+
+  .card-7g::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 50% -20%,
+      hsl(var(--primary) / 0.15) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .card-7g:hover {
+    border-color: hsl(var(--primary) / 0.5);
+    transform: translateY(-4px);
+    box-shadow:
+      0 20px 40px hsl(var(--primary) / 0.2),
+      0 0 0 1px hsl(var(--primary) / 0.1) inset;
+  }
+
+  .hero-7g {
+    @apply relative min-h-screen flex items-center justify-center overflow-hidden;
+    background: radial-gradient(
+      ellipse 150% 100% at 50% 0%,
+      hsl(270 40% 12%) 0%,
+      hsl(225 25% 4%) 50%,
+      hsl(225 25% 2%) 100%
+    );
+  }
+
+  .hero-7g::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 30%, hsl(185 100% 50% / 0.1) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, hsl(270 85% 60% / 0.1) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, hsl(320 90% 60% / 0.05) 0%, transparent 60%);
+    animation: nebula-drift 30s ease-in-out infinite;
+  }
+
+  .badge-7g {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary) / 0.2),
+      hsl(var(--secondary) / 0.1)
+    );
+    border: 1px solid hsl(var(--primary) / 0.3);
+    backdrop-filter: blur(8px);
+  }
+
+  .badge-7g::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: hsl(var(--primary));
+    box-shadow: 0 0 10px hsl(var(--primary));
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  .metric-7g {
+    @apply relative p-6 rounded-2xl text-center;
+    background: linear-gradient(
+      180deg,
+      hsl(var(--primary) / 0.1) 0%,
+      hsl(var(--card)) 100%
+    );
+    border: 1px solid hsl(var(--primary) / 0.2);
+  }
+
+  .metric-7g-value {
+    @apply text-4xl md:text-5xl font-orbitron font-bold;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary)),
+      hsl(var(--secondary))
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 40px hsl(var(--primary) / 0.5);
+  }
+
+  .nav-7g {
+    @apply fixed top-0 left-0 right-0 z-50;
+    background: linear-gradient(
+      180deg,
+      hsl(var(--background) / 0.9) 0%,
+      hsl(var(--background) / 0.7) 100%
+    );
+    backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .btn-7g {
+    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium overflow-hidden;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--primary)) 0%,
+      hsl(var(--secondary)) 100%
+    );
+    color: hsl(var(--primary-foreground));
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .btn-7g::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      135deg,
+      transparent 0%,
+      hsl(0 0% 100% / 0.2) 50%,
+      transparent 100%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  .btn-7g:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow:
+      0 10px 30px hsl(var(--primary) / 0.4),
+      0 0 60px hsl(var(--primary) / 0.2);
+  }
+
+  .btn-7g:hover::before {
+    transform: translateX(100%);
+  }
+
+  .grid-7g {
+    background-image:
+      linear-gradient(hsl(var(--primary) / 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    mask-image: radial-gradient(ellipse 80% 50% at 50% 50%, black, transparent);
+  }
+
+  .holographic-card {
+    @apply relative overflow-hidden rounded-2xl p-6;
+    background: linear-gradient(
+      135deg,
+      hsl(225 30% 8% / 0.95) 0%,
+      hsl(270 20% 10% / 0.9) 50%,
+      hsl(320 15% 8% / 0.95) 100%
+    );
+    border: 1px solid transparent;
+    background-clip: padding-box;
+  }
+
+  .holographic-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      hsl(185 100% 50% / 0.5) 0%,
+      hsl(270 85% 60% / 0.3) 50%,
+      hsl(320 90% 60% / 0.5) 100%
+    );
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    animation: gradient-shift 5s ease infinite;
+  }
+
+  .data-orb {
+    @apply relative w-20 h-20 rounded-full flex items-center justify-center;
+    background: radial-gradient(
+      circle at 30% 30%,
+      hsl(var(--primary) / 0.4) 0%,
+      hsl(var(--primary) / 0.1) 50%,
+      transparent 70%
+    );
+    border: 2px solid hsl(var(--primary) / 0.3);
+    box-shadow:
+      inset 0 0 30px hsl(var(--primary) / 0.2),
+      0 0 40px hsl(var(--primary) / 0.3);
+  }
 }
 
-/* === Utility Classes === */
+/* ════════════════════════════════════════
+   UTILITIES
+   ════════════════════════════════════════ */
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -486,7 +667,14 @@
   }
 
   .clip-hexagon {
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    clip-path: polygon(
+      50% 0%,
+      100% 25%,
+      100% 75%,
+      50% 100%,
+      0% 75%,
+      0% 25%
+    );
   }
 
   .perspective-1000 {
@@ -501,7 +689,6 @@
     backface-visibility: hidden;
   }
 
-  /* Advanced Animation Classes */
   .animate-matrix-rain {
     animation: matrix-rain 8s linear infinite;
   }
@@ -532,211 +719,175 @@
   }
 }
 
-/* === 7th Generation Card System === */
-@layer components {
-  .card-7g {
-    @apply relative overflow-hidden;
-    background: linear-gradient(
-      145deg, 
-      hsl(225 30% 10% / 0.9) 0%, 
-      hsl(225 30% 6% / 0.8) 50%,
-      hsl(270 20% 8% / 0.9) 100%
-    );
-    border: 1px solid hsl(var(--primary) / 0.2);
-    border-radius: var(--radius-xl);
-    backdrop-filter: blur(20px);
-    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  }
+/* ════════════════════════════════════════
+   KEYFRAMES
+   ════════════════════════════════════════ */
 
-  .card-7g::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
-    background: linear-gradient(90deg, 
-      transparent 0%, 
-      hsl(var(--primary)) 20%, 
-      hsl(var(--secondary)) 50%, 
-      hsl(var(--accent)) 80%, 
-      transparent 100%
-    );
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes hologram-shift {
+  0%,
+  100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(30deg);
+  }
+}
+
+@keyframes border-pulse {
+  0%,
+  100% {
     opacity: 0.5;
   }
-
-  .card-7g::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-      ellipse at 50% -20%,
-      hsl(var(--primary) / 0.15) 0%,
-      transparent 70%
-    );
-    pointer-events: none;
+  50% {
+    opacity: 0.8;
   }
+}
 
-  .card-7g:hover {
-    border-color: hsl(var(--primary) / 0.5);
-    transform: translateY(-4px);
-    box-shadow: 
-      0 20px 40px hsl(var(--primary) / 0.2),
-      0 0 0 1px hsl(var(--primary) / 0.1) inset;
+@keyframes grid-move {
+  0% {
+    background-position: 0 0;
   }
-
-  /* Hero Section */
-  .hero-7g {
-    @apply relative min-h-screen flex items-center justify-center overflow-hidden;
-    background: radial-gradient(
-      ellipse 150% 100% at 50% 0%,
-      hsl(270 40% 12%) 0%,
-      hsl(225 25% 4%) 50%,
-      hsl(225 25% 2%) 100%
-    );
+  100% {
+    background-position: 50px 50px;
   }
+}
 
-  .hero-7g::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: 
-      radial-gradient(circle at 20% 30%, hsl(185 100% 50% / 0.1) 0%, transparent 40%),
-      radial-gradient(circle at 80% 70%, hsl(270 85% 60% / 0.1) 0%, transparent 40%),
-      radial-gradient(circle at 50% 50%, hsl(320 90% 60% / 0.05) 0%, transparent 60%);
-    animation: nebula-drift 30s ease-in-out infinite;
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
   }
-
-  /* Status Badge */
-  .badge-7g {
-    @apply inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium;
-    background: linear-gradient(135deg, hsl(var(--primary) / 0.2), hsl(var(--secondary) / 0.1));
-    border: 1px solid hsl(var(--primary) / 0.3);
-    backdrop-filter: blur(8px);
+  100% {
+    transform: scale(2);
+    opacity: 0;
   }
+}
 
-  .badge-7g::before {
-    content: '';
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: hsl(var(--primary));
-    box-shadow: 0 0 10px hsl(var(--primary));
-    animation: pulse 2s ease-in-out infinite;
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
   }
-
-  /* Metric Display */
-  .metric-7g {
-    @apply relative p-6 rounded-2xl text-center;
-    background: linear-gradient(
-      180deg,
-      hsl(var(--primary) / 0.1) 0%,
-      hsl(var(--card)) 100%
-    );
-    border: 1px solid hsl(var(--primary) / 0.2);
+  25% {
+    transform: translateY(-10px) rotate(1deg);
   }
-
-  .metric-7g-value {
-    @apply text-4xl md:text-5xl font-orbitron font-bold;
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: 0 0 40px hsl(var(--primary) / 0.5);
+  75% {
+    transform: translateY(10px) rotate(-1deg);
   }
+}
 
-  /* Navigation 7G */
-  .nav-7g {
-    @apply fixed top-0 left-0 right-0 z-50;
-    background: linear-gradient(
-      180deg,
-      hsl(var(--background) / 0.9) 0%,
-      hsl(var(--background) / 0.7) 100%
-    );
-    backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 1px solid hsl(var(--border) / 0.5);
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-
-  /* Button 7G */
-  .btn-7g {
-    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-medium overflow-hidden;
-    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
-    color: hsl(var(--primary-foreground));
-    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  .btn-7g::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, transparent 0%, hsl(255 255 255 / 0.2) 50%, transparent 100%);
-    transform: translateX(-100%);
-    transition: transform 0.6s ease;
+@keyframes matrix-rain {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
   }
-
-  .btn-7g:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 
-      0 10px 30px hsl(var(--primary) / 0.4),
-      0 0 60px hsl(var(--primary) / 0.2);
+  10% {
+    opacity: 1;
   }
-
-  .btn-7g:hover::before {
-    transform: translateX(100%);
+  90% {
+    opacity: 1;
   }
-
-  /* Grid Pattern */
-  .grid-7g {
-    background-image: 
-      linear-gradient(hsl(var(--primary) / 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--primary) / 0.03) 1px, transparent 1px);
-    background-size: 80px 80px;
-    mask-image: radial-gradient(ellipse 80% 50% at 50% 50%, black, transparent);
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
   }
+}
 
-  /* Holographic Card */
-  .holographic-card {
-    @apply relative overflow-hidden rounded-2xl p-6;
-    background: linear-gradient(
-      135deg,
-      hsl(225 30% 8% / 0.95) 0%,
-      hsl(270 20% 10% / 0.9) 50%,
-      hsl(320 15% 8% / 0.95) 100%
-    );
-    border: 1px solid transparent;
-    background-clip: padding-box;
+@keyframes energy-flow {
+  0% {
+    background-position: 0% 0%;
   }
-
-  .holographic-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(
-      135deg,
-      hsl(185 100% 50% / 0.5) 0%,
-      hsl(270 85% 60% / 0.3) 50%,
-      hsl(320 90% 60% / 0.5) 100%
-    );
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask-composite: exclude;
-    pointer-events: none;
-    animation: gradient-shift 5s ease infinite;
+  50% {
+    background-position: 100% 100%;
   }
+  100% {
+    background-position: 0% 0%;
+  }
+}
 
-  /* Data Visualization */
-  .data-orb {
-    @apply relative w-20 h-20 rounded-full flex items-center justify-center;
-    background: radial-gradient(
-      circle at 30% 30%,
-      hsl(var(--primary) / 0.4) 0%,
-      hsl(var(--primary) / 0.1) 50%,
-      transparent 70%
-    );
-    border: 2px solid hsl(var(--primary) / 0.3);
-    box-shadow: 
-      inset 0 0 30px hsl(var(--primary) / 0.2),
-      0 0 40px hsl(var(--primary) / 0.3);
+@keyframes scan-line {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes data-stream {
+  0% {
+    transform: translateX(-100%) rotate(-5deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateX(100%) rotate(-5deg);
+    opacity: 0;
+  }
+}
+
+@keyframes quantum-pulse {
+  0%,
+  100% {
+    box-shadow:
+      0 0 5px hsl(185 100% 50% / 0.5),
+      0 0 10px hsl(185 100% 50% / 0.3),
+      0 0 15px hsl(185 100% 50% / 0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow:
+      0 0 20px hsl(185 100% 50% / 0.8),
+      0 0 40px hsl(185 100% 50% / 0.5),
+      0 0 60px hsl(185 100% 50% / 0.3);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes portal-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes nebula-drift {
+  0%,
+  100% {
+    filter: hue-rotate(0deg) blur(60px);
+    opacity: 0.4;
+  }
+  33% {
+    filter: hue-rotate(60deg) blur(80px);
+    opacity: 0.6;
+  }
+  66% {
+    filter: hue-rotate(-60deg) blur(70px);
+    opacity: 0.5;
   }
 }
