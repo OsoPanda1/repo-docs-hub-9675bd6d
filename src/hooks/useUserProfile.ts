@@ -3,16 +3,13 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "./useAuth";
 
 export type Profile = {
-  id: string;                  // = auth.users.id (PK / FK) [web:76]
-  username: string | null;
+  id: string;
   display_name: string | null;
   avatar_url: string | null;
+  bio: string | null;
   level: string | null;
-  tamv_citizen_id: string | null;
-  node: string | null;
-  cell: string | null;
-  msr_score: number | null;
-  emotional_risk: string | null;
+  tc_balance: number | null;
+  reputation_score: number | null;
   created_at: string;
   updated_at: string;
 };
@@ -45,22 +42,9 @@ export function useUserProfile(): UseUserProfileState {
     const { data, error } = await supabase
       .from("profiles")
       .select(
-        `
-        id,
-        username,
-        display_name,
-        avatar_url,
-        level,
-        tamv_citizen_id,
-        node,
-        cell,
-        msr_score,
-        emotional_risk,
-        created_at,
-        updated_at
-      `
+        `id, display_name, avatar_url, bio, level, tc_balance, reputation_score, created_at, updated_at`
       )
-      .eq("id", authUser.id) // PK = auth.users.id [web:76]
+      .eq("user_id", authUser.id)
       .single();
 
     if (error) {

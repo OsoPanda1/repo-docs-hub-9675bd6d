@@ -20,7 +20,7 @@ import tamvLogo from "@/assets/tamv-online-logo.jpg";
 type NavItem = {
   name: string;
   href: string;
-  icon?: React.ComponentType<{ size?: number; className?: string }>;
+  icon?: React.ComponentType<{ size?: number | string; className?: string }>;
   group?: "core" | "ecosistema" | "docs";
   hot?: boolean;
 };
