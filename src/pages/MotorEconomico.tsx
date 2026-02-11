@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { useSubscription, MEMBERSHIP_TIERS, type TierKey } from "@/hooks/useSubscription";
+import { useAuth } from "@/hooks/useAuth";
+import { toast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -39,6 +42,22 @@ interface RevenueSource {
 
 const MotorEconomico = () => {
   const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
+  const { isAuthenticated } = useAuth();
+  const { subscribed, tierKey, checkout, manageSubscription, loading: subLoading } = useSubscription();
+
+  const handleSubscribe = async (planId: string) => {
+    if (!isAuthenticated) {
+      toast({ title: "Inicia sesión", description: "Necesitas una cuenta para suscribirte", variant: "destructive" });
+      return;
+    }
+    const tier = MEMBERSHIP_TIERS[planId as TierKey];
+    if (!tier) return;
+    try {
+      await checkout(tier.price_id);
+    } catch (e: any) {
+      toast({ title: "Error", description: e.message, variant: "destructive" });
+    }
+  };
 
   // 33+ Revenue Sources
   const revenueSources: RevenueSource[] = [
@@ -344,9 +363,19 @@ const MotorEconomico = () => {
                         </li>
                       ))}
                     </ul>
-                    <Button className={`w-full mt-4 bg-gradient-to-r ${plan.color}`}>
-                      {plan.price === 0 ? 'Comenzar Gratis' : 'Suscribirse'}
-                    </Button>
+                    {tierKey === plan.id ? (
+                      <Button className="w-full mt-4" variant="outline" onClick={() => manageSubscription()}>
+                        ✓ Plan Activo · Gestionar
+                      </Button>
+                    ) : (
+                      <Button 
+                        className={`w-full mt-4 bg-gradient-to-r ${plan.color}`}
+                        onClick={() => handleSubscribe(plan.id)}
+                        disabled={plan.price === 0 || subLoading}
+                      >
+                        {plan.price === 0 ? 'Comenzar Gratis' : 'Suscribirse'}
+                      </Button>
+                    )}
                   </CardContent>
                 </Card>
               ))}

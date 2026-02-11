@@ -66,6 +66,7 @@ import Trending from "./pages/Trending";
 import Lives from "./pages/Lives";
 import Events from "./pages/Events";
 import Security from "./pages/Security";
+import TAMVApiExplorer from "./pages/TAMVApiExplorer";
 
 const queryClient = new QueryClient();
 
@@ -92,6 +93,7 @@ const App = () => (
           <Route path="/lives" element={<Lives />} />
           <Route path="/events" element={<Events />} />
           <Route path="/security" element={<ProtectedRoute><Security /></ProtectedRoute>} />
+          <Route path="/api-explorer" element={<TAMVApiExplorer />} />
           {/* TAMV Omniverso - Core Modules */}
           <Route path="/sala-dedicatoria" element={<SalaXRDedicatoria />} />
           <Route path="/enciclopedia" element={<EnciclopediaDIGYTAMV />} />
